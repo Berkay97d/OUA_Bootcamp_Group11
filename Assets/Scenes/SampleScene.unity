@@ -754,7 +754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4716cbb8c7a4b92ab780e95d2e144b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 3020542235131709794, guid: 3efa857ce5f157e4a87c23231417d82d, type: 3}
+  _tilePrefabs: {fileID: 3020542235131709794, guid: 3efa857ce5f157e4a87c23231417d82d,
+    type: 3}
   _tileSize: 1
 --- !u!4 &1615790975
 Transform:
