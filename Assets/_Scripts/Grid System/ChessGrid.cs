@@ -7,7 +7,8 @@ namespace _Scripts.Grid_System
     /// <summary>
     ///   <para>
     /// In ChessGrid class we create our grid system via GridSystem Object that we create,
-    /// Don't reference this class, just use with static functions
+    /// Don't reference this class, just use with static functions,
+    /// We use this class to make outside operation with grid objects.
     /// </para>
     /// </summary>
     public class ChessGrid : MonoBehaviour
