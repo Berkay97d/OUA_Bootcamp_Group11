@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace _Scripts.Mouse_System
 {
+    /// <summary>
+    ///   <para> Just a visual class that helps us to test MouseWorld Class /// </para>
+    /// </summary>
     public class MouseVisual : MonoBehaviour
     {
         [SerializeField] private MeshRenderer _renderer;

@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace _Scripts.Grid_System
 {
+    /// <summary>
+    ///   <para>In GridSystem includes logical operations about creation of grid system</para>
+    /// </summary>
     public class GridSystem
     {
         private int m_width;
@@ -10,6 +13,13 @@ namespace _Scripts.Grid_System
 
         private GridObject[,] m_gridObjects;
         
+        /// <summary>
+        ///   <para>
+        /// In constructor, we create grid objects and put them in a 2D array via information with where object is created,
+        /// width and height refers the horizontal and forward size of the grid system,
+        /// size refers 3D size of a single gridObject, tiles adjust their size via size
+        /// </para>
+        /// </summary>
         public GridSystem(int width, int height, float size)
         {
             m_width = width;
@@ -28,11 +38,17 @@ namespace _Scripts.Grid_System
             }
         }
 
+        /// <summary>
+        ///   <para> Returns grid objects 3D World position via grid position/// </para>
+        /// </summary>
         public Vector3 GetWorldPositionFromGridPosition(GridPosition gridPosition)
         {
             return new Vector3(gridPosition._x, 0, gridPosition._z) * m_size;
         }
 
+        /// <summary>
+        ///   <para> Returns grid objects grid position x and z via 3D World position/// </para>
+        /// </summary>
         public GridPosition GetGridPositionFromWorldPosition(Vector3 worldPosition)
         {
             return new GridPosition(
@@ -40,12 +56,18 @@ namespace _Scripts.Grid_System
                 Mathf.RoundToInt(worldPosition.z / m_size)
             );
         }
-
+        
+        /// <summary>
+        ///   <para> Returns the reference of a single grid object via it's grid position/// </para>
+        /// </summary>
         public GridObject GetGridObject(GridPosition gridPosition)
         {
             return m_gridObjects[gridPosition._x, gridPosition._z];
         }
 
+        /// <summary>
+        ///   <para> Create tile visuals and pass the value of grid object of tiles/// </para>
+        /// </summary>
         public void CreateTiles(Transform tilePrefab)
         {
             for (int x = 0; x < m_width; x++)
@@ -57,8 +79,6 @@ namespace _Scripts.Grid_System
                     var tile = tileTransform.GetComponent<Tile>();
                     var gridObject = GetGridObject(gridPosition);
                     tile.SetGridObject(gridObject);
-
-                   
                 }
             }
         }

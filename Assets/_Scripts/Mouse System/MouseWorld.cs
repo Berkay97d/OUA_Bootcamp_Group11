@@ -2,6 +2,12 @@ using UnityEngine;
 
 namespace _Scripts.Mouse_System
 {
+    /// <summary>
+    ///   <para>
+    /// Logical operations about our mouse actions,
+    /// Don't reference this class, just use with static functions
+    /// /// </para>
+    /// </summary>
     public class MouseWorld : MonoBehaviour
     {
         [SerializeField] private LayerMask _floorLayerMask;
@@ -16,9 +22,15 @@ namespace _Scripts.Mouse_System
             Instance = this;
         }
     
-        public static MouseFloorClickedInfo GetMouseMovementInfo()
+        /// <summary>
+        ///   <para>
+        /// Sends a ray from camera to mouse position and fill the MouseFloorInfo struct
+        /// with information of the ray
+        /// /// </para>
+        /// </summary>
+        public static MouseFloorInfo GetMouseMovementInfo()
         {
-            var mouseInfo = new MouseFloorClickedInfo();
+            var mouseInfo = new MouseFloorInfo();
         
             var ray = Instance._mainCamera.ScreenPointToRay(Input.mousePosition);
             
