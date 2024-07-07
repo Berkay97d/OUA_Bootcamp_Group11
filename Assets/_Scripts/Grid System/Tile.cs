@@ -43,5 +43,15 @@ namespace _Scripts.Grid_System
             AdjustPositionText(m_gridObject.GetGridPosition());
             AdjustSize();
         }
+
+        public GridObject GetGridObject()
+        {
+            return m_gridObject;
+        }
+
+        public float GetThickness()
+        {
+            return _thickness;
+        }
     }
 }
