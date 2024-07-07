@@ -25,14 +25,34 @@ namespace _Scripts.Grid_System
         private void Awake()
         {
             ms_Instance = this;
-        }
-
-        private void Start()
-        {
+            
             //WE CREATE A GRID SYSTEM OBJECT AND THAT TRIGGERS THE CREATION OF GRID OBJECTS
             m_gridSystem = new GridSystem(GRID_WIDTH, GRID_HEIGHT, _tileSize);
             //CREATING VISUALS
             m_gridSystem.CreateTiles(_tilePrefabs);
+        }
+        
+        //TODO REMOVE THIS CODE, ITS A TESTING CODE
+        private void Update()
+        {   
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                UnityEngine.Debug.Log("SPACE PRESSED");
+                if (m_gridSystem.GetGridObject(new GridPosition(0,0)).GetIsSelected())
+                {
+                    m_gridSystem.GetGridObject(new GridPosition(0,0)).SetIsSelected(false);
+                    m_gridSystem.GetGridObject(new GridPosition(1,0)).SetIsSelected(true);
+                    return;
+                }
+                
+                if (!m_gridSystem.GetGridObject(new GridPosition(0,0)).GetIsSelected())
+                {
+                    m_gridSystem.GetGridObject(new GridPosition(0,0)).SetIsSelected(true);
+                    m_gridSystem.GetGridObject(new GridPosition(1,0)).SetIsSelected(false);
+                    return;
+                }
+                
+            }
         }
 
         public static GridSystem GetGridSystem()
