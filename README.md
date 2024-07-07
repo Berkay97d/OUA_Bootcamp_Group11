@@ -4,21 +4,30 @@
 
 <p align="center">OYUN ve UYGULAMA AKADEMİSİ MEZUNİYET BOOTCAMPİ - EKİP 11</p>
  
-
 ## GDD
 
 [Projenin GDD'sini buradan görüntüleyebilirsiniz](https://github.com/user-attachments/files/16119544/ProjectChess-GDD.pdf)
 
-
-## **TAKIM ÜYELERİ**
+<details>
+  <summary>TAKIM ÜYELERİ</summary>
+  
+# **TAKIM ÜYELERİ**
 
 - Damla Yılmaz - **SCRUM MASTER**
 - Berkay Dindar - **PRODUCT OWNER**
 - Berke Parıldar - **DEVELOPER**
 - Bora Sevim - **DEVELOPER**
 - Dilara Çelen - **DEVELOPER**
+</details>
+
+<details>
+  <summary>SPRINT 1</summary>
 
 # **SPRINT 1** (11.06 - 07.07)
+
+<details>
+  <summary>TOPLANTI 1</summary>
+  
 
 ## **TOPLANTI 1 (22.06)**
 - Eksiksiz katılım ile toplanıldı.
@@ -27,6 +36,9 @@
 - Github reposu açıldı
 - Bir sonraki toplantı günü belirlendi.
 - Toplantıya herkesin 1 adet oyun fikri ile gelmesi kararlaştırıldı.
+</details>
+<details>
+  <summary>TOPLANTI 2</summary>
 
 ## **TOPLANTI 2 (29.06)**
 - Eksiksiz katılım ile toplanıldı.
@@ -68,6 +80,12 @@ Hamle sayacı , Süre sayacı
 Strateji 
 Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 
+    
+</details>
+
+<details>
+  <summary>TOPLANTI 3</summary>
+
 ## **TOPLANTI 3 (04.07)**
 ![image](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/0ebb2420-128c-4651-9830-c1ff46a2b3e6)
 
@@ -87,4 +105,10 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 - Berkay Dindar: 3 boyutlu grid sistemi, ara sahneler ve animasyonlar
 - Dilara Çelen: UI entegrasyonu
 - Damla Yılmaz: 3 boyutlu modellerin oluşturulması
+
+  
+</details>
+  
+</details>
+
 
