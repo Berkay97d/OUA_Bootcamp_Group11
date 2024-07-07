@@ -11,6 +11,8 @@ namespace _Scripts.Grid_System
     /// </summary>
     public class TileVisual : MonoBehaviour
     {
+        [SerializeField] private float _selectedTilePulseSpeed;
+        
         private Tile m_myTile;
         private GridObject m_myGridObject;
         private Tween m_selectedTween;
@@ -50,12 +52,12 @@ namespace _Scripts.Grid_System
 
         private void ScaleUp()
         {
-            m_selectedTween = transform.DOScale(new Vector3(m_defaultScale.x, m_defaultScale.y + 0.25f, m_defaultScale.z), 0.2f).OnComplete((ScaleDown));
+            m_selectedTween = transform.DOScale(new Vector3(m_defaultScale.x, m_defaultScale.y + 0.25f, m_defaultScale.z), _selectedTilePulseSpeed).OnComplete((ScaleDown));
         }
 
         private void ScaleDown()
         {
-            m_selectedTween = transform.DOScale(m_defaultScale, 0.2f).OnComplete(ScaleUp);
+            m_selectedTween = transform.DOScale(m_defaultScale, _selectedTilePulseSpeed).OnComplete(ScaleUp);
         }
         
     }

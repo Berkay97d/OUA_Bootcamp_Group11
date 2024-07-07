@@ -306,3 +306,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4202b3c155b4420e83c376a63802baf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _selectedTilePulseSpeed: 0.35
