@@ -100,8 +100,8 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 ![Trello](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/693b4167-75a2-4a4b-9be4-46a30d05a555)
 
   ### Rol Dağılımı
-- Berke Parıldar: Satranç taşlarının hareketi ve ateş etme sistemi
-- Bora Seven: Sıra tabanlı oynanış sistemi
+- Berke Parıldar: Sıra tabanlı oynanış sistemi
+- Bora Sevim: Satranç taşlarının hareketi ve ateş etme sistemi
 - Berkay Dindar: 3 boyutlu grid sistemi, ara sahneler ve animasyonlar
 - Dilara Çelen: UI entegrasyonu
 - Damla Yılmaz: 3 boyutlu modellerin oluşturulması
