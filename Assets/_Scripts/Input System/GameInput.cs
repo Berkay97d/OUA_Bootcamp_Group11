@@ -5,8 +5,8 @@ namespace InputSystem
 {
     public class GameInput : MonoBehaviour
     {
-        public event Action OnMoveInput;
-        public event Action OnFireInput;
+        public event Action OnMoveInput; //THIS EVENT SHOULD BE LISTENED FOR MOVEMENT ACTION
+        public event Action OnFireInput; //THIS EVENT SHOULD BE LISTENED FOR FİRE ACTION
         
         private GameInputActions m_gameInputActions;
         
