@@ -2,13 +2,28 @@
   <img src="https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/16637ebc-e370-426c-b7bb-5e790c75a110" alt="Logo">
 </p>
 <p align="center">OYUN ve UYGULAMA AKADEMİSİ MEZUNİYET BOOTCAMPİ - EKİP 11</p>
+
+<details>
+  <summary> GDD </summary>
+  
+[Projenin GDD'sini pdf formatında indirmek için.](https://github.com/user-attachments/files/16119544/ProjectChess-GDD.pdf)
  
-## GDD
-[Projenin GDD'sini buradan görüntüleyebilirsiniz](https://github.com/user-attachments/files/16119544/ProjectChess-GDD.pdf)
+![ProjectChess-GDD (2)-01](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/53672a61-4977-4922-b012-bb0892da0f74)
+![ProjectChess-GDD (2)-02](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/15cf063b-b64e-4c63-bec9-e2b3e09ae345)
+![ProjectChess-GDD (2)-03](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/67ce44e4-435a-42d1-8be9-c401facc74b0)
+![ProjectChess-GDD (2)-04](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/b4757814-39bb-45b7-904f-fb18c79b093b)
+![ProjectChess-GDD (2)-05](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/e50e10cc-acac-448a-90dc-cd68be6e83e7)
+![ProjectChess-GDD (2)-06](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/3dd2cafd-1591-4780-8e71-747e98e436c5)
+![ProjectChess-GDD (2)-07](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/ab62d17d-1cb1-4ff0-9b05-978b493f5042)
+![ProjectChess-GDD (2)-08](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/34788777-b7f1-4b02-b206-eedfd36f5f04)
+![ProjectChess-GDD (2)-09](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/4dfff17f-a796-4cd5-ba80-512acaf75254)
+![ProjectChess-GDD (2)-10](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/78851311-1163-4a92-b26b-f58309255901)
+
+</details>
+
 <details>
   <summary>TAKIM ÜYELERİ</summary>
   
-# **TAKIM ÜYELERİ**
 - Damla Yılmaz - **SCRUM MASTER**
 - Berkay Dindar - **PRODUCT OWNER**
 - Berke Parıldar - **DEVELOPER**
@@ -16,14 +31,13 @@
 - Dilara Çelen - **DEVELOPER**
 </details>
 <details>
-  <summary>SPRINT 1</summary>
-  
-# SPRINT 1 (11.06 - 07.07)
+  <summary>SPRINT 1 (11.06 - 07.07)</summary>
 
-<details>
-  <summary>TOPLANTI 1</summary>
+  <br>
   
-## **TOPLANTI 1 (22.06)**
+<details>
+  <summary>TOPLANTI 1 (22.06)</summary>
+
 - Eksiksiz katılım ile toplanıldı.
 - Ekip üyelerinin tanışması gerçekleşti.
 - Üyelerin tecrübeleri doğrultusunda rol dağılımının yapılması yapıldı.
@@ -31,9 +45,10 @@
 - Bir sonraki toplantı günü belirlendi.
 - Toplantıya herkesin 1 adet oyun fikri ile gelmesi kararlaştırıldı.
 </details>
+<br>
 <details>
-  <summary>TOPLANTI 2</summary>
-## **TOPLANTI 2 (29.06)**
+  <summary>TOPLANTI 2 (29.06)</summary>
+  
 - Eksiksiz katılım ile toplanıldı.
 - Oyun fikirleri tartışıldı
 - Berkay Dindar'ın oyun fikri oy birliği ile kabul edildi.
@@ -41,6 +56,7 @@
 - Bir Sonraki toplantı tarihi belirlendi.
 - Bir sonraki toplantıya herkesin GDD'ye hakim olarak ve oyunla ilgili yeni fikirler ile gelmesi istendi.
 - Dilara Çelen bir sonraki toplantıya katılamayabileceğini belirtti.
+- 
 ### OYUN FİKİRLERİ
 - Berke Parıldar
 Farm oyunu
@@ -70,18 +86,24 @@ Strateji
 Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
     
 </details>
+<br>
 <details>
-  <summary>TOPLANTI 3</summary>
-## **TOPLANTI 3 (04.07)**
+  <summary>TOPLANTI 3 (04.07)</summary>
+  
+
 ![image](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/0ebb2420-128c-4651-9830-c1ff46a2b3e6)
+
 - Dilara Çelen harici eksiksiz toplandı.
 - Projenin 3D olması kararlaştırıldı.
 - Oyun mekaniklerinde ufak çaplı değişikliklere gidildi.
 - Github çalışma düzeni konuşuldu.
 - ikinci Sprint için rol dağılımı yapıldı.
 - Proje'nin GDD ve Moodboard'u son halini aldı.
+  
 ![Moodboard](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/d9dc3e6e-fc88-462a-a07a-e4a354bf77e4)
+
 - Proje takibi için trello uygulamasının kullanılmasına karar verildi ve güncel proje durumu ve görevler trelloya aktarıldı
+  
 ![Trello](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/693b4167-75a2-4a4b-9be4-46a30d05a555)
 
   ### Rol Dağılımı
@@ -92,7 +114,7 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 - Damla Yılmaz: 3 boyutlu modellerin oluşturulması
   
 </details>
-
+<br>
 <details>
   <summary>SPRINT REVIEW</summary>
 
@@ -127,7 +149,7 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 </details>
 
 
-
+<br>
 <details>
   <summary>SPRINT RETROSPECTIVE</summary>
   
@@ -137,5 +159,12 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 - Acil durumlarda haberleşme için discord yerine whatsapp üzerinden haberleşilmesinin daha uygun olacağına karar verildi.
 - Ekip üyelerinin proje üzerinde çalışırken discord ses kanallarında bulunarak beraber çalışanların yardımlaşmasını kolaylaştırma kararı alındı
 </details>
+  
+</details>
+
+
+
+<details>
+  <summary>SPRINT 2 (08.07 - 21.07)</summary>
   
 </details>
