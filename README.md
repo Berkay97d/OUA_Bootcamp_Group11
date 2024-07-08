@@ -37,10 +37,12 @@ satranç temelli hafıza puzzle oyunu.
 - Mobil ve PC oyuncuları
 
 -----------------------------------------------------------------------------------------------------------------------------------------
+<summary>**TOPLANTILAR VE KISA NOTLAR**</summary>
 <details>
-  <summary>**TOPLANTILAR VE KISA NOTLAR**</summary>
+ 
   
-
+<details>
+  <summary>TOPLANTI 1</summary>
 ## **TOPLANTI 1 (22.06)**
 - Eksiksiz katılım ile toplanıldı.
 - Ekip üyelerinin tanışması gerçekleşti.
