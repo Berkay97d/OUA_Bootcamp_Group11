@@ -37,7 +37,7 @@ satranç temelli hafıza puzzle oyunu.
 - Mobil ve PC oyuncuları
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-<summary>**TOPLANTILAR VE KISA NOTLAR**</summary>
+<summary>TOPLANTILAR VE KISA NOTLAR</summary>
 <details>
  
   
@@ -112,14 +112,6 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 - Proje takibi için trello uygulamasının kullanılmasına karar verildi ve güncel proje durumu ve görevler trelloya aktarıldı
 
 
-  ### Rol Dağılımı
-- Berke Parıldar: Sıra tabanlı oynanış sistemi
-- Bora Sevim: Satranç taşlarının hareketi ve ateş etme sistemi
-- Berkay Dindar: 3 boyutlu grid sistemi, ara sahneler ve animasyonlar
-- Dilara Çelen: UI entegrasyonu
-- Damla Yılmaz: 3 boyutlu modellerin oluşturulması
-
-  
 </details>
   
 </details>
@@ -137,7 +129,13 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 
  - **Hedefler:** İlk sprint için belirlenen hedefler, oyun fikrinin netleştirilmesi, GDD’nin hazırlanması, proje araçlarının seçilmesi ve ilk rol dağılımlarının yapılmasıydı.
  - **Gerçekleşenler:** Bu hedefler başarıyla tamamlandı. Oyun fikri Berkay Dindar’ın önerisiyle seçildi ve GDD hazırlandı. Proje takibi için Trello ve kodlama için GitHub kullanılmasına karar verildi. Ayrıca, ekip üyeleri için rol dağılımları yapıldı.
- - 
+ - **Rol Dağılımı**
+    - Berke Parıldar: Sıra tabanlı oynanış sistemi
+    - Bora Sevim: Satranç taşlarının hareketi ve ateş etme sistemi
+    - Berkay Dindar: 3 boyutlu grid sistemi, ara sahneler ve animasyonlar
+    - Dilara Çelen: UI entegrasyonu
+    - Damla Yılmaz: 3 boyutlu modellerin oluşturulması
+      
 - **Sprint 1 board update**: Sprint Board Screenshot: 
 ![Trello](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/693b4167-75a2-4a4b-9be4-46a30d05a555)
 ![Moodboard](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/d9dc3e6e-fc88-462a-a07a-e4a354bf77e4)
@@ -147,23 +145,23 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 ![image](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/0ebb2420-128c-4651-9830-c1ff46a2b3e6)
 
   **Sprint Review**:
--Projenin 3D olmasına karar verildi.
--Oyun mekanikleri yenilenerek son halini aldı
--GitHub çalışma düzeni konuşuldu.
--İkinci sprint için rol dağılımı yapıldı.
--Proje’nin GDD ve Moodboard'u son halini aldı.
--Proje takibi için Trello kullanılmasına karar verildi ve güncel proje durumu ve görevler Trello'ya aktarıldı.
-- Sprint Review katılımcıları:
-  - ***Berkay Dindar*** 
-  - ***Damla Yılmaz*** 
-  - ***Berke Parıldar*** 
-  - ***Bora Sevim*** 
+  -Projenin 3D olmasına karar verildi.
+  -Oyun mekanikleri yenilenerek son halini aldı
+  -GitHub çalışma düzeni konuşuldu.
+  -İkinci sprint için rol dağılımı yapıldı.
+  -Proje’nin GDD ve Moodboard'u son halini aldı.
+  -Proje takibi için Trello kullanılmasına karar verildi ve güncel proje durumu ve görevler Trello'ya aktarıldı.
+  - Sprint Review katılımcıları:
+    - ***Berkay Dindar*** 
+    - ***Damla Yılmaz*** 
+    - ***Berke Parıldar*** 
+    - ***Bora Sevim*** 
 
 
   **Sprint Retrospective:**
--Trello ve GitHub gibi proje yönetim araçlarının seçimi ve kullanımı, takımın proje takibini kolaylaştırdı.
--Üyelerin tecrübelerine göre yapılan rol dağılımları, işlerin verimli bir şekilde ilerlemesini sağladı.
--Takım üyeleri arasındaki iletişim ve işbirliği çok iyiydi. Toplantılar zamanında ve verimli geçti.
+  -Trello ve GitHub gibi proje yönetim araçlarının seçimi ve kullanımı, takımın proje takibini kolaylaştırdı.
+  -Üyelerin tecrübelerine göre yapılan rol dağılımları, işlerin verimli bir şekilde ilerlemesini sağladı.
+  -Takım üyeleri arasındaki iletişim ve işbirliği çok iyiydi. Toplantılar zamanında ve verimli geçti.
   
 
 
