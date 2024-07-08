@@ -62,6 +62,13 @@
 <details>
   <summary>SPRINT 1 (11.06 - 07.07)</summary>
 
+- Sprint içi puan değerlendirmesi 10 olarak belirlenmiştir.
+- **Puan tamamlama mantığı**: Proje boyunca tamamlanması gereken backlog puanı 36'dır. İlk Sprint için bitirilmesi istenilen puan sayısı 10 olarak belirlenmiştir ve hedefe ulaşılmıştır.
+- **Daily Scrum**: Discord üzerinden görüşmeler sağlanmıştır.Bilgi akışı sağlamak ve bilgileri düzenli depolamak için çeşitli kanallar açılmıştır.
+  
+- **Kod Grubu Üyeleri**: Berkay,Berke,Bora,Dilara
+- **Tasarım Grubu Üyeleri**: Damla
+
   <br>
   
 <details>
