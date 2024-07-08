@@ -4,6 +4,43 @@
 <p align="center">OYUN ve UYGULAMA AKADEMİSİ MEZUNİYET BOOTCAMPİ - EKİP 11</p>
 
 <details>
+  <summary> ÜRÜN VE TAKIM BİLGİLERİ </summary>
+  
+  ### Takım İsmi: Team 11
+  
+  ### Takım Rolleri:
+  - Damla Yılmaz - **SCRUM MASTER**
+  - Berkay Dindar - **PRODUCT OWNER**
+  - Berke Parıldar - **DEVELOPER**
+  - Bora Sevim - **DEVELOPER**
+  - Dilara Çelen - **DEVELOPER**
+  ### Ürün İsmi: Project Chess
+  
+  ### Ürün Açıklaması:
+  Tek başına kalmış bir kralın(şah) rakip askerlerden(satranç taşları)
+  kaçmaya çalışmasını izlediğimiz, zamanın sürekli geriye alınması ile
+  oynadığımız tarafın ve mevcut taşların sayısının sürekli değiştiği bir
+  satranç temelli hafıza puzzle oyunu.
+  
+  ### Oyun Özellikleri
+  - 3D
+  - Hafıza geliştirici
+  - Satranç temelli
+
+   ## Hedef Kitle
+  - Beyninin sınırlarını zorlamayı seven oyuncular
+  - 7+
+  - Puzzle sevenler
+  - Mobil ve PC oyuncuları
+
+  ### Product Backlog URL
+[ Unity Team 11 Trello Backlog Board](https://trello.com/b/sZwjzSeZ/%C3%A7ali%C5%9Fma-alani)
+
+
+</details>
+
+
+<details>
   <summary> GDD </summary>
   
 [Projenin GDD'sini pdf formatında indirmek için.](https://github.com/user-attachments/files/16119544/ProjectChess-GDD.pdf)
@@ -21,15 +58,7 @@
 
 </details>
 
-<details>
-  <summary>TAKIM ÜYELERİ</summary>
-  
-- Damla Yılmaz - **SCRUM MASTER**
-- Berkay Dindar - **PRODUCT OWNER**
-- Berke Parıldar - **DEVELOPER**
-- Bora Sevim - **DEVELOPER**
-- Dilara Çelen - **DEVELOPER**
-</details>
+
 <details>
   <summary>SPRINT 1 (11.06 - 07.07)</summary>
 
