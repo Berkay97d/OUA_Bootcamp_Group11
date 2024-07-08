@@ -92,7 +92,7 @@
 - Bir Sonraki toplantı tarihi belirlendi.
 - Bir sonraki toplantıya herkesin GDD'ye hakim olarak ve oyunla ilgili yeni fikirler ile gelmesi istendi.
 - Dilara Çelen bir sonraki toplantıya katılamayabileceğini belirtti.
-- 
+  
 ### OYUN FİKİRLERİ
 - Berke Parıldar
 Farm oyunu
