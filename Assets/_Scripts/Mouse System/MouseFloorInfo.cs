@@ -9,5 +9,6 @@ namespace _Scripts.Mouse_System
     {
         public bool IsHit { get; set; }
         public Vector3 HitPoint { get; set; }
+        public GameObject HitObject { get; set; }
     }
 }
