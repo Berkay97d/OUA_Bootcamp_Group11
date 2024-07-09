@@ -31,6 +31,7 @@ namespace _Scripts.Grid_System
         {
             var info = MouseWorld.GetMouseMovementInfo();
 
+            //if mouse hold over a grid object before it removes
             if (!info.IsHit && m_selectedGridObject!= null)
             {
                 m_selectedGridObject.SetIsSelected(false);
@@ -38,19 +39,23 @@ namespace _Scripts.Grid_System
                 return;
             }
             
+            //if mouse dont hold over a grid object and still not
             if (!info.IsHit && m_selectedGridObject == null)
             {
                 m_selectedGridObject = null;
                 return;
             }
             
+            //grid object calculation
             var mousePos = MouseWorld.GetMousePosition();
             var gridPosition = m_gridSystem.GetGridPositionFromWorldPosition(mousePos);
             var gridObject = m_gridSystem.GetGridObject(gridPosition);
 
             if (gridObject == m_selectedGridObject) return;
 
+            //if before hold over grid object null don't set is selected flag
             if (m_selectedGridObject != null) m_selectedGridObject.SetIsSelected(false);
+
             m_selectedGridObject = gridObject;
             m_selectedGridObject.SetIsSelected(true);
         }
