@@ -68,7 +68,7 @@
   
 - **Kod Grubu Üyeleri**: Berkay,Berke,Bora,Dilara
 - **Tasarım Grubu Üyeleri**: Damla
-
+[image](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/80463955/32cd5c61-2545-40c1-927a-28d5b595b0d0)
   <br>
   
 <details>
@@ -139,9 +139,6 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 ![Moodboard](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/d9dc3e6e-fc88-462a-a07a-e4a354bf77e4)
 
 - Proje takibi için trello uygulamasının kullanılmasına karar verildi ve güncel proje durumu ve görevler trelloya aktarıldı
-  
-![Trello]![image](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/80463955/32cd5c61-2545-40c1-927a-28d5b595b0d0)
-
 
   ### Rol Dağılımı
 - Berke Parıldar: Sıra tabanlı oynanış sistemi
