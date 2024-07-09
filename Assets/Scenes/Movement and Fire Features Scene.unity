@@ -735,6 +735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615790975}
   - component: {fileID: 1615790974}
+  - component: {fileID: 1615790976}
   m_Layer: 0
   m_Name: Chess Grid
   m_TagString: Untagged
@@ -772,6 +773,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1615790976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615790973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431b8d0ef71ce87488ec22a2207c545c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 4065361743640155562, guid: 5d301c0d06ef822499b663c13b19b50c, type: 3}
+  - {fileID: 626535246400752695, guid: ac5ad793a4e66a948aa71a004d094cf7, type: 3}
+  - {fileID: 5630216715976714212, guid: 09ce6e910052e7a49b13771d9884d097, type: 3}
+  - {fileID: 677212037869687072, guid: 0a6f87fdb53d5584e92d337ea1ea17fa, type: 3}
+  - {fileID: 2810497350407254721, guid: df3e829f12e43ec4c9a034dfc4492c9e, type: 3}
+  - {fileID: 8418290282581572498, guid: 584dceae0efd899418cf3321d3ba0f0d, type: 3}
+  sideMaterials:
+  - {fileID: 2100000, guid: 54b892af224b6e94c83b625e5fc9275e, type: 2}
+  - {fileID: 2100000, guid: ef2017f4087a2b346b0a89a9e7079f54, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
