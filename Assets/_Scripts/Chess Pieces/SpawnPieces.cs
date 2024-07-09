@@ -67,11 +67,16 @@ public class SpawnPieces : MonoBehaviour
     }
 
     // Position single piece with given positions, decide to make it instant or smooth (force)
-    // Vector3(x * tileSize, yOffset, y * tileSize)
     private void PositionSinglePiece(int x, int y, bool force = false)
     {
         chessPieces[x, y].currentX = x;
         chessPieces[x, y].currentY = y;
-        chessPieces[x, y].transform.position = new Vector3(x, 0.5f, y);
+        chessPieces[x, y].transform.position = GetTileCenter(x, y);
+    }
+
+    private Vector3 GetTileCenter(int x, int y)
+    {
+        // Vector3(x * tileSize, yOffset, y * tileSize) + Vector3(tileSize / 2, 0, tileSize / 2)
+        return new Vector3(x * 1, 0.5f, y * 1) + new Vector3(1 / 2, 0, 1 / 2);
     }
 }
