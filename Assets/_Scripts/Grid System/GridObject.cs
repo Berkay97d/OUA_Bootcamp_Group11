@@ -1,3 +1,5 @@
+using System;
+
 namespace _Scripts.Grid_System
 {
     /// <summary>
@@ -8,8 +10,11 @@ namespace _Scripts.Grid_System
     /// </summary>
     public class GridObject
     {
+        public event Action<bool> OnSelectedStatusChanged; 
+        
         private readonly GridSystem m_gridSystem;
         private readonly GridPosition m_gridPosition;
+        private bool m_isSelected;
         
         
         public GridObject(GridSystem gridSystem, GridPosition gridPosition)
@@ -26,6 +31,20 @@ namespace _Scripts.Grid_System
         public GridSystem GetGridSystem()
         {
             return m_gridSystem;
+        }
+
+        public void SetIsSelected(bool isSelected)
+        {
+            if (isSelected != m_isSelected)
+            {
+                OnSelectedStatusChanged?.Invoke(isSelected);
+                m_isSelected = isSelected;
+            }
+        }
+
+        public bool GetIsSelected()
+        {
+            return m_isSelected;
         }
 
         
