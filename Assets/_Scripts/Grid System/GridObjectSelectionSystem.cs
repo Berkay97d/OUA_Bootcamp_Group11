@@ -4,10 +4,21 @@ using UnityEngine;
 
 namespace _Scripts.Grid_System
 {
+    /// <summary>
+    ///   <para>
+    /// This class calculate grid object that mouse hold over via mouse world and grid system
+    /// </para>
+    /// </summary>
     public class GridObjectSelectionSystem : MonoBehaviour
     {
+        private static GridObjectSelectionSystem ms_Instance;
         private GridObject m_selectedGridObject;
         private GridSystem m_gridSystem;
+
+        private void Awake()
+        {
+            ms_Instance = this;
+        }
 
         private void Start()
         {
@@ -44,9 +55,9 @@ namespace _Scripts.Grid_System
             m_selectedGridObject.SetIsSelected(true);
         }
 
-        public GridObject GetSelectedGridObject()
+        public static GridObject GetSelectedGridObject()
         {
-            return m_selectedGridObject;
+            return ms_Instance.m_selectedGridObject;
         }
     }
 }
