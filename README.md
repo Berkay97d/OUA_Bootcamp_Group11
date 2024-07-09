@@ -140,7 +140,8 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 
 - Proje takibi için trello uygulamasının kullanılmasına karar verildi ve güncel proje durumu ve görevler trelloya aktarıldı
   
-![Trello](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/693b4167-75a2-4a4b-9be4-46a30d05a555)
+![Trello]![image](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/80463955/32cd5c61-2545-40c1-927a-28d5b595b0d0)
+
 
   ### Rol Dağılımı
 - Berke Parıldar: Sıra tabanlı oynanış sistemi
