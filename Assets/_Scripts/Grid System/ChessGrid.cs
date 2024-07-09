@@ -20,7 +20,7 @@ namespace _Scripts.Grid_System
         private const int GRID_WIDTH = 8;
         private const int GRID_HEIGHT = 8;
         private GridSystem m_gridSystem;
-
+        
 
         private void Awake()
         {
@@ -32,28 +32,6 @@ namespace _Scripts.Grid_System
             m_gridSystem.CreateTiles(_tilePrefabs);
         }
         
-        //TODO REMOVE THIS CODE, ITS A TESTING CODE
-        private void Update()
-        {   
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                UnityEngine.Debug.Log("SPACE PRESSED");
-                if (m_gridSystem.GetGridObject(new GridPosition(0,0)).GetIsSelected())
-                {
-                    m_gridSystem.GetGridObject(new GridPosition(0,0)).SetIsSelected(false);
-                    m_gridSystem.GetGridObject(new GridPosition(1,0)).SetIsSelected(true);
-                    return;
-                }
-                
-                if (!m_gridSystem.GetGridObject(new GridPosition(0,0)).GetIsSelected())
-                {
-                    m_gridSystem.GetGridObject(new GridPosition(0,0)).SetIsSelected(true);
-                    m_gridSystem.GetGridObject(new GridPosition(1,0)).SetIsSelected(false);
-                    return;
-                }
-                
-            }
-        }
 
         public static GridSystem GetGridSystem()
         {
