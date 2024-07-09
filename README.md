@@ -68,7 +68,7 @@
   
 - **Kod Grubu Üyeleri**: Berkay,Berke,Bora,Dilara
 - **Tasarım Grubu Üyeleri**: Damla
-[image](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/80463955/32cd5c61-2545-40c1-927a-28d5b595b0d0)
+![image](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/80463955/32cd5c61-2545-40c1-927a-28d5b595b0d0)
   <br>
   
 <details>
