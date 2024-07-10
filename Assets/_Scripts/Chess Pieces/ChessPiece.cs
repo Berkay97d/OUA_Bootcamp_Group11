@@ -21,14 +21,15 @@ public class ChessPiece : MonoBehaviour
     public ChessPieceType type;
 
     private Vector3 desiredPosition;
-    private Vector3 desiredScale = Vector3.one;
+    private Vector3 desiredScale = new Vector3(0.5f, 0.5f, 0.5f);
 
-    /*
     private void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * 10);
         transform.localScale = Vector3.Lerp(transform.localScale, desiredScale, Time.deltaTime * 10);
     }
+
+    /*
 
     public List<Vector2Int> GetAvailableMoves(ref ChessPiece[,] board, int tileCountX)
     {
@@ -54,6 +55,7 @@ public class ChessPiece : MonoBehaviour
 
         return r;
     }
+    */
     public virtual void SetPosition(Vector3 position, bool force = false)
     {
         desiredPosition = position;
@@ -67,5 +69,5 @@ public class ChessPiece : MonoBehaviour
         if(force)
             transform.localScale = desiredScale;
     }
-    */
+
 }

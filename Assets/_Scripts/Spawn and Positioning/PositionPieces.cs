@@ -22,7 +22,7 @@ public class PositionPieces : MonoBehaviour
     {
         _chessPiece.currentX = x;
         _chessPiece.currentY = y;
-        _chessPiece.transform.position = GetTileCenter(x, y);
+        _chessPiece.SetPosition(GetTileCenter(x, y), force);
     }
 
     public static Vector3 GetTileCenter(int x, int y)

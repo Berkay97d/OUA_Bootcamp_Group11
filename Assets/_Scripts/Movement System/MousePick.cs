@@ -26,7 +26,7 @@ public class MousePick : MonoBehaviour
             bool validMove = MoveOps.MoveTo(currentlyDragging, (int) droppedWorldPos.x, (int) droppedWorldPos.z);
             if(!validMove)
             {
-                currentlyDragging.transform.position = PositionPieces.GetTileCenter(previousPosition.x, previousPosition.y);
+                currentlyDragging.SetPosition(PositionPieces.GetTileCenter(previousPosition.x, previousPosition.y));
                 currentlyDragging = null;
             }
         }
