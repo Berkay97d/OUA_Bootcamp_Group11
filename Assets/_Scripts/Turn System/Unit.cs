@@ -4,6 +4,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     public Team team;
+    private int _playOrder;
 
     public void TakeTurn()
     {
@@ -12,7 +13,7 @@ public class Unit : MonoBehaviour
         StartCoroutine(EndTurnAfterDelay());
     }
 
-     private IEnumerator EndTurnAfterDelay()
+    private IEnumerator EndTurnAfterDelay()
     {
         yield return new WaitForSeconds(2f);
         if (team == Team.White)
@@ -24,5 +25,10 @@ public class Unit : MonoBehaviour
             GetComponent<MeshRenderer>().material.color = Color.black;
         }
         TurnController.SharedInstance.EndTurn();
+    }
+
+    public void SetPlayOrder(int order)
+    {
+        _playOrder = order;
     }
 }

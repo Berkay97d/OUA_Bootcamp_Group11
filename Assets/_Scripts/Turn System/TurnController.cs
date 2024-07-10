@@ -4,29 +4,18 @@ using UnityEngine;
 public class TurnController : MonoBehaviour
 {
     public static TurnController SharedInstance { get; private set; }
-    private Unit _whiteUnit;
-    private List<Unit> _blackUnits;
-    private int _currentBlackUnitIndex = 0;
-    private bool _isWhiteTurn = true;
+    private List<Unit> _units;
+    private int _currentUnitIndex = 0;
+    [SerializeField] private DemoSpawnManager _demoSpawner;
 
     private void Awake() 
     {
         if (SharedInstance == null)
         {
             SharedInstance = this;
-            _blackUnits = new List<Unit>();
-            var allUnits = GameObject.FindObjectsOfType<Unit>();
-            foreach (var unit in allUnits)
-            {
-                if (unit.team == Team.White)
-                {
-                    _whiteUnit = unit;
-                }
-                else 
-                {
-                    _blackUnits.Add(unit);
-                }
-            }
+            _units = new List<Unit>();
+            var kingUnit = _demoSpawner.SpawnKing();
+            _units.Add(kingUnit);
         }
         else 
         {
@@ -41,35 +30,33 @@ public class TurnController : MonoBehaviour
 
     public void StartTurn()
     {
-        if (_isWhiteTurn)
+        if (_currentUnitIndex == 0)
         {
+            // Unit index 0 is for king, therefore white's turn
             Debug.Log("White team's turn.");
-            _whiteUnit.TakeTurn();
         }
-        else
-        {
-            if (_blackUnits.Count > 0)
-            {
-                var currentUnit = _blackUnits[_currentBlackUnitIndex];
-                currentUnit.TakeTurn();
-            }
-        }
+        var currentUnit = _units[_currentUnitIndex];
+        currentUnit.TakeTurn();
     }
 
     public void EndTurn()
     {
-        if (_isWhiteTurn)
+        if (_currentUnitIndex == 0)
         {
-            _isWhiteTurn = false;
-            _currentBlackUnitIndex = 0;
+            // King unit just finished its turn, need to add a black unit
+            // Find the play order of the new black unit
+            var blackUnitPlayOrder = _units.Count;
+            var blackUnit = _demoSpawner.SpawnBlackUnit(blackUnitPlayOrder);
+            _units.Add(blackUnit);
+            _currentUnitIndex++;
             Debug.Log("Black teams turn.");
         }
         else 
         {
-            _currentBlackUnitIndex++;
-            if (_currentBlackUnitIndex >= _blackUnits.Count)
+            _currentUnitIndex++;
+            if (_currentUnitIndex >= _units.Count)
             {
-                _isWhiteTurn = true;
+                _currentUnitIndex = 0;
             }
         }
         StartTurn();
