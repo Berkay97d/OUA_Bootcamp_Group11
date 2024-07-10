@@ -25,12 +25,13 @@ namespace _Scripts.Grid_System
         private void Awake()
         {
             ms_Instance = this;
+
+            //WE CREATE A GRID SYSTEM OBJECT AND THAT TRIGGERS THE CREATION OF GRID OBJECTS
+            m_gridSystem = new GridSystem(GRID_WIDTH, GRID_HEIGHT, _tileSize);
         }
 
         private void Start()
         {
-            //WE CREATE A GRID SYSTEM OBJECT AND THAT TRIGGERS THE CREATION OF GRID OBJECTS
-            m_gridSystem = new GridSystem(GRID_WIDTH, GRID_HEIGHT, _tileSize);
             //CREATING VISUALS
             m_gridSystem.CreateTiles(_tilePrefabs);
         }

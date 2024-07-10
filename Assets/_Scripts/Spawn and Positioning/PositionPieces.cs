@@ -18,14 +18,14 @@ public class PositionPieces : MonoBehaviour
     }
 
     // Position single piece with given positions, decide to make it instant or smooth (force)
-    private static void PositionSinglePiece(ChessPiece _chessPiece, int x, int y, bool force = false)
+    public static void PositionSinglePiece(ChessPiece _chessPiece, int x, int y, bool force = false)
     {
         _chessPiece.currentX = x;
         _chessPiece.currentY = y;
         _chessPiece.transform.position = GetTileCenter(x, y);
     }
 
-    private static Vector3 GetTileCenter(int x, int y)
+    public static Vector3 GetTileCenter(int x, int y)
     {
         // Vector3(x * tileSize, yOffset, y * tileSize) + Vector3(tileSize / 2, 0, tileSize / 2)
         return new Vector3(x * 1, 0.5f, y * 1) + new Vector3(1 / 2, 0, 1 / 2);
