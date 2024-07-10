@@ -17,6 +17,7 @@ public class MousePick : MonoBehaviour
             currentlyDragging = MoveOps.GetPiece(mousePos);
         }
 
+        // Mouse hold, dynamically dragging piece over the board
         if(currentlyDragging)
         {
             Plane  horizontalPlane = new Plane(Vector3.up, Vector3.up * 1);
