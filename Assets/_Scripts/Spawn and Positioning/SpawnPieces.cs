@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class SpawnPieces : MonoBehaviour
 {
-    private ChessPiece[,] chessPieces;
+    public static ChessPiece[,] chessPieces;
     [SerializeField] private GameObject[] prefabs;
     [SerializeField] private Material[] sideMaterials;
 
     private void Awake()
     {
         SpawnAllPieces();
-        PositionAllPieces();   
+        PositionPieces.PositionAllPieces(chessPieces);   
     }
 
     // Spawning all pieces based on default chess layout
@@ -53,30 +53,8 @@ public class SpawnPieces : MonoBehaviour
         return _chessPiece;
     }
 
-    // Position all pieces traversing through chessPieces array then calling PositionSinglePiece by index
-    private void PositionAllPieces()
+    public static ChessPiece[,] GetChessPieces()
     {
-        for(int x = 0; x < 8; x++)
-        {
-            for(int y = 0; y < 8; y++)
-            {
-                if(chessPieces[x, y] != null)
-                    PositionSinglePiece(x, y, true);
-            }
-        }
-    }
-
-    // Position single piece with given positions, decide to make it instant or smooth (force)
-    private void PositionSinglePiece(int x, int y, bool force = false)
-    {
-        chessPieces[x, y].currentX = x;
-        chessPieces[x, y].currentY = y;
-        chessPieces[x, y].transform.position = GetTileCenter(x, y);
-    }
-
-    private Vector3 GetTileCenter(int x, int y)
-    {
-        // Vector3(x * tileSize, yOffset, y * tileSize) + Vector3(tileSize / 2, 0, tileSize / 2)
-        return new Vector3(x * 1, 0.5f, y * 1) + new Vector3(1 / 2, 0, 1 / 2);
+        return chessPieces;
     }
 }
