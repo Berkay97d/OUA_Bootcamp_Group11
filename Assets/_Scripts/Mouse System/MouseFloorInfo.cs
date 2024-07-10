@@ -7,6 +7,7 @@ namespace _Scripts.Mouse_System
     /// </summary>
     public struct MouseFloorInfo
     {
+        public Ray HitRay { get; set; }
         public bool IsHit { get; set; }
         public Vector3 HitPoint { get; set; }
         public GameObject HitObject { get; set; }

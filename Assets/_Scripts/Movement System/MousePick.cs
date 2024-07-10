@@ -17,6 +17,17 @@ public class MousePick : MonoBehaviour
             currentlyDragging = MoveOps.GetPiece(mousePos);
         }
 
+        if(currentlyDragging)
+        {
+            Plane  horizontalPlane = new Plane(Vector3.up, Vector3.up * 1);
+            float distance = 0.0f;
+            Ray currentRay = MouseWorld.GetMouseMovementInfo().HitRay;
+            if(horizontalPlane.Raycast(currentRay, out distance))
+            {
+                currentlyDragging.SetPosition(currentRay.GetPoint(distance) + Vector3.up * 1.5f);  
+            }
+        }
+
         // Mouse left click released
         if(currentlyDragging != null && Input.GetMouseButtonUp(0))
         {
@@ -30,6 +41,7 @@ public class MousePick : MonoBehaviour
         }
         else
         {
+            // Code for when piece is dragged and dropped outside of the board does not work !!!
             if(currentlyDragging && Input.GetMouseButtonUp(0))
             {
                 currentlyDragging.SetPosition(PositionPieces.GetTileCenter(currentlyDragging.currentX, currentlyDragging.currentY));
