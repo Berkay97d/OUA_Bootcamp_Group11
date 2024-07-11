@@ -15,7 +15,8 @@ public class MoveOps : MonoBehaviour
     public static bool MoveTo(ChessPiece _chessPiece, int x, int y)
     {
         Vector2Int previousPosition = new Vector2Int(_chessPiece.currentX, _chessPiece.currentY);
-
+        if(_chessPieces[x, y] != null)
+            return false;
         _chessPieces[x, y] = _chessPiece;
         _chessPieces[previousPosition.x, previousPosition.y] = null;
 
