@@ -1,5 +1,8 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurnController : MonoBehaviour
 {
@@ -7,8 +10,9 @@ public class TurnController : MonoBehaviour
     private List<Unit> _units;
     private int _currentUnitIndex = 0;
     [SerializeField] private DemoSpawnManager _demoSpawner;
+    [SerializeField] private Button _iterationResetButton;
 
-    private void Awake() 
+    private void Awake()
     {
         if (SharedInstance == null)
         {
@@ -17,7 +21,7 @@ public class TurnController : MonoBehaviour
             var kingUnit = _demoSpawner.SpawnKing();
             _units.Add(kingUnit);
         }
-        else 
+        else
         {
             Destroy(gameObject);
         }
@@ -41,24 +45,33 @@ public class TurnController : MonoBehaviour
 
     public void EndTurn()
     {
-        if (_currentUnitIndex == 0)
+        _currentUnitIndex++;
+        if (_currentUnitIndex < _units.Count)
         {
-            // King unit just finished its turn, need to add a black unit
-            // Find the play order of the new black unit
-            var blackUnitPlayOrder = _units.Count;
-            var blackUnit = _demoSpawner.SpawnBlackUnit(blackUnitPlayOrder);
-            _units.Add(blackUnit);
-            _currentUnitIndex++;
-            Debug.Log("Black teams turn.");
+            StartTurn();
+            _iterationResetButton.interactable = false;
         }
-        else 
+        else
         {
-            _currentUnitIndex++;
-            if (_currentUnitIndex >= _units.Count)
-            {
-                _currentUnitIndex = 0;
-            }
+            _iterationResetButton.interactable = true;
         }
+    }
+
+    public void ResetIteration()
+    {
+        StartCoroutine(ResetCoroutine());
+    }
+
+    private IEnumerator ResetCoroutine()
+    {
+        Debug.Log("Adding a new unit.");
+        yield return new WaitForSeconds(1);
+        var blackUnitPlayOrder = _units.Count;
+        var blackUnit = _demoSpawner.SpawnBlackUnit(blackUnitPlayOrder);
+        _units.Add(blackUnit);
+        yield return new WaitForSeconds(1);
+        Debug.Log("Turn is being assigned to king.");
+        _currentUnitIndex = 0;
         StartTurn();
     }
 }
