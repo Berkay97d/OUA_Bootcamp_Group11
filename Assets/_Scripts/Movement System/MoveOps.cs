@@ -49,4 +49,12 @@ public class MoveOps : MonoBehaviour
     {
         return _currentPiece.GetAvailableMoves(ref _chessPieces, 8, 8);
     }
+
+    public static bool CheckValidMove(ref List<Vector2Int> availableMoves, Vector2 movePos)
+    {
+        for(int i = 0; i < availableMoves.Count; i++)
+            if(availableMoves[i].x == movePos.x && availableMoves[i].y == movePos.y)
+                return true;
+        return false;
+    }
 }
