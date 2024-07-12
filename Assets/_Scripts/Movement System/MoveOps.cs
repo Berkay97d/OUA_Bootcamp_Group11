@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using _Scripts.Grid_System;
 using UnityEngine;
 
@@ -42,5 +43,10 @@ public class MoveOps : MonoBehaviour
         GridPosition droppedGridPos = _gridSystem.GetGridPositionFromWorldPosition(new Vector3(dropPos.x, 0.5f, dropPos.z));
         Vector3 droppedWorldPos = _gridSystem.GetWorldPositionFromGridPosition(droppedGridPos);
         return droppedWorldPos;
+    }
+
+    public static List<Vector2Int> GetAvailableMovesFromPiece(ChessPiece _currentPiece)
+    {
+        return _currentPiece.GetAvailableMoves(ref _chessPieces, 8, 8);
     }
 }

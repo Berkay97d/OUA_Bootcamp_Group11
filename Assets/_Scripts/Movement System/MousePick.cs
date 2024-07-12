@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using _Scripts.Grid_System;
 using _Scripts.Mouse_System;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class MousePick : MonoBehaviour
 {
     private ChessPiece currentlyDragging;
+    private List<Vector2Int> availableMoves = new List<Vector2Int>();
     
     // Significant placement errors because of the tilted camera angle !!!
     private void FixedUpdate()
@@ -15,6 +17,9 @@ public class MousePick : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             currentlyDragging = MoveOps.GetPiece(mousePos);
+
+            // Get list of the tiles that can be moved to
+            availableMoves = MoveOps.GetAvailableMovesFromPiece(currentlyDragging);
         }
 
         // Mouse hold, dynamically dragging piece over the board
