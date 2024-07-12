@@ -43,12 +43,12 @@ public class ChessPiece : MonoBehaviour
             {currentX + 1, currentY - 1}
         };
         
-        for(int i = 0; i < allMoves.Length; i++)
+        for(int i = 0; i < allMoves.GetLength(0); i++)
         {
-            if(board[allMoves[i,0], allMoves[i,1]] == null)
-            {
-                r.Add(new Vector2Int(currentX, currentY + 1));
-            }
+                if(board[allMoves[i, 0], allMoves[i, 1]] == null)
+                {
+                    r.Add(new Vector2Int(allMoves[i, 0], allMoves[i, 1]));
+                }
         }
 
         return r;
