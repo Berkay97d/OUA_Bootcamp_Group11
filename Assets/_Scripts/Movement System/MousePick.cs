@@ -37,6 +37,7 @@ public class MousePick : MonoBehaviour
         // Mouse left click released
         if(currentlyDragging != null && Input.GetMouseButtonUp(0))
         {
+
             Vector2Int previousPosition = new Vector2Int(currentlyDragging.currentX, currentlyDragging.currentY);
 
             Vector3 droppedWorldPos = MoveOps.GetPiecePos(mousePos);
@@ -44,6 +45,7 @@ public class MousePick : MonoBehaviour
             if(!validMove)
                 currentlyDragging.SetPosition(PositionPieces.GetTileCenter(previousPosition.x, previousPosition.y));
             currentlyDragging = null;
+            availableMoves.Clear();
         }
         else
         {
@@ -52,6 +54,7 @@ public class MousePick : MonoBehaviour
             {
                 currentlyDragging.SetPosition(PositionPieces.GetTileCenter(currentlyDragging.currentX, currentlyDragging.currentY));
                 currentlyDragging = null;
+                availableMoves.Clear();
             }
         }
     }
