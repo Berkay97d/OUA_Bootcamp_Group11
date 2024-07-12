@@ -54,6 +54,11 @@ public class ChessPiece : MonoBehaviour
         return r;
     }
 
+    public virtual List<Vector2Int> GetAttackPattern(ref ChessPiece[,] board, int tileCountX, int tileCountY)
+    {
+        return null;
+    }
+
     public virtual void SetPosition(Vector3 position, bool force = false)
     {
         desiredPosition = position;
