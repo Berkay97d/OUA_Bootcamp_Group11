@@ -1,26 +1,39 @@
+using System;
+using _Scripts.Grid_System;
 using UnityEngine;
 
-public class DemoSpawnManager : MonoBehaviour
+namespace TurnSystem
 {
-    [SerializeField] private GameObject _unitPrefab;
-
-    public Unit SpawnKing()
+    public class DemoSpawnManager : MonoBehaviour
     {
-        var spawnPosition = new Vector3(0, 0, 50);
-        var kingGameObject = Instantiate(_unitPrefab, spawnPosition, Quaternion.identity);
-        var kingUnit = kingGameObject.GetComponent<Unit>();
-        kingUnit.team = Team.White;
-        kingUnit.SetPlayOrder(0);
-        return kingUnit;
-    }
+        [SerializeField] private Unit _whiteKingPrefab;
+        [SerializeField] private Unit[] _enemyUnity;
 
-    public Unit SpawnBlackUnit(int playOrder)
-    {
-        var spawnPosition = new Vector3(playOrder, 0, 45);
-        var blackGameObject = Instantiate(_unitPrefab, spawnPosition, Quaternion.identity);
-        var blackUnit = blackGameObject.GetComponent<Unit>();
-        blackUnit.team = Team.Black;
-        blackUnit.SetPlayOrder(playOrder);
-        return blackUnit;
+        
+        public Unit SpawnKing()
+        {
+            var gridPosition = _whiteKingPrefab.GetGridPosition();
+            var gridWorldPosition = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(gridPosition);
+            
+            var kingGameObject = Instantiate(_whiteKingPrefab, gridWorldPosition, Quaternion.identity);
+            
+            kingGameObject.team = Team.White;
+            kingGameObject.SetPlayOrder(0);
+            return kingGameObject;
+        }
+
+        public Unit SpawnBlackUnit(int playOrder)
+        {
+            var spawnUnit = _enemyUnity[playOrder - 1];
+            var gridPosition = spawnUnit.GetGridPosition();
+            var gridWorldPosition = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(gridPosition);
+            
+            var blackGameObject = Instantiate(spawnUnit, gridWorldPosition, Quaternion.identity);
+            blackGameObject.MoveInitPositionInstant();
+            
+            blackGameObject.team = Team.Black;
+            blackGameObject.SetPlayOrder(playOrder);
+            return blackGameObject;
+        }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace _Scripts.Grid_System
 {
@@ -15,6 +16,7 @@ namespace _Scripts.Grid_System
         private readonly GridSystem m_gridSystem;
         private readonly GridPosition m_gridPosition;
         private bool m_isSelected;
+        private bool m_isOccupied;
         
         
         public GridObject(GridSystem gridSystem, GridPosition gridPosition)
@@ -40,6 +42,21 @@ namespace _Scripts.Grid_System
                 OnSelectedStatusChanged?.Invoke(isSelected);
                 m_isSelected = isSelected;
             }
+        }
+
+        public List<GridObject> GetNeighboorGrids()
+        {
+            return null;
+        }
+
+        public void SetIsOccupied(bool isOccupied)
+        {
+            m_isOccupied = isOccupied;
+        }
+
+        public bool GetIsOccupied()
+        {
+            return m_isOccupied;
         }
 
         public bool GetIsSelected()

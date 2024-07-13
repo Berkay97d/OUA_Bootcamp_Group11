@@ -1,34 +1,79 @@
+using System;
 using System.Collections;
+using _Scripts.Grid_System;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+namespace TurnSystem
 {
-    public Team team;
-    private int _playOrder;
 
-    public void TakeTurn()
+    public class Unit : MonoBehaviour
     {
-        Debug.Log($"{name} from {team} is taking its turn.");
-        GetComponent<MeshRenderer>().material.color = Color.red;
-        StartCoroutine(EndTurnAfterDelay());
-    }
-
-    private IEnumerator EndTurnAfterDelay()
-    {
-        yield return new WaitForSeconds(2f);
-        if (team == Team.White)
+        
+        [SerializeField] private int xPos;
+        [SerializeField] private int zPos;
+        
+        private int _playOrder;
+        private GridPosition m_myGridPosition;
+        private MeshRenderer _renderer;
+        private bool isPlayed = false;
+        
+        public Team team;
+        
+        
+        private void Awake()
         {
-            GetComponent<MeshRenderer>().material.color = Color.white;
+            m_myGridPosition = new GridPosition(xPos, zPos);
+            
+            _renderer = GetComponentInChildren<MeshRenderer>();
         }
-        else
-        {
-            GetComponent<MeshRenderer>().material.color = Color.black;
-        }
-        TurnController.SharedInstance.EndTurn();
-    }
 
-    public void SetPlayOrder(int order)
-    {
-        _playOrder = order;
+        private void Update()
+        {
+            Debug.Log(gameObject.name + " " + _playOrder);
+            
+            if (TurnController.SharedInstance.GetCurrentUnitIndex() == _playOrder && !isPlayed)
+            {
+                isPlayed = true;
+                StartCoroutine(EndTurn());
+            }
+        }
+
+        public void TakeTurn()
+        {
+            Debug.Log(gameObject.name + " TAKE TURN");
+            _renderer.material.color = Color.red;
+        }
+
+        private IEnumerator EndTurn()
+        {
+            yield return new WaitForSeconds(1f);
+            Debug.Log(gameObject.name + " ENDED TURN");
+            if (team == Team.White)
+            {
+                _renderer.material.color = Color.white;
+            }
+            else
+            {
+                _renderer.material.color = Color.black;
+            }
+
+            TurnController.SharedInstance.EndTurn();
+            isPlayed = false;
+        }
+
+        public void SetPlayOrder(int order)
+        {
+            _playOrder = order;
+        }
+
+        public GridPosition GetGridPosition()
+        {
+            return m_myGridPosition;
+        }
+
+        public void MoveInitPositionInstant()
+        {
+            transform.position = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(m_myGridPosition);
+        }
     }
 }

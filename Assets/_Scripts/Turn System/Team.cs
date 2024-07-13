@@ -1,5 +1,9 @@
-public enum Team
+namespace TurnSystem
 {
-    White,
-    Black
+
+    public enum Team
+    {
+        White,
+        Black
+    }
 }

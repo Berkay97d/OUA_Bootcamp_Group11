@@ -28,10 +28,9 @@ namespace _Scripts.Mouse_System
                     hoverTile = mouseInfo.HitObject;
                 if(hoverTile != mouseInfo.HitObject)
                 {
-                    hoverTile.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.1f);
                     hoverTile = mouseInfo.HitObject;
                 }
-                hoverTile.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.6f);
+                
 
                 return;
             }

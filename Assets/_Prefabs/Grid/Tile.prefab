@@ -293,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _positionText: {fileID: 2340274094986004493}
   _tileGap: 0.05
-  _thickness: 0.5
+  _thickness: 0.05
 --- !u!114 &4863446715578029833
 MonoBehaviour:
   m_ObjectHideFlags: 0
