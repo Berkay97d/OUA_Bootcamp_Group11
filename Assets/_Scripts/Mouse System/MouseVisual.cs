@@ -8,7 +8,7 @@ namespace _Scripts.Mouse_System
     public class MouseVisual : MonoBehaviour
     {
         [SerializeField] private MeshRenderer _renderer;
-        
+        GameObject hoverTile = null;
 
         private void FixedUpdate()
         {
@@ -23,6 +23,16 @@ namespace _Scripts.Mouse_System
             {
                 _renderer.enabled = true;
                 transform.position = mouseInfo.HitPoint;
+                
+                if(hoverTile == null)
+                    hoverTile = mouseInfo.HitObject;
+                if(hoverTile != mouseInfo.HitObject)
+                {
+                    hoverTile.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.1f);
+                    hoverTile = mouseInfo.HitObject;
+                }
+                hoverTile.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.6f);
+
                 return;
             }
 

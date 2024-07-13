@@ -34,8 +34,11 @@ namespace _Scripts.Mouse_System
         
             var ray = Instance._mainCamera.ScreenPointToRay(Input.mousePosition);
             
+            mouseInfo.HitRay = ray;
             mouseInfo.IsHit = Physics.Raycast(ray, out RaycastHit hit,float.MaxValue ,Instance._floorLayerMask);
             mouseInfo.HitPoint = hit.point;
+            if(mouseInfo.IsHit)
+                mouseInfo.HitObject = hit.transform.gameObject;
 
             return mouseInfo;
         }
