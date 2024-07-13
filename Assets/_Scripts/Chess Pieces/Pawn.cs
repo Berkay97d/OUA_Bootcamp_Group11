@@ -6,6 +6,11 @@ public class Pawn : ChessPiece
 {
     public override List<Vector2Int> GetAttackPattern(ref ChessPiece[,] board, int tileCountX, int tileCountY)
     {
-        return base.GetAttackPattern(ref board, tileCountX, tileCountY);
+        List<Vector2Int> r = new List<Vector2Int>();
+
+        r.Add(new Vector2Int(currentX + 1, currentY + 1));
+        r.Add(new Vector2Int(currentX - 1, currentY + 1));
+        
+        return r;
     }
 }
