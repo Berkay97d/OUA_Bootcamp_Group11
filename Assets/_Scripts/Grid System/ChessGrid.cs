@@ -20,12 +20,12 @@ namespace _Scripts.Grid_System
         private const int GRID_WIDTH = 8;
         private const int GRID_HEIGHT = 8;
         private GridSystem m_gridSystem;
-
+        
 
         private void Awake()
         {
             ms_Instance = this;
-
+            
             //WE CREATE A GRID SYSTEM OBJECT AND THAT TRIGGERS THE CREATION OF GRID OBJECTS
             m_gridSystem = new GridSystem(GRID_WIDTH, GRID_HEIGHT, _tileSize);
         }
@@ -35,6 +35,7 @@ namespace _Scripts.Grid_System
             //CREATING VISUALS
             m_gridSystem.CreateTiles(_tilePrefabs);
         }
+        
 
         public static GridSystem GetGridSystem()
         {
