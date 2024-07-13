@@ -19,6 +19,8 @@ public class SpawnPieces : MonoBehaviour
         int whiteSide = 0, blackSide = 1;
 
         // White side
+
+        /* Default white side chess formation
         chessPieces[0, 0] = SpawnSinglePiece(ChessPieceType.Rook, whiteSide);
         chessPieces[1, 0] = SpawnSinglePiece(ChessPieceType.Knight, whiteSide);
         chessPieces[2, 0] = SpawnSinglePiece(ChessPieceType.Bishop, whiteSide);
@@ -29,8 +31,13 @@ public class SpawnPieces : MonoBehaviour
         chessPieces[7, 0] = SpawnSinglePiece(ChessPieceType.Rook, whiteSide);
         for(int i = 0; i < 8; i++)
             chessPieces[i, 1] = SpawnSinglePiece(ChessPieceType.Pawn, whiteSide);
+        */
+
+        chessPieces[3, 0] = SpawnSinglePiece(ChessPieceType.King, whiteSide);
 
         // Black side
+
+        /* Default black side chess formation
         chessPieces[0, 7] = SpawnSinglePiece(ChessPieceType.Rook, blackSide);
         chessPieces[1, 7] = SpawnSinglePiece(ChessPieceType.Knight, blackSide);
         chessPieces[2, 7] = SpawnSinglePiece(ChessPieceType.Bishop, blackSide);
@@ -41,6 +48,15 @@ public class SpawnPieces : MonoBehaviour
         chessPieces[7, 7] = SpawnSinglePiece(ChessPieceType.Rook, blackSide);
         for(int i = 0; i < 8; i++)
             chessPieces[i, 6] = SpawnSinglePiece(ChessPieceType.Pawn, blackSide);
+        */
+
+
+        chessPieces[1, 7] = SpawnSinglePiece(ChessPieceType.Pawn, blackSide);
+        chessPieces[2, 7] = SpawnSinglePiece(ChessPieceType.Rook, blackSide);
+        chessPieces[3, 7] = SpawnSinglePiece(ChessPieceType.Knight, blackSide);
+        chessPieces[4, 7] = SpawnSinglePiece(ChessPieceType.Bishop, blackSide);
+        chessPieces[5, 7] = SpawnSinglePiece(ChessPieceType.King, blackSide);
+        chessPieces[6, 7] = SpawnSinglePiece(ChessPieceType.Queen, blackSide);
     }
 
     // Spawning single chess piece with specified side

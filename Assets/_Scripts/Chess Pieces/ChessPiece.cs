@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,6 +45,7 @@ public class ChessPiece : MonoBehaviour
         
         for(int i = 0; i < allMoves.GetLength(0); i++)
         {
+            if(allMoves[i, 0] >= 0 && allMoves[i, 0] < tileCountX && allMoves[i, 1] >= 0 && allMoves[i, 1] < tileCountY)
                 if(board[allMoves[i, 0], allMoves[i, 1]] == null)
                 {
                     r.Add(new Vector2Int(allMoves[i, 0], allMoves[i, 1]));

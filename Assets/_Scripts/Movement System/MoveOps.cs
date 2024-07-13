@@ -31,13 +31,13 @@ public class MoveOps : MonoBehaviour
     // Get chess piece from where the mouse left click was made
     public static ChessPiece GetPiece(Vector3 dragPos)
     {
-            GridPosition pickedGridPos = _gridSystem.GetGridPositionFromWorldPosition(new Vector3(dragPos.x, 0.5f, dragPos.z));
-            Vector3 pickedWorldPos = _gridSystem.GetWorldPositionFromGridPosition(pickedGridPos);
-            if(_chessPieces[(int) pickedWorldPos.x, (int) pickedWorldPos.z] != null)
-            {
-                return _chessPieces[(int) pickedWorldPos.x, (int) pickedWorldPos.z];
-            }
-            return null;
+        GridPosition pickedGridPos = _gridSystem.GetGridPositionFromWorldPosition(new Vector3(dragPos.x, 0.5f, dragPos.z));
+        Vector3 pickedWorldPos = _gridSystem.GetWorldPositionFromGridPosition(pickedGridPos);
+        if(_chessPieces[(int) pickedWorldPos.x, (int) pickedWorldPos.z] != null)
+        {
+            return _chessPieces[(int) pickedWorldPos.x, (int) pickedWorldPos.z];
+        }
+        return null;
     }
 
     // Get exact tile position from where the mouse left click was stopped

@@ -1055,8 +1055,8 @@ MonoBehaviour:
   - {fileID: 2810497350407254721, guid: df3e829f12e43ec4c9a034dfc4492c9e, type: 3}
   - {fileID: 8418290282581572498, guid: 584dceae0efd899418cf3321d3ba0f0d, type: 3}
   sideMaterials:
-  - {fileID: 2100000, guid: 54b892af224b6e94c83b625e5fc9275e, type: 2}
   - {fileID: 2100000, guid: ef2017f4087a2b346b0a89a9e7079f54, type: 2}
+  - {fileID: 2100000, guid: 54b892af224b6e94c83b625e5fc9275e, type: 2}
 --- !u!1 &2054602721
 GameObject:
   m_ObjectHideFlags: 0
