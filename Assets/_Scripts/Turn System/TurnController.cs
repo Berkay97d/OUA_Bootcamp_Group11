@@ -1,21 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace TurnSystem
 {
-
-
     public class TurnController : MonoBehaviour
     {
         public static TurnController SharedInstance { get; private set; }
-        private List<Unit> _units = new ();
+        private List<Unit> _units = new();
         private int _currentUnitIndex = 0;
         [SerializeField] private DemoSpawnManager _demoSpawner;
-        
+        [SerializeField] private bool _hasCompleted = true;
 
         private void Awake()
         {
@@ -32,13 +28,10 @@ namespace TurnSystem
         private void Start()
         {
             IterationController.OnIterationCompleted += OnIterationCompleted;
-            
             var king = _demoSpawner.SpawnKing();
             _units.Add(king);
-            
             StartTurn();
         }
-        
 
         private void OnDestroy()
         {
@@ -52,43 +45,38 @@ namespace TurnSystem
 
         public void StartTurn()
         {
-            if (_currentUnitIndex == 0)
-            {
-                // Unit index 0 is for king, therefore white's turn
-                Debug.Log("White team's turn.");
-            }
-
-            if (_currentUnitIndex >= _units.Count)
-            {
-                _currentUnitIndex = 0;
-            }
-            
             var currentUnit = _units[_currentUnitIndex];
-            
             currentUnit.TakeTurn();
         }
 
         public void EndTurn()
         {
+            _currentUnitIndex++;
             if (_currentUnitIndex < _units.Count)
             {
-                _currentUnitIndex++;
-                StartTurn();
-                return;
+                StartCoroutine(InnerRoutine());
+            }
+            else
+            {
+                if (_hasCompleted)
+                {
+                    Debug.Log("Press space to reset iteration");
+                } else {
+                    _currentUnitIndex = 0;
+                    StartCoroutine(InnerRoutine());
+                }
             }
 
-            if (_units.Count-1 == _currentUnitIndex)
+            IEnumerator InnerRoutine()
             {
-                _currentUnitIndex = 0;   
+                yield return new WaitForSeconds(0.5f);
+                StartTurn();
             }
-            
-            StartTurn();
         }
 
         public void ResetIteration()
         {
             StartCoroutine(InnerRoutine());
-
             IEnumerator InnerRoutine()
             {
                 Debug.Log("Adding a new unit.");
@@ -107,7 +95,5 @@ namespace TurnSystem
         {
             return _currentUnitIndex;
         }
-
-        
     }
 }

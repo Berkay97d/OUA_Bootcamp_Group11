@@ -9,7 +9,6 @@ namespace TurnSystem
         [SerializeField] private Unit _whiteKingPrefab;
         [SerializeField] private Unit[] _enemyUnity;
 
-        
         public Unit SpawnKing()
         {
             var gridPosition = _whiteKingPrefab.GetGridPosition();

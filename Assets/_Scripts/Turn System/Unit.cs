@@ -1,64 +1,89 @@
-using System;
-using System.Collections;
 using _Scripts.Grid_System;
 using UnityEngine;
 
 namespace TurnSystem
 {
-
     public class Unit : MonoBehaviour
-    {
-        
+    {       
         [SerializeField] private int xPos;
         [SerializeField] private int zPos;
-        
         private int _playOrder;
+        private bool _hasTurn;
         private GridPosition m_myGridPosition;
         private MeshRenderer _renderer;
-        private bool isPlayed = false;
-        
         public Team team;
-        
+
+        private int _moveCount;
         
         private void Awake()
         {
+            _moveCount = 5;
             m_myGridPosition = new GridPosition(xPos, zPos);
-            
             _renderer = GetComponentInChildren<MeshRenderer>();
+            if (team == Team.White)
+            {
+                _renderer.material.color = Color.white;
+            } else 
+            {
+                _renderer.material.color = Color.black;
+            }
         }
 
         private void Update()
         {
-            Debug.Log(gameObject.name + " " + _playOrder);
-            
-            if (TurnController.SharedInstance.GetCurrentUnitIndex() == _playOrder && !isPlayed)
+            if (_hasTurn)
             {
-                isPlayed = true;
-                StartCoroutine(EndTurn());
+                var currentXPos = transform.position.x;
+                var currentZPos = transform.position.z;
+                var currentYPos = transform.position.y;
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    transform.position = new Vector3(currentXPos, currentYPos, currentZPos + 1);
+                    _moveCount -= 1;
+                }
+                else if (Input.GetKeyDown(KeyCode.A)) 
+                {
+                    transform.position = new Vector3(currentXPos - 1, currentYPos, currentZPos);
+                    _moveCount -= 1;
+                }
+                else if (Input.GetKeyDown(KeyCode.D))
+                {
+                    transform.position = new Vector3(currentXPos + 1, currentYPos, currentZPos);
+                    _moveCount -= 1;
+                }
+                else if (Input.GetKeyDown(KeyCode.S))
+                {
+                    transform.position = new Vector3(currentXPos, currentYPos, currentZPos - 1);
+                    _moveCount -= 1;
+                }
+
+                if (_moveCount == 0)
+                {
+                    EndTurn();
+                }
             }
         }
 
         public void TakeTurn()
         {
-            Debug.Log(gameObject.name + " TAKE TURN");
+            _moveCount = 5;
+            _hasTurn = true;
+            Debug.Log("${name}'s turn.");
             _renderer.material.color = Color.red;
         }
 
-        private IEnumerator EndTurn()
+        public void EndTurn()
         {
-            yield return new WaitForSeconds(1f);
-            Debug.Log(gameObject.name + " ENDED TURN");
+            _hasTurn = false;
+            Debug.Log("${name} ended its turn.");
             if (team == Team.White)
             {
                 _renderer.material.color = Color.white;
-            }
-            else
+            } else 
             {
                 _renderer.material.color = Color.black;
             }
-
             TurnController.SharedInstance.EndTurn();
-            isPlayed = false;
         }
 
         public void SetPlayOrder(int order)
