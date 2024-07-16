@@ -27,7 +27,7 @@
   - Hafıza geliştirici
   - Satranç temelli
 
-   ## Hedef Kitle
+  ## Hedef Kitle
   - Beyninin sınırlarını zorlamayı seven oyuncular
   - 7+
   - Puzzle sevenler
@@ -62,13 +62,18 @@
 <details>
   <summary>SPRINT 1 (11.06 - 07.07)</summary>
 
-- Sprint içi puan değerlendirmesi 12 olarak belirlenmiştir.
-- **Puan tamamlama mantığı**: Proje boyunca tamamlanması gereken backlog puanı 56'dır. İlk Sprint için bitirilmesi istenilen puan sayısı 12 olarak belirlenmiştir ve hedefe ulaşılmıştır.
+- Sprint içi puan değerlendirmesi 21 olarak belirlenmiştir.
+- **Puan tamamlama mantığı**: Proje boyunca tamamlanması gereken backlog puanı 167'dir. İlk Sprint için bitirilmesi istenilen puan sayısı 21 olarak belirlenmiştir (her bir task a ait task ın tamamlanması için ihtiyaç olunan süre(EP) fibonacchi dizilimi baz alınarak puanlandı) ve hedefe ulaşılmıştır.
 - **Daily Scrum**: Discord üzerinden görüşmeler sağlanmıştır.Bilgi akışı sağlamak ve bilgileri düzenli depolamak için çeşitli kanallar açılmıştır.
   
 - **Kod Grubu Üyeleri**: Berkay,Berke,Bora,Dilara
 - **Tasarım Grubu Üyeleri**: Damla
-![image](https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/80463955/32cd5c61-2545-40c1-927a-28d5b595b0d0)
+![image](https://github.com/user-attachments/assets/853710e0-e6d4-4bdf-8bf8-80fe572260ab)
+![image](https://github.com/user-attachments/assets/ee0ca2d6-bc1b-49d5-a326-6d8e008c4e0c)
+**Daily Scrum**: ![image](https://github.com/user-attachments/assets/f0289ccf-0d0a-407e-aa8a-304e095b4f15)
+                 ![image](https://github.com/user-attachments/assets/e040004e-8279-433d-a896-9b7442463c78)
+
+
   <br>
   
 <details>
@@ -150,7 +155,7 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 </details>
 <br>
 <details>
-  <summary>SPRINT REVIEW</summary>
+##SPRINT REVIEW
 
 ### Sprint Hedefleri
 - Ekibin tanışması ve rol dağılımının yapılması
@@ -185,7 +190,8 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 
 <br>
 <details>
-  <summary>SPRINT RETROSPECTIVE</summary>
+  
+##SPRINT RETROSPECTIVE
   
 - Trello ve GitHub gibi proje yönetim araçlarının seçimi ve kullanımı, takımın proje takibini kolaylaştırdı.
 - Üyelerin tecrübelerine göre yapılan rol dağılımları, işlerin verimli bir şekilde ilerlemesini sağladı.
