@@ -70,7 +70,7 @@
 - **Tasarım Grubu Üyeleri**: Damla
 ![image](https://github.com/user-attachments/assets/853710e0-e6d4-4bdf-8bf8-80fe572260ab)
 ![image](https://github.com/user-attachments/assets/ee0ca2d6-bc1b-49d5-a326-6d8e008c4e0c)
-**Daily Scrum**: ![image](https://github.com/user-attachments/assets/f0289ccf-0d0a-407e-aa8a-304e095b4f15)
+**Daily Scrum**: ![image](https://github.com/user-attachments/assets/818503b3-7f53-49fe-a4cc-5923dca417c9)
                  ![image](https://github.com/user-attachments/assets/e040004e-8279-433d-a896-9b7442463c78)
 
 
@@ -154,7 +154,6 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
   
 </details>
 <br>
-<details>
 ##SPRINT REVIEW
 
 ### Sprint Hedefleri
@@ -185,11 +184,11 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 - Trello'daki görevlerin düzenli olarak güncellenmesi ve takip edilmesi.
 - UI entegrasyonu ve 3 boyutlu modellemeler için ihtiyaç duyulan araç ve kaynakların belirlenmesi.
 
-</details>
+
 
 
 <br>
-<details>
+
   
 ##SPRINT RETROSPECTIVE
   
@@ -198,7 +197,7 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 - Takım üyeleri arasındaki iletişim ve işbirliği çok iyiydi. Toplantılar zamanında ve verimli geçti.
 - Acil durumlarda haberleşme için discord yerine whatsapp üzerinden haberleşilmesinin daha uygun olacağına karar verildi.
 - Ekip üyelerinin proje üzerinde çalışırken discord ses kanallarında bulunarak beraber çalışanların yardımlaşmasını kolaylaştırma kararı alındı
-</details>
+
   
 </details>
 
