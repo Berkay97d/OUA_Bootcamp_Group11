@@ -154,7 +154,7 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
   
 </details>
 <br>
-##SPRINT REVIEW
+## SPRINT REVIEW
 
 ### Sprint Hedefleri
 - Ekibin tanışması ve rol dağılımının yapılması
@@ -190,7 +190,7 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 <br>
 
   
-##SPRINT RETROSPECTIVE
+## SPRINT RETROSPECTIVE
   
 - Trello ve GitHub gibi proje yönetim araçlarının seçimi ve kullanımı, takımın proje takibini kolaylaştırdı.
 - Üyelerin tecrübelerine göre yapılan rol dağılımları, işlerin verimli bir şekilde ilerlemesini sağladı.
