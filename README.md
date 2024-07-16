@@ -153,7 +153,9 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 - Damla Yılmaz: 3 boyutlu modellerin oluşturulması
   
 </details>
+
 <br>
+
 ## SPRINT REVIEW
 
 ### Sprint Hedefleri
