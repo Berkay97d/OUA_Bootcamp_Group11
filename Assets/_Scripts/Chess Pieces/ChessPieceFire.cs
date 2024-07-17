@@ -17,8 +17,17 @@ namespace ChessPieces
 
         private void FixedUpdate()
         {
-           // transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * 10);
+            if(Input.GetMouseButtonDown(0))
+                Fire();
         }
 
+        public void Fire()
+        {
+            List<GridObject> attackTiles = _chessPiece.GetAttackPattern();
+            
+            for(int i = 0; i < attackTiles.Count; i++)
+                if(attackTiles[i].GetIsOccupied())
+                    Debug.Log("Chess Piece hit: " + attackTiles[i].GetGridPosition());
+        }
     }
 }
