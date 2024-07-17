@@ -62,7 +62,11 @@ namespace _Scripts.Grid_System
         /// </summary>
         public GridObject GetGridObject(GridPosition gridPosition)
         {
-            return m_gridObjects[gridPosition._x, gridPosition._z];
+            if(gridPosition._x >= 0 && gridPosition._x < 8 && gridPosition._z >= 0 && gridPosition._z < 8)
+                return m_gridObjects[gridPosition._x, gridPosition._z];
+            
+            else
+                return null;
         }
 
         /// <summary>
