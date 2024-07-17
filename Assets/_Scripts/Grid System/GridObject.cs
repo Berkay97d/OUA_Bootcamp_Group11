@@ -46,7 +46,19 @@ namespace _Scripts.Grid_System
 
         public List<GridObject> GetNeighboorGrids()
         {
-            return null;
+            var neighboorGrids = new List<GridObject>();
+            var initialPos = this.GetGridPosition();
+
+            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x - 1, initialPos._z + 1)));
+            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x, initialPos._z + 1)));
+            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x + 1, initialPos._z + 1)));
+            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x - 1, initialPos._z)));
+            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x + 1, initialPos._z)));
+            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x - 1, initialPos._z - 1)));
+            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x, initialPos._z - 1)));
+            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x + 1, initialPos._z - 1)));
+
+            return neighboorGrids;
         }
 
         public void SetIsOccupied(bool isOccupied)
