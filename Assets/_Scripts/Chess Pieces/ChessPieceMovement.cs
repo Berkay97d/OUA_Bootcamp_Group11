@@ -27,12 +27,13 @@ namespace ChessPieces
             var myGridObject = ChessGrid.GetGridSystem().GetGridObject(gridPos);
 
             var movableGrids = new List<GridObject>();
+            var neighboorGrids = myGridObject.GetNeighboorGrids();
 
-            for (int i = 0; i < myGridObject.GetNeighboorGrids().Count; i++)
+            for (int i = 0; i < neighboorGrids.Count; i++)
             {
-                if (!myGridObject.GetNeighboorGrids()[i].GetIsOccupied())
+                if (!neighboorGrids[i].GetIsOccupied())
                 {
-                    movableGrids.Add(myGridObject.GetNeighboorGrids()[i]);
+                    movableGrids.Add(neighboorGrids[i]);
                 }
             }
 
