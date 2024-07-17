@@ -14,7 +14,7 @@
   - Berke Parıldar - **DEVELOPER**
   - Bora Sevim - **DEVELOPER**
   - Dilara Çelen - **DEVELOPER**
-  ### Ürün İsmi: Project Chess
+  ### Ürün İsmi: Project Chess 
   
   ### Ürün Açıklaması:
   Tek başına kalmış bir kralın(şah) rakip askerlerden(satranç taşları)
