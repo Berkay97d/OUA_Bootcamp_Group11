@@ -17,7 +17,7 @@ namespace ChessPieces
 
         private void FixedUpdate()
         {
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetKeyDown(KeyCode.F))
                 Fire();
         }
 
