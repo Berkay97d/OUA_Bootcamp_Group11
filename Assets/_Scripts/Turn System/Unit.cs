@@ -31,6 +31,7 @@ namespace TurnSystem
 
         private void Update()
         {
+            m_myGridPosition = new GridPosition((int)transform.position.x, (int)transform.position.z);
             if (_hasTurn)
             {
                 var currentXPos = transform.position.x;
