@@ -44,8 +44,11 @@ namespace ChessPieces
             
             if(_movableGrids.Contains(gridObject))
             {
-                m_gridSystem.GetGridObject(_chessPiece.GetGridPosition()).SetIsOccupied(false);
-                var movedPosition = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
+                GridObject prevGridObject = m_gridSystem.GetGridObject(_chessPiece.GetGridPosition());
+                if(prevGridObject.GetVisitCount() < 2)
+                    prevGridObject.SetIsOccupied(false);
+                
+                Vector3 movedPosition = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
                 transform.position = movedPosition;
                 gridObject.SetIsOccupied(true);
             }
