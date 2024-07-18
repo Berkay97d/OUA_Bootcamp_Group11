@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Scripts.Grid_System;
+using TurnSystem;
 using UnityEngine;
 
 namespace ChessPieces
@@ -8,25 +9,30 @@ namespace ChessPieces
     public class ChessPieceMovement : MonoBehaviour
     {
         private ChessPiece _chessPiece;
-        private Vector3 desiredPosition;
+        private GridSystem m_gridSystem;
 
-
-        private void Awake()
+        private void Start()
         {
             _chessPiece = GetComponent<ChessPiece>();
+            m_gridSystem = ChessGrid.GetGridSystem();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-           // transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * 10);
+            if(Input.GetMouseButtonDown(0))
+            {
+                GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
+                Debug.Log(selectedGridObject.GetGridPosition());
+                MoveTo(selectedGridObject);
+            }
         }
 
         public List<GridObject> GetMovableGrids()
         {
-            var gridPos = _chessPiece.GetGridPosition();
-            var myGridObject = ChessGrid.GetGridSystem().GetGridObject(gridPos);
+            GridPosition gridPos = _chessPiece.GetGridPosition();
+            GridObject myGridObject = m_gridSystem.GetGridObject(gridPos);
 
-            var movableGrids = new List<GridObject>();
+            List<GridObject> movableGrids = new List<GridObject>();
             var neighboorGrids = myGridObject.GetNeighboorGrids();
 
             for (int i = 0; i < neighboorGrids.Count; i++)
@@ -40,17 +46,19 @@ namespace ChessPieces
             return movableGrids;
         }
         
-        public static bool MoveTo(GridObject gridObject)
+        public void MoveTo(GridObject gridObject)
         {
-            return false;
-        }
-        
-        
-        public virtual void SetPosition(Vector3 position, bool force = false)
-        {
-            desiredPosition = position;
-            if (force)
-                transform.position = desiredPosition;
+            var _movableGrids = GetMovableGrids();
+            
+            if(_movableGrids.Contains(gridObject))
+            {
+                m_gridSystem.GetGridObject(_chessPiece.GetGridPosition()).SetIsOccupied(false);
+                var movedPosition = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
+                transform.position = movedPosition;
+                gridObject.SetIsOccupied(true);
+            }
+            else
+                Debug.Log("MOVE FAILED");
         }
     }
 }
