@@ -32,6 +32,10 @@ namespace TurnSystem
         private void Update()
         {
             m_myGridPosition = new GridPosition((int)transform.position.x, (int)transform.position.z);
+
+            if(_moveCount == 0)
+                EndTurn();
+
             if (_hasTurn)
             {
                 var currentXPos = transform.position.x;
@@ -101,5 +105,11 @@ namespace TurnSystem
         {
             transform.position = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(m_myGridPosition);
         }
+
+        public void ReduceMoveCount()
+        {
+            _moveCount--;
+        }
+
     }
 }

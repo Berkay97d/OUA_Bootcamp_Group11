@@ -51,6 +51,7 @@ namespace ChessPieces
                 Vector3 movedPosition = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
                 transform.position = movedPosition;
                 gridObject.SetIsOccupied(true);
+                _chessPiece.ReduceMoveCount();
             }
             else
                 Debug.Log("MOVE FAILED");
