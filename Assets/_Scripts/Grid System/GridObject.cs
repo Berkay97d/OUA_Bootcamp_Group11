@@ -17,8 +17,8 @@ namespace _Scripts.Grid_System
         private readonly GridPosition m_gridPosition;
         private bool m_isSelected;
         private bool m_isOccupied = false;
-        
-        
+        private int m_visitCount = 0;
+
         public GridObject(GridSystem gridSystem, GridPosition gridPosition)
         {
             m_gridSystem = gridSystem;
@@ -65,6 +65,8 @@ namespace _Scripts.Grid_System
         public void SetIsOccupied(bool isOccupied)
         {
             m_isOccupied = isOccupied;
+            if(isOccupied)
+                m_visitCount++;
         }
 
         public bool GetIsOccupied()
@@ -77,7 +79,10 @@ namespace _Scripts.Grid_System
             return m_isSelected;
         }
 
-        
+        public int GetVisitCount()
+        {
+            return m_visitCount;
+        }
         
     }
 }
