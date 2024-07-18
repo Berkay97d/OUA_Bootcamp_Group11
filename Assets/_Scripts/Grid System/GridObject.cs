@@ -16,7 +16,7 @@ namespace _Scripts.Grid_System
         private readonly GridSystem m_gridSystem;
         private readonly GridPosition m_gridPosition;
         private bool m_isSelected;
-        private bool m_isOccupied;
+        private bool m_isOccupied = false;
         
         
         public GridObject(GridSystem gridSystem, GridPosition gridPosition)
@@ -47,16 +47,17 @@ namespace _Scripts.Grid_System
         public List<GridObject> GetNeighboorGrids()
         {
             var neighboorGrids = new List<GridObject>();
-            var initialPos = this.GetGridPosition();
+            var initialPos = GetGridPosition();
 
-            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x - 1, initialPos._z + 1)));
-            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x, initialPos._z + 1)));
-            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x + 1, initialPos._z + 1)));
-            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x - 1, initialPos._z)));
-            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x + 1, initialPos._z)));
-            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x - 1, initialPos._z - 1)));
-            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x, initialPos._z - 1)));
-            neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(initialPos._x + 1, initialPos._z - 1)));
+            for(int x = initialPos._x - 1; x <= initialPos._x + 1; x++)
+            {
+                for(int z = initialPos._z - 1; z <= initialPos._z + 1;  z++)
+                {
+                    if(x >= 0 && x < 8 && z >= 0 && z < 8)
+                        neighboorGrids.Add(m_gridSystem.GetGridObject(new GridPosition(x, z)));
+                }
+            }
+            neighboorGrids.Remove(m_gridSystem.GetGridObject(new GridPosition(initialPos._x, initialPos._z)));
 
             return neighboorGrids;
         }
