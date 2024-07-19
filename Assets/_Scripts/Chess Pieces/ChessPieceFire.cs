@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Scripts.Grid_System;
+using InputSystem;
 using UnityEngine;
 
 namespace ChessPieces
@@ -10,18 +11,13 @@ namespace ChessPieces
         private ChessPiece _chessPiece;
 
 
-        private void Awake()
+        private void Start()
         {
             _chessPiece = GetComponent<ChessPiece>();
+            GameInput.m_instance.OnFireInput += Fire;
         }
 
-        private void FixedUpdate()
-        {
-            if(Input.GetKeyDown(KeyCode.F))
-                Fire();
-        }
-
-        public void Fire()
+        private void Fire()
         {
             List<GridObject> attackTiles = _chessPiece.GetAttackPattern();
             

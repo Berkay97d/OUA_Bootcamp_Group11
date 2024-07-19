@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Grid_System;
+using InputSystem;
 using TurnSystem;
 using UnityEngine;
 
@@ -16,7 +17,13 @@ namespace ChessPieces
         {
             _chessPiece = GetComponent<ChessPiece>();
             m_gridSystem = ChessGrid.GetGridSystem();
-            StartCoroutine(HandleMouseClick());
+            GameInput.m_instance.OnMoveInput += Movement;
+        }
+
+        private void Movement()
+        {
+            GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
+            MoveTo(selectedGridObject);
         }
 
         public List<GridObject> GetMovableGrids()
@@ -57,12 +64,5 @@ namespace ChessPieces
                 Debug.Log("MOVE FAILED");
         }
 
-        private IEnumerator HandleMouseClick()
-        {
-            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-            GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
-            MoveTo(selectedGridObject);
-            StartCoroutine(HandleMouseClick());
-        }
     }
 }
