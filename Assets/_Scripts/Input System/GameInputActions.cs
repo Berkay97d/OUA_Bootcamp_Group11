@@ -508,8 +508,8 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""433a2947-676f-458f-b7ea-00f154967cb7"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""c62c8c91-d22c-46fc-8bcc-68b852552fc4"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
