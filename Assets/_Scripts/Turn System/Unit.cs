@@ -117,5 +117,10 @@ namespace TurnSystem
             zPos = (int) movePos.z;
         }
 
+        public bool GetTurn()
+        {
+            return _hasTurn;
+        }
+
     }
 }

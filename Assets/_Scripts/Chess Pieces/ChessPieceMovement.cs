@@ -22,8 +22,11 @@ namespace ChessPieces
 
         private void Movement()
         {
+            if(_chessPiece.GetTurn())
+            {
             GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
             MoveTo(selectedGridObject);
+            }
         }
 
         public List<GridObject> GetMovableGrids()
