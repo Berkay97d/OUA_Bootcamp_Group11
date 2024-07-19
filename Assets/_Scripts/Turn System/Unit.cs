@@ -31,7 +31,7 @@ namespace TurnSystem
 
         private void Update()
         {
-            m_myGridPosition = new GridPosition((int)transform.position.x, (int)transform.position.z);
+            m_myGridPosition = new GridPosition(xPos, zPos);
 
             if(_moveCount == 0)
                 EndTurn();
@@ -109,6 +109,12 @@ namespace TurnSystem
         public void ReduceMoveCount()
         {
             _moveCount--;
+        }
+
+        public void SetPosition(Vector3 movePos)
+        {
+            xPos = (int) movePos.x;
+            zPos = (int) movePos.z;
         }
 
     }

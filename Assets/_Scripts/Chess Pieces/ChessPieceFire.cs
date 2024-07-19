@@ -10,7 +10,6 @@ namespace ChessPieces
     {
         private ChessPiece _chessPiece;
 
-
         private void Start()
         {
             _chessPiece = GetComponent<ChessPiece>();
