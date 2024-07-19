@@ -5,6 +5,7 @@ namespace InputSystem
 {
     public class GameInput : MonoBehaviour
     {
+        public static GameInput m_instance;
         public event Action OnMoveInput; //THIS EVENT SHOULD BE LISTENED FOR MOVEMENT ACTION
         public event Action OnFireInput; //THIS EVENT SHOULD BE LISTENED FOR FİRE ACTION
         
@@ -14,6 +15,7 @@ namespace InputSystem
         private void Awake()
         {
             m_gameInputActions = new GameInputActions();
+            m_instance = this;
         }
 
         private void OnEnable()
