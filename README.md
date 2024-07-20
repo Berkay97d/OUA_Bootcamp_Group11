@@ -213,6 +213,9 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 - **Puan tamamlama mantığı**: Proje boyunca tamamlanması gereken backlog puanı 179'dur. İkinci Sprint için bitirilmesi istenilen puan sayısı 68 olarak belirlenmiştir ve hedefe ulaşılmıştır.
 - **Daily Scrum**: Discord üzerinden kısa toplantılar halinde sağlanmıştır.  
 - **Katılımcılar**: Berkay,Berke,Bora,Dilara,Damla
+  ![image](https://github.com/user-attachments/assets/a27186ad-80ce-4165-835b-4c2731ce41a5)
+  ![image](https://github.com/user-attachments/assets/e484316d-7125-437c-a1b1-4c21f4b8cd00)
+<br>
 **Daily Scrum**: ![image](https://github.com/user-attachments/assets/501fa6c8-0ba4-451d-9a12-e64a25a80e2a)
                  ![image](https://github.com/user-attachments/assets/734b2f56-94ac-43f8-b980-ef4f63c20828)
                  ![image](https://github.com/user-attachments/assets/9245377d-997d-4091-919a-c6ca3890d054)
