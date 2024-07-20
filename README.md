@@ -217,14 +217,14 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 - **Katılımcılar**: Berkay,Berke,Bora,Dilara,Damla
   ![image](https://github.com/user-attachments/assets/a27186ad-80ce-4165-835b-4c2731ce41a5)
   ![image](https://github.com/user-attachments/assets/e484316d-7125-437c-a1b1-4c21f4b8cd00)
-<br>
-**Daily Scrum**:
+
+- **Daily Scrum**:
 ![image](https://github.com/user-attachments/assets/501fa6c8-0ba4-451d-9a12-e64a25a80e2a)
 ![image](https://github.com/user-attachments/assets/734b2f56-94ac-43f8-b980-ef4f63c20828)
 ![image](https://github.com/user-attachments/assets/9245377d-997d-4091-919a-c6ca3890d054)
 ![image](https://github.com/user-attachments/assets/1b73c38b-b9f4-4676-aa48-aa42ec3ea2f3)
-  <br>
-**GÖRSELLER** :
+ 
+- **GÖRSELLER** :
 ![image](https://github.com/user-attachments/assets/74937aef-8ffd-4b2e-b29b-00629d32acab)
 ![image](https://github.com/user-attachments/assets/4501f888-b08b-4e3c-a6c8-4b3a44fc0ca5)
 ![image](https://github.com/user-attachments/assets/8cb23f43-9bf6-4fcc-8d29-833b9a211aac)
