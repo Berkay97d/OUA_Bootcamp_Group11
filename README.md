@@ -62,13 +62,14 @@
 <details>
   <summary>SPRINT 1 (11.06 - 07.07)</summary>
 
-- Sprint içi puan değerlendirmesi 21 olarak belirlenmiştir.
-- **Puan tamamlama mantığı**: Proje boyunca tamamlanması gereken backlog puanı 167'dir. İlk Sprint için bitirilmesi istenilen puan sayısı 21 olarak belirlenmiştir (her bir task a ait task ın tamamlanması için ihtiyaç olunan süre(EP) fibonacchi dizilimi baz alınarak puanlandı) ve hedefe ulaşılmıştır.
+- Sprint içi puan değerlendirmesi 21 olarak belirlenmiştir,ilk sprint daha çok oyun üzerine fikir paylaşımı ve tanışma ile geçirildiğinden puan düşük tutulmuştur.
+- **Puan tamamlama mantığı**: Proje boyunca tamamlanması gereken backlog puanı 179'dur. İlk Sprint için bitirilmesi istenilen puan sayısı 21 olarak belirlenmiştir (her bir task a ait task ın tamamlanması için ihtiyaç olunan süre(EP) fibonacchi dizilimi baz alınarak puanlandı) ve hedefe ulaşılmıştır.
 - **Daily Scrum**: Discord üzerinden görüşmeler sağlanmıştır.Bilgi akışı sağlamak ve bilgileri düzenli depolamak için çeşitli kanallar açılmıştır.
   
 - **Kod Grubu Üyeleri**: Berkay,Berke,Bora,Dilara
 - **Tasarım Grubu Üyeleri**: Damla
-![image](https://github.com/user-attachments/assets/853710e0-e6d4-4bdf-8bf8-80fe572260ab)
+
+![image](https://github.com/user-attachments/assets/8f528fdd-57ad-4a44-ace5-8c458b33d318)
 ![image](https://github.com/user-attachments/assets/ee0ca2d6-bc1b-49d5-a326-6d8e008c4e0c)
 **Daily Scrum**: ![image](https://github.com/user-attachments/assets/818503b3-7f53-49fe-a4cc-5923dca417c9)
                  ![image](https://github.com/user-attachments/assets/e040004e-8279-433d-a896-9b7442463c78)
@@ -207,5 +208,58 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 
 <details>
   <summary>SPRINT 2 (08.07 - 21.07)</summary>
+  
+- Sprint içi puan değerlendirmesi 68 olarak belirlenmiştir.
+- **Puan tamamlama mantığı**: Proje boyunca tamamlanması gereken backlog puanı 179'dur. İkinci Sprint için bitirilmesi istenilen puan sayısı 68 olarak belirlenmiştir ve hedefe ulaşılmıştır.
+- **Daily Scrum**: Discord üzerinden kısa toplantılar halinde sağlanmıştır.  
+- **Katılımcılar**: Berkay,Berke,Bora,Dilara,Damla
+**Daily Scrum**: ![image](https://github.com/user-attachments/assets/501fa6c8-0ba4-451d-9a12-e64a25a80e2a)
+                 ![image](https://github.com/user-attachments/assets/734b2f56-94ac-43f8-b980-ef4f63c20828)
+                 ![image](https://github.com/user-attachments/assets/9245377d-997d-4091-919a-c6ca3890d054)
+                 ![image](https://github.com/user-attachments/assets/1b73c38b-b9f4-4676-aa48-aa42ec3ea2f3)
+**GÖRSELLER** :  ![Ekran görüntüsü 2024-07-18 204625](https://github.com/user-attachments/assets/63b5e908-47c1-441e-b08e-9ddce9da22c8)
+                 ![Ekran görüntüsü 2024-07-18 204728](https://github.com/user-attachments/assets/f699b447-75a8-41ff-a3d7-f5b1d1118d3d)
+                 ![image](https://github.com/user-attachments/assets/8cb23f43-9bf6-4fcc-8d29-833b9a211aac)
+
+
+
+## SPRINT REVIEW
+
+Bu sprintte, oyun mekanikleri, kullanıcı arayüzü (UI) güncellemeleri ve kod entegrasyonu üzerinde çalışıldı. Aşağıda sprint boyunca gerçekleştirilen başlıca çalışmalar ve iyileştirmeler yer almaktadır.
+
+## Sprint Hedefleri
+
+-Oyun tahtası tasarımı ve mekaniklerinin belirlenmesi
+-Kod entegrasyonunda karşılaşılan bugların çözülmesi
+-Taşların hareket ve ateş etme mekaniklerinin geliştirilmesi
+-UI tasarımı ve işlevselliğinin güncellenmesi
+
+## Tamamlanan İşler
+-Board tasarımı tamamlandı ve nihai tasarım onaylandı.
+-Bora ve Berkay’ın kodları başarıyla birleştirildi ve mevcut buglar çözüldü.
+-Taşların hareket etme ve ateş etme mekanikleri geliştirildi.
+-Şah’ın hareket ve özel hamlesi üzerinde karar verildi.
+-UI'de "Ateş Et" ve "Hareket Et" butonları eklenecek ve Fire butonuna ilişkin işlevler belirlendi.
+
+## Geri Bildirim ve Tartışmalar
+Oyun Mekanikleri: Taşların hareket etme ve ateş etme mekaniklerinde yapılan değişiklikler tartışıldı ve onaylandı.
+3D Modeller: 3D modellerde alternatif seçenekler değerlendirildi ve nihai tasarım yönünde görüş birliğine varıldı.
+UI Güncellemeleri: UI üzerindeki yeni buton işlevleri ve tasarımı hakkında öneriler alındı ve uygulama planları yapıldı.
+
+  <br>
+  
+## SPRINT RETROSPECTIVE
+
+
+ -Board tasarımı hakkında yapılan tartışmalar verimli geçti ve nihai tasarım kararı alındı.
+ -Bora ve Berkay’ın yazdığı kodlar başarıyla birleştirildi ve buglar çözüldü.
+ -Taşların hareket etme ve ateş etme mekanikleri üzerine yapılan çalışmalar tamamlandı.
+ -Şah’ın board üzerinde ulaşacağı hedef nokta olarak son sıranın belirlenmesi ve iterasyon sıfırlandığında eski pozisyona dönme kararı alındı.
+ -Ateş et ve hareket et butonları eklenecek ve Fire butonuna ilişkin işlevler belirlendi.
+ -Hamle defteri için yapılan kod düzenlemeleri ve kodların mergelenmesi işlemleri tamamlandı.
+ -UI düzenlemeleri ve Fire butonunun işlevselliği için kapsamlı testler yapılacak.
+ -Kodların entegrasyonu sırasında yaşanan sorunları önlemek için kod inceleme süreçleri güçlendirilecek.
+
+Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve kod entegrasyonu süreçlerinde daha fazla iyileştirme ve düzenlemeler gerekmektedir.
   
 </details>
