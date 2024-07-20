@@ -18,11 +18,17 @@ namespace ChessPieces
 
         private void Fire()
         {
-            List<GridObject> attackTiles = _chessPiece.GetAttackPattern();
+            if (!_chessPiece.GetTurn()) return;
             
-            for(int i = 0; i < attackTiles.Count; i++)
-                if(attackTiles[i].GetIsOccupied())
-                    Debug.Log("Chess Piece hit: " + attackTiles[i].GetGridPosition());
+            List<GridObject> attackTiles = _chessPiece.GetAttackPattern();
+
+            for (int i = 0; i < attackTiles.Count; i++)
+            {
+                Debug.Log("Chess Piece hit: " + attackTiles[i].GetGridPosition());
+            }
+            
+            _chessPiece.EndTurn();
+                    
         }
     }
 }

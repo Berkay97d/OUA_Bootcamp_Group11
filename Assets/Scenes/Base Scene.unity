@@ -691,6 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _demoSpawner: {fileID: 210474327}
+  _hasCompleted: 0
 --- !u!4 &861225557
 Transform:
   m_ObjectHideFlags: 0

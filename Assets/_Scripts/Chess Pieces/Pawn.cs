@@ -9,11 +9,12 @@ namespace ChessPieces
     {
         public override List<GridObject> GetAttackPattern()
         {
+            Debug.Log("ATTACK PARTTERN GELDİ PAWN");
+            
             List<GridObject> attackTiles = new List<GridObject>();
 
             var piecePos = this.GetGridPosition();
-            var _gridObject = m_gridSystem.GetGridObject(piecePos);
-
+            
             attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(piecePos._x + 1, piecePos._z + 1)));
             attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(piecePos._x - 1, piecePos._z + 1)));
             

@@ -33,35 +33,8 @@ namespace TurnSystem
         {
             m_myGridPosition = new GridPosition(xPos, zPos);
 
-            if(_moveCount == 0)
-                EndTurn();
-
-            if (_hasTurn)
+            if (_hasTurn && _moveCount >0)
             {
-                var currentXPos = transform.position.x;
-                var currentZPos = transform.position.z;
-                var currentYPos = transform.position.y;
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    transform.position = new Vector3(currentXPos, currentYPos, currentZPos + 1);
-                    _moveCount -= 1;
-                }
-                else if (Input.GetKeyDown(KeyCode.A)) 
-                {
-                    transform.position = new Vector3(currentXPos - 1, currentYPos, currentZPos);
-                    _moveCount -= 1;
-                }
-                else if (Input.GetKeyDown(KeyCode.D))
-                {
-                    transform.position = new Vector3(currentXPos + 1, currentYPos, currentZPos);
-                    _moveCount -= 1;
-                }
-                else if (Input.GetKeyDown(KeyCode.S))
-                {
-                    transform.position = new Vector3(currentXPos, currentYPos, currentZPos - 1);
-                    _moveCount -= 1;
-                }
-
                 if (_moveCount == 0)
                 {
                     EndTurn();
@@ -105,12 +78,7 @@ namespace TurnSystem
         {
             transform.position = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(m_myGridPosition);
         }
-
-        public void ReduceMoveCount()
-        {
-            _moveCount--;
-        }
-
+        
         public void SetPosition(Vector3 movePos)
         {
             xPos = (int) movePos.x;

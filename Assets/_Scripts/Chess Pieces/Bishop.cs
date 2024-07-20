@@ -9,6 +9,8 @@ namespace ChessPieces
     {
         public override List<GridObject> GetAttackPattern()
         {
+            Debug.Log("ATTACK PARTTERN GELDİ BISHOP");
+            
             List<GridObject> attackTiles = new List<GridObject>();
 
             var piecePos = this.GetGridPosition();

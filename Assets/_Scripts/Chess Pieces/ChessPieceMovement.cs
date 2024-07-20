@@ -13,6 +13,10 @@ namespace ChessPieces
         private ChessPiece _chessPiece;
         private GridSystem m_gridSystem;
 
+        public static event Action<ChessPiece, GridObject, GridObject> OnChessPieceMove; 
+
+        public static event Action OnKingWin; 
+
         private void Start()
         {
             _chessPiece = GetComponent<ChessPiece>();
@@ -24,8 +28,8 @@ namespace ChessPieces
         {
             if(_chessPiece.GetTurn())
             {
-            GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
-            MoveTo(selectedGridObject);
+                GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
+                MoveTo(selectedGridObject);
             }
         }
 
@@ -59,9 +63,18 @@ namespace ChessPieces
                     prevGridObject.SetIsOccupied(false);
                 
                 Vector3 movedPosition = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
+                var movedGridPosition = m_gridSystem.GetGridPositionFromWorldPosition(movedPosition);
+                var movedGridObject = m_gridSystem.GetGridObject(movedGridPosition);
                 _chessPiece.SetPosition(movedPosition);
                 gridObject.SetIsOccupied(true);
-                _chessPiece.ReduceMoveCount();
+
+                if (_chessPiece is King && movedGridPosition._z == 7)
+                {
+                    OnKingWin?.Invoke();
+                }
+                
+                OnChessPieceMove?.Invoke(_chessPiece, prevGridObject, movedGridObject);
+                _chessPiece.EndTurn();
             }
             else
                 Debug.Log("MOVE FAILED");
