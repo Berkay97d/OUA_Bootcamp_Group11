@@ -220,8 +220,9 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
                  ![image](https://github.com/user-attachments/assets/734b2f56-94ac-43f8-b980-ef4f63c20828)
                  ![image](https://github.com/user-attachments/assets/9245377d-997d-4091-919a-c6ca3890d054)
                  ![image](https://github.com/user-attachments/assets/1b73c38b-b9f4-4676-aa48-aa42ec3ea2f3)
-**GÖRSELLER** :  ![Ekran görüntüsü 2024-07-18 204625](https://github.com/user-attachments/assets/63b5e908-47c1-441e-b08e-9ddce9da22c8)
-                 ![Ekran görüntüsü 2024-07-18 204728](https://github.com/user-attachments/assets/f699b447-75a8-41ff-a3d7-f5b1d1118d3d)
+  <br>
+**GÖRSELLER** :  ![image](https://github.com/user-attachments/assets/63b5e908-47c1-441e-b08e-9ddce9da22c8)
+                 ![image](https://github.com/user-attachments/assets/f699b447-75a8-41ff-a3d7-f5b1d1118d3d)
                  ![image](https://github.com/user-attachments/assets/8cb23f43-9bf6-4fcc-8d29-833b9a211aac)
 
 
