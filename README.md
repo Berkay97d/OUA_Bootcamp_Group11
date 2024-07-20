@@ -235,38 +235,38 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
 
 Bu sprintte, oyun mekanikleri, kullanıcı arayüzü (UI) güncellemeleri ve kod entegrasyonu üzerinde çalışıldı. Aşağıda sprint boyunca gerçekleştirilen başlıca çalışmalar ve iyileştirmeler yer almaktadır.
 
-## Sprint Hedefleri
+### Sprint Hedefleri
 
--Oyun tahtası tasarımı ve mekaniklerinin belirlenmesi
--Kod entegrasyonunda karşılaşılan bugların çözülmesi
--Taşların hareket ve ateş etme mekaniklerinin geliştirilmesi
--UI tasarımı ve işlevselliğinin güncellenmesi
+- Oyun tahtası tasarımı ve mekaniklerinin belirlenmesi
+- Kod entegrasyonunda karşılaşılan bugların çözülmesi
+- Taşların hareket ve ateş etme mekaniklerinin geliştirilmesi
+- UI tasarımı ve işlevselliğinin güncellenmesi
 
-## Tamamlanan İşler
--Board tasarımı tamamlandı ve nihai tasarım onaylandı.
--Bora ve Berkay’ın kodları başarıyla birleştirildi ve mevcut buglar çözüldü.
--Taşların hareket etme ve ateş etme mekanikleri geliştirildi.
--Şah’ın hareket ve özel hamlesi üzerinde karar verildi.
--UI'de "Ateş Et" ve "Hareket Et" butonları eklenecek ve Fire butonuna ilişkin işlevler belirlendi.
+### Tamamlanan İşler
+- Board tasarımı tamamlandı ve nihai tasarım onaylandı.
+- Bora ve Berkay’ın kodları başarıyla birleştirildi ve mevcut buglar çözüldü.
+- Taşların hareket etme ve ateş etme mekanikleri geliştirildi.
+- Şah’ın hareket ve özel hamlesi üzerinde karar verildi.
+- UI'de "Ateş Et" ve "Hareket Et" butonları eklenecek ve Fire butonuna ilişkin işlevler belirlendi.
 
-## Geri Bildirim ve Tartışmalar
-Oyun Mekanikleri: Taşların hareket etme ve ateş etme mekaniklerinde yapılan değişiklikler tartışıldı ve onaylandı.
-3D Modeller: 3D modellerde alternatif seçenekler değerlendirildi ve nihai tasarım yönünde görüş birliğine varıldı.
-UI Güncellemeleri: UI üzerindeki yeni buton işlevleri ve tasarımı hakkında öneriler alındı ve uygulama planları yapıldı.
+### Geri Bildirim ve Tartışmalar
+- Oyun Mekanikleri: Taşların hareket etme ve ateş etme mekaniklerinde yapılan değişiklikler tartışıldı ve onaylandı.
+- 3D Modeller: 3D modellerde alternatif seçenekler değerlendirildi ve nihai tasarım yönünde görüş birliğine varıldı.
+- UI Güncellemeleri: UI üzerindeki yeni buton işlevleri ve tasarımı hakkında öneriler alındı ve uygulama planları yapıldı.
 
   <br>
   
 ## SPRINT RETROSPECTIVE
 
 
- -Board tasarımı hakkında yapılan tartışmalar verimli geçti ve nihai tasarım kararı alındı.
- -Bora ve Berkay’ın yazdığı kodlar başarıyla birleştirildi ve buglar çözüldü.
- -Taşların hareket etme ve ateş etme mekanikleri üzerine yapılan çalışmalar tamamlandı.
- -Şah’ın board üzerinde ulaşacağı hedef nokta olarak son sıranın belirlenmesi ve iterasyon sıfırlandığında eski pozisyona dönme kararı alındı.
- -Ateş et ve hareket et butonları eklenecek ve Fire butonuna ilişkin işlevler belirlendi.
- -Hamle defteri için yapılan kod düzenlemeleri ve kodların mergelenmesi işlemleri tamamlandı.
- -UI düzenlemeleri ve Fire butonunun işlevselliği için kapsamlı testler yapılacak.
- -Kodların entegrasyonu sırasında yaşanan sorunları önlemek için kod inceleme süreçleri güçlendirilecek.
+ - Board tasarımı hakkında yapılan tartışmalar verimli geçti ve nihai tasarım kararı alındı.
+ - Bora ve Berkay’ın yazdığı kodlar başarıyla birleştirildi ve buglar çözüldü.
+ - Taşların hareket etme ve ateş etme mekanikleri üzerine yapılan çalışmalar tamamlandı.
+ - Şah’ın board üzerinde ulaşacağı hedef nokta olarak son sıranın belirlenmesi ve iterasyon sıfırlandığında eski pozisyona dönme kararı alındı.
+ - Ateş et ve hareket et butonları eklenecek ve Fire butonuna ilişkin işlevler belirlendi.
+ - Hamle defteri için yapılan kod düzenlemeleri ve kodların mergelenmesi işlemleri tamamlandı.
+ - UI düzenlemeleri ve Fire butonunun işlevselliği için kapsamlı testler yapılacak.
+ - Kodların entegrasyonu sırasında yaşanan sorunları önlemek için kod inceleme süreçleri güçlendirilecek.
 
 Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve kod entegrasyonu süreçlerinde daha fazla iyileştirme ve düzenlemeler gerekmektedir.
   
