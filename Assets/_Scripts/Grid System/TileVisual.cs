@@ -32,11 +32,11 @@ namespace _Scripts.Grid_System
             HighlightActions.OnRemoveHighlightTiles += RemoveHighlightTiles;
         }
 
-        private void HighlightTiles(List<GridObject> gridObjects)
+        private void HighlightTiles(List<GridObject> gridObjects, Color highlightColor)
         {
             if (gridObjects.Contains(m_myGridObject))
             {
-                GetComponent<MeshRenderer>().material.color = Color.green;
+                GetComponent<MeshRenderer>().material.color = highlightColor;
             }
         }
 
