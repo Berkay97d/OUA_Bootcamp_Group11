@@ -10,8 +10,8 @@ namespace ChessPieces
 {
     public class ChessPieceMovement : MonoBehaviour
     {
-        private ChessPiece _chessPiece;
-        private GridSystem m_gridSystem;
+        private static ChessPiece _chessPiece;
+        private static GridSystem m_gridSystem;
 
         public static event Action<ChessPiece, GridObject, GridObject> OnChessPieceMove; 
 
@@ -32,29 +32,11 @@ namespace ChessPieces
                 MoveTo(selectedGridObject);
             }
         }
-
-        public List<GridObject> GetMovableGrids()
-        {
-            GridPosition gridPos = _chessPiece.GetGridPosition();
-            GridObject myGridObject = m_gridSystem.GetGridObject(gridPos);
-
-            List<GridObject> movableGrids = new List<GridObject>();
-            var neighboorGrids = myGridObject.GetNeighboorGrids();
-
-            for (int i = 0; i < neighboorGrids.Count; i++)
-            {
-                if (!neighboorGrids[i].GetIsOccupied() && !neighboorGrids[i].GetIsBroken())
-                {
-                    movableGrids.Add(neighboorGrids[i]);
-                }
-            }
-
-            return movableGrids;
-        }
         
         public void MoveTo(GridObject gridObject)
         {
-            var _movableGrids = GetMovableGrids();
+            var currentGridObject = m_gridSystem.GetGridObject(_chessPiece.GetGridPosition());
+            var _movableGrids = currentGridObject.GetMovableGrids();
             
             if(_movableGrids.Contains(gridObject))
             {

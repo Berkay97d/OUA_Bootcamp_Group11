@@ -63,6 +63,22 @@ namespace _Scripts.Grid_System
             return neighboorGrids;
         }
 
+        public List<GridObject> GetMovableGrids()
+        {
+            List<GridObject> movableGrids = new List<GridObject>();
+            var neighboorGrids = GetNeighboorGrids();
+
+            for (int i = 0; i < neighboorGrids.Count; i++)
+            {
+                if (!neighboorGrids[i].GetIsOccupied() && !neighboorGrids[i].GetIsBroken())
+                {
+                    movableGrids.Add(neighboorGrids[i]);
+                }
+            }
+
+            return movableGrids;
+        }
+
         public void SetIsOccupied(bool isOccupied)
         {
             m_isOccupied = isOccupied;
