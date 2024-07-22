@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -26,6 +27,25 @@ namespace _Scripts.Grid_System
             m_defaultScale = new Vector3(0.95f, m_myTile.GetThickness(), 0.95f);
             
             m_myGridObject.OnSelectedStatusChanged += OnSelectedStatusChanged;
+
+            HighlightActions.OnHighlightTiles += HighlightTiles;
+            HighlightActions.OnRemoveHighlightTiles += RemoveHighlightTiles;
+        }
+
+        private void HighlightTiles(List<GridObject> gridObjects)
+        {
+            if (gridObjects.Contains(m_myGridObject))
+            {
+                GetComponent<MeshRenderer>().material.color = Color.green;
+            }
+        }
+
+        private void RemoveHighlightTiles(List<GridObject> gridObjects)
+        {
+            if (gridObjects.Contains(m_myGridObject))
+            {
+                GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.5f);
+            }
         }
 
         private void OnDestroy()
