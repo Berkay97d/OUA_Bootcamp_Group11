@@ -43,7 +43,7 @@ namespace ChessPieces
 
             for (int i = 0; i < neighboorGrids.Count; i++)
             {
-                if (!neighboorGrids[i].GetIsOccupied())
+                if (!neighboorGrids[i].GetIsOccupied() && !neighboorGrids[i].GetIsBroken())
                 {
                     movableGrids.Add(neighboorGrids[i]);
                 }
@@ -59,8 +59,10 @@ namespace ChessPieces
             if(_movableGrids.Contains(gridObject))
             {
                 GridObject prevGridObject = m_gridSystem.GetGridObject(_chessPiece.GetGridPosition());
-                if(prevGridObject.GetVisitCount() < 2)
-                    prevGridObject.SetIsOccupied(false);
+                prevGridObject.SetIsOccupied(false);
+
+                if(prevGridObject.GetVisitCount() >= 2)
+                    prevGridObject.SetIsBroken(true);
                 
                 Vector3 movedPosition = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
                 var movedGridPosition = m_gridSystem.GetGridPositionFromWorldPosition(movedPosition);
