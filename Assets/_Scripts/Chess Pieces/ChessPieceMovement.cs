@@ -56,7 +56,7 @@ namespace ChessPieces
         {
             var _movableGrids = GetMovableGrids();
             
-            if(_movableGrids.Contains(gridObject))
+            if(_movableGrids.Contains(gridObject) && _chessPiece.GetTurn())
             {
                 GridObject prevGridObject = m_gridSystem.GetGridObject(_chessPiece.GetGridPosition());
                 if(prevGridObject.GetVisitCount() < 2)
@@ -68,17 +68,16 @@ namespace ChessPieces
                 _chessPiece.SetPosition(movedPosition);
                 gridObject.SetIsOccupied(true);
 
+                OnChessPieceMove?.Invoke(_chessPiece, prevGridObject, movedGridObject);
                 if (_chessPiece is King && movedGridPosition._z == 7)
                 {
                     OnKingWin?.Invoke();
                 }
-                
-                OnChessPieceMove?.Invoke(_chessPiece, prevGridObject, movedGridObject);
                 _chessPiece.EndTurn();
+                
             }
             else
                 Debug.Log("MOVE FAILED");
         }
-
     }
 }

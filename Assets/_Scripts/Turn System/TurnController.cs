@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts;
+using _Scripts.Grid_System;
+using ChessPieces;
 using UnityEngine;
 
 namespace TurnSystem
@@ -10,8 +13,8 @@ namespace TurnSystem
         public static TurnController SharedInstance { get; private set; }
         private List<Unit> _units = new();
         private int _currentUnitIndex = 0;
+        private bool _kingWon;
         [SerializeField] private DemoSpawnManager _demoSpawner;
-        [SerializeField] private bool _hasCompleted = true;
 
         private void Awake()
         {
@@ -40,6 +43,7 @@ namespace TurnSystem
 
         private void OnIterationCompleted()
         {
+            _kingWon = true;
             ResetIteration();
         }
 
@@ -51,22 +55,19 @@ namespace TurnSystem
 
         public void EndTurn()
         {
-            _currentUnitIndex++;
-            if (_currentUnitIndex < _units.Count)
+            if (!_kingWon)
             {
-                StartCoroutine(InnerRoutine());
-            }
-            else
-            {
-                if (_hasCompleted)
+                _currentUnitIndex++;
+                if (_currentUnitIndex < _units.Count)
                 {
-                    Debug.Log("Press space to reset iteration");
-                } else {
+                    StartCoroutine(InnerRoutine());
+                }
+                else 
+                {
                     _currentUnitIndex = 0;
                     StartCoroutine(InnerRoutine());
                 }
             }
-
             IEnumerator InnerRoutine()
             {
                 yield return new WaitForSeconds(0.5f);
@@ -87,6 +88,7 @@ namespace TurnSystem
                 yield return new WaitForSeconds(1);
                 Debug.Log("Turn is being assigned to king.");
                 _currentUnitIndex = 0;
+                _kingWon = false;
                 StartTurn();
             }
         }

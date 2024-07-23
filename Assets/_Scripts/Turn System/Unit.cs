@@ -12,12 +12,9 @@ namespace TurnSystem
         private GridPosition m_myGridPosition;
         private MeshRenderer _renderer;
         public Team team;
-
-        private int _moveCount;
         
         private void Awake()
         {
-            _moveCount = 5;
             m_myGridPosition = new GridPosition(xPos, zPos);
             _renderer = GetComponentInChildren<MeshRenderer>();
             if (team == Team.White)
@@ -32,28 +29,17 @@ namespace TurnSystem
         private void Update()
         {
             m_myGridPosition = new GridPosition(xPos, zPos);
-
-            if (_hasTurn && _moveCount >0)
-            {
-                if (_moveCount == 0)
-                {
-                    EndTurn();
-                }
-            }
         }
 
         public void TakeTurn()
         {
-            _moveCount = 5;
             _hasTurn = true;
-            Debug.Log("${name}'s turn.");
             _renderer.material.color = Color.red;
         }
 
         public void EndTurn()
         {
             _hasTurn = false;
-            Debug.Log("${name} ended its turn.");
             if (team == Team.White)
             {
                 _renderer.material.color = Color.white;
