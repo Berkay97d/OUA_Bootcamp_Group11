@@ -33,14 +33,14 @@ public class Settings : MonoBehaviour
         }
     }
 
-    public void OpenPanel() // setting paneli açar
+    public void OpenPanel() // Setting paneli açar
     {
         settingsPanel.SetActive(true); 
         oyunPanel.SetActive(false);
         Time.timeScale = 0f;
     }
 
-    public void ClosePanel() // setting paneli kapatýr
+    public void ClosePanel() // Setting paneli kapatýr
     {
         settingsPanel.SetActive(false);
         oyunPanel.SetActive(true);
