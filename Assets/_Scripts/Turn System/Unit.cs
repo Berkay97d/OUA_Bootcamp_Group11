@@ -22,19 +22,28 @@ namespace TurnSystem
             _rewindManager = GetComponent<UnitRewindManager>();
             _renderer = GetComponentInChildren<MeshRenderer>();
             GetComponent<ChessPieceVisual>().enabled = true;
-            UpdateTeamColors();
         }
 
         public void TakeTurn()
         {
             _hasTurn = true;
-            _renderer.material.color = Color.red;
+        }
+
+        private void Update()
+        {
+            if (_hasTurn)
+            {
+                _renderer.material.color = Color.red;
+            }
+            else 
+            {
+                UpdateTeamColors();
+            }
         }
 
         public void EndTurn()
         {
             _hasTurn = false;
-            UpdateTeamColors();
             TurnController.SharedInstance.EndTurn();
         }
 

@@ -12,9 +12,11 @@ namespace TurnSystem
     {
         public static TurnController SharedInstance { get; private set; }
         private readonly List<Unit> _units = new();
-        private int _currentUnitIndex = 0;
-        private bool _kingWon;
+        [SerializeField] private int _currentUnitIndex = 0;
+        [SerializeField] private bool _kingWon;
+        [SerializeField] private bool _isResettingTurn;
         [SerializeField] private DemoSpawnManager _demoSpawner;
+
 
         private void Awake()
         {
@@ -25,6 +27,14 @@ namespace TurnSystem
             else
             {
                 Destroy(gameObject);
+            }
+        }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.J))
+            {
+                OnTurnReset();
             }
         }
 
@@ -56,6 +66,22 @@ namespace TurnSystem
             }
         }
 
+        private void OnTurnReset()
+        {
+            StartCoroutine(InnerRoutine());
+            IEnumerator InnerRoutine()
+            {
+                _isResettingTurn = true;
+                _units[_currentUnitIndex].EndTurn();
+                yield return new WaitForSeconds(2f);
+                foreach (var unit in _units)
+                {
+                    unit.GetComponent<ChessPieceVisual>().enabled = false;
+                    unit.ReversePosition();
+                }
+            }
+        }
+
         public void StartTurn()
         {
             var currentUnit = _units[_currentUnitIndex];
@@ -64,7 +90,7 @@ namespace TurnSystem
 
         public void EndTurn()
         {
-            if (!_kingWon)
+            if (!_kingWon && !_isResettingTurn)
             {
                 _currentUnitIndex++;
                 if (_currentUnitIndex < _units.Count)
@@ -89,19 +115,23 @@ namespace TurnSystem
             StartCoroutine(InnerRoutine());
             IEnumerator InnerRoutine()
             {
-                var blackUnitPlayOrder = _units.Count;
-                var blackUnit = _demoSpawner.SpawnBlackUnit(blackUnitPlayOrder);
-                _units.Add(blackUnit);
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0.5f);
                 foreach (var unit in _units)
                 {
                     unit.ResetGridPosition();
                     unit.GetComponent<ChessPieceVisual>().enabled = true;
                 }
+                yield return new WaitForSeconds(0.5f);
                 _currentUnitIndex = 0;
-                _kingWon = false;
+                _isResettingTurn = false;
                 StartTurn();
             }
+        }
+
+        private void AddEnemyUnit()
+        {
+            var blackUnit = _demoSpawner.SpawnBlackUnit();
+            _units.Add(blackUnit);
         }
 
         public void UnitDidReset()
@@ -118,6 +148,11 @@ namespace TurnSystem
             if (allUnitsReset)
             {
                 ResetIteration();
+                if (_kingWon)
+                {
+                    AddEnemyUnit();
+                    _kingWon = false;
+                }
             }
         }
     }

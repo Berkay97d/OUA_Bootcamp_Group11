@@ -8,6 +8,7 @@ namespace TurnSystem
     {
         [SerializeField] private Unit _whiteKingPrefab;
         [SerializeField] private Unit[] _enemyUnity;
+        [SerializeField] private int _currentEnemyUnit = 0;
 
         public Unit SpawnKing()
         {
@@ -18,9 +19,10 @@ namespace TurnSystem
             return kingGameObject;
         }
 
-        public Unit SpawnBlackUnit(int playOrder)
+        public Unit SpawnBlackUnit()
         {
-            var spawnUnit = _enemyUnity[playOrder - 1];
+            var spawnUnit = _enemyUnity[_currentEnemyUnit];
+            _currentEnemyUnit++;
             var blackGameObject = Instantiate(spawnUnit, spawnUnit.GetSpawnPosition(), Quaternion.identity);
             blackGameObject.team = Team.Black;
             return blackGameObject;
