@@ -74,7 +74,7 @@ namespace TurnSystem
             m_myGridPosition = newPosition;
         }
 
-        public bool DidCompleteReverse() 
+        public bool DidCompleteRewind() 
         {
             return _rewindManager.GetPreviodGridCount() == 0;
         }

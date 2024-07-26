@@ -54,7 +54,7 @@ namespace TurnSystem
                 {
                     _positionIndex = -1;
                     _previousGrids.Clear();
-                    TurnController.SharedInstance.UnitDidReset();
+                    TurnController.SharedInstance.UnitsDidReset();
                 }
             });
         }

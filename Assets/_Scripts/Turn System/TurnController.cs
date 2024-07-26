@@ -134,12 +134,12 @@ namespace TurnSystem
             _units.Add(blackUnit);
         }
 
-        public void UnitDidReset()
+        public void UnitsDidReset()
         {
             var allUnitsReset = true;
             foreach (var unit in _units)
             {
-                if (!unit.DidCompleteReverse())
+                if (!unit.DidCompleteRewind())
                 {
                     allUnitsReset = false;
                 }
