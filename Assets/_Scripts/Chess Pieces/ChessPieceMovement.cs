@@ -65,7 +65,7 @@ namespace ChessPieces
                 Vector3 movedPosition = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
                 var movedGridPosition = m_gridSystem.GetGridPositionFromWorldPosition(movedPosition);
                 var movedGridObject = m_gridSystem.GetGridObject(movedGridPosition);
-                _chessPiece.SetPosition(movedPosition);
+                _chessPiece.SetPosition(movedGridPosition);
                 gridObject.SetIsOccupied(true);
 
                 OnChessPieceMove?.Invoke(_chessPiece, prevGridObject, movedGridObject);

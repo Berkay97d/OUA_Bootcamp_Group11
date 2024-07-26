@@ -13,25 +13,16 @@ namespace TurnSystem
         {
             var gridPosition = _whiteKingPrefab.GetGridPosition();
             var gridWorldPosition = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(gridPosition);
-            
             var kingGameObject = Instantiate(_whiteKingPrefab, gridWorldPosition, Quaternion.identity);
-            
             kingGameObject.team = Team.White;
-            kingGameObject.SetPlayOrder(0);
             return kingGameObject;
         }
 
         public Unit SpawnBlackUnit(int playOrder)
         {
             var spawnUnit = _enemyUnity[playOrder - 1];
-            var gridPosition = spawnUnit.GetGridPosition();
-            var gridWorldPosition = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(gridPosition);
-            
-            var blackGameObject = Instantiate(spawnUnit, gridWorldPosition, Quaternion.identity);
-            blackGameObject.MoveInitPositionInstant();
-            
+            var blackGameObject = Instantiate(spawnUnit, spawnUnit.GetSpawnPosition(), Quaternion.identity);
             blackGameObject.team = Team.Black;
-            blackGameObject.SetPlayOrder(playOrder);
             return blackGameObject;
         }
     }

@@ -1,34 +1,28 @@
+using System.Collections.Generic;
 using _Scripts.Grid_System;
+using ChessPieces;
+using DG.Tweening;
 using UnityEngine;
 
 namespace TurnSystem
 {
     public class Unit : MonoBehaviour
-    {       
+    {
         [SerializeField] private int xPos;
         [SerializeField] private int zPos;
-        private int _playOrder;
         private bool _hasTurn;
         private GridPosition m_myGridPosition;
         private MeshRenderer _renderer;
         public Team team;
-        
+        private UnitRewindManager _rewindManager;
+
         private void Awake()
         {
             m_myGridPosition = new GridPosition(xPos, zPos);
+            _rewindManager = GetComponent<UnitRewindManager>();
             _renderer = GetComponentInChildren<MeshRenderer>();
-            if (team == Team.White)
-            {
-                _renderer.material.color = Color.white;
-            } else 
-            {
-                _renderer.material.color = Color.black;
-            }
-        }
-
-        private void Update()
-        {
-            m_myGridPosition = new GridPosition(xPos, zPos);
+            GetComponent<ChessPieceVisual>().enabled = true;
+            UpdateTeamColors();
         }
 
         public void TakeTurn()
@@ -40,19 +34,13 @@ namespace TurnSystem
         public void EndTurn()
         {
             _hasTurn = false;
-            if (team == Team.White)
-            {
-                _renderer.material.color = Color.white;
-            } else 
-            {
-                _renderer.material.color = Color.black;
-            }
+            UpdateTeamColors();
             TurnController.SharedInstance.EndTurn();
         }
 
-        public void SetPlayOrder(int order)
+        public void ReversePosition()
         {
-            _playOrder = order;
+            _rewindManager.ReversePosition();
         }
 
         public GridPosition GetGridPosition()
@@ -60,15 +48,31 @@ namespace TurnSystem
             return m_myGridPosition;
         }
 
-        public void MoveInitPositionInstant()
+        private void UpdateTeamColors()
         {
-            transform.position = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(m_myGridPosition);
+            if (team == Team.White)
+            {
+                _renderer.material.color = Color.white;
+            }
+            else
+            {
+                _renderer.material.color = Color.black;
+            }
         }
-        
-        public void SetPosition(Vector3 movePos)
+
+        public void SetPosition(GridPosition newPosition)
         {
-            xPos = (int) movePos.x;
-            zPos = (int) movePos.z;
+            m_myGridPosition = newPosition;
+        }
+
+        public bool DidCompleteReverse() 
+        {
+            return _rewindManager.GetPreviodGridCount() == 0;
+        }
+
+        public void ResetGridPosition()
+        {
+            m_myGridPosition = new GridPosition(xPos, zPos);
         }
 
         public bool GetTurn()
@@ -76,5 +80,9 @@ namespace TurnSystem
             return _hasTurn;
         }
 
+        public Vector3 GetSpawnPosition()
+        {
+            return new Vector3(xPos, transform.position.y, zPos);
+        }
     }
 }

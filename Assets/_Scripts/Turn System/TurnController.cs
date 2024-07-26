@@ -11,7 +11,7 @@ namespace TurnSystem
     public class TurnController : MonoBehaviour
     {
         public static TurnController SharedInstance { get; private set; }
-        private List<Unit> _units = new();
+        private readonly List<Unit> _units = new();
         private int _currentUnitIndex = 0;
         private bool _kingWon;
         [SerializeField] private DemoSpawnManager _demoSpawner;
@@ -44,7 +44,16 @@ namespace TurnSystem
         private void OnIterationCompleted()
         {
             _kingWon = true;
-            ResetIteration();
+            StartCoroutine(InnerRoutine());
+            IEnumerator InnerRoutine()
+            {
+                yield return new WaitForSeconds(2f);
+                foreach (var unit in _units)
+                {
+                    unit.GetComponent<ChessPieceVisual>().enabled = false;
+                    unit.ReversePosition();
+                }
+            }
         }
 
         public void StartTurn()
@@ -62,7 +71,7 @@ namespace TurnSystem
                 {
                     StartCoroutine(InnerRoutine());
                 }
-                else 
+                else
                 {
                     _currentUnitIndex = 0;
                     StartCoroutine(InnerRoutine());
@@ -80,22 +89,36 @@ namespace TurnSystem
             StartCoroutine(InnerRoutine());
             IEnumerator InnerRoutine()
             {
-                Debug.Log("Adding a new unit.");
-                yield return new WaitForSeconds(1);
                 var blackUnitPlayOrder = _units.Count;
                 var blackUnit = _demoSpawner.SpawnBlackUnit(blackUnitPlayOrder);
                 _units.Add(blackUnit);
                 yield return new WaitForSeconds(1);
-                Debug.Log("Turn is being assigned to king.");
+                foreach (var unit in _units)
+                {
+                    unit.ResetGridPosition();
+                    unit.GetComponent<ChessPieceVisual>().enabled = true;
+                }
                 _currentUnitIndex = 0;
                 _kingWon = false;
                 StartTurn();
             }
         }
 
-        public int GetCurrentUnitIndex()
+        public void UnitDidReset()
         {
-            return _currentUnitIndex;
+            var allUnitsReset = true;
+            foreach (var unit in _units)
+            {
+                if (!unit.DidCompleteReverse())
+                {
+                    allUnitsReset = false;
+                }
+            }
+
+            if (allUnitsReset)
+            {
+                ResetIteration();
+            }
         }
     }
 }
