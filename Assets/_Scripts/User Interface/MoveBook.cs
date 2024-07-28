@@ -13,6 +13,12 @@ public class MoveBook : MonoBehaviour
     void Start()
     {
         moveLog[currentIteration] = new List<MoveEntry>();
+        ChessPieceMovement.OnChessPieceMove += AddMove;
+    }
+
+    private void OnDestroy()
+    {
+        ChessPieceMovement.OnChessPieceMove -= AddMove;
     }
 
     public void AddMove(ChessPiece chessPiece, GridObject fromGrid, GridObject toGrid)
