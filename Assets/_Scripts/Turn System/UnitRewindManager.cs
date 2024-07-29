@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using _Scripts.Grid_System;
 using ChessPieces;
@@ -9,10 +10,10 @@ namespace TurnSystem
 {
     public class UnitRewindManager : MonoBehaviour
     {
-        private int _positionIndex = -1;
         public List<GridObject> _previousGrids = new();
         private GridSystem m_gridSystem;
         private Unit _unit;
+        private bool _rewindCompleted;
 
         private void Awake()
         {
@@ -35,33 +36,41 @@ namespace TurnSystem
             if (piece == _unit)
             {
                 _previousGrids.Add(prevGrid);
-                _positionIndex++;
             }
+        }
+
+        public void AddPosition(GridObject prevGrid)
+        {
+            _previousGrids.Add(prevGrid);
         }
 
         public void ReversePosition()
         {
-            var gridObject = _previousGrids[_positionIndex];
+            var gridObject = _previousGrids[_previousGrids.Count - 1];
             var worldPositionOfGrid = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
             transform.DOMove(worldPositionOfGrid, 0.5f, false).OnComplete(() =>
             {
-                if (_positionIndex != 0)
+                _previousGrids.Remove(gridObject);
+                if (_previousGrids.Count == 0)
                 {
-                    _positionIndex -= 1;
-                    ReversePosition();
+                    _rewindCompleted = true;
+                    TurnController.SharedInstance.UnitsDidResetPositions();
                 }
                 else
                 {
-                    _positionIndex = -1;
-                    _previousGrids.Clear();
-                    TurnController.SharedInstance.UnitsDidReset();
+                    ReversePosition();
                 }
             });
         }
 
-        public int GetPreviodGridCount()
+        public bool RewindCompleted()
         {
-            return _previousGrids.Count;
+            return _rewindCompleted;
+        }
+
+        public void ResetRewindStatus()
+        {
+            _rewindCompleted = false;
         }
     }
 }

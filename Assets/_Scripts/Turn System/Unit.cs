@@ -15,18 +15,28 @@ namespace TurnSystem
         private MeshRenderer _renderer;
         public Team team;
         private UnitRewindManager _rewindManager;
+        private UnitReplayManager _replayManager;
 
         private void Awake()
         {
             m_myGridPosition = new GridPosition(xPos, zPos);
             _rewindManager = GetComponent<UnitRewindManager>();
+            _replayManager = GetComponent<UnitReplayManager>();
             _renderer = GetComponentInChildren<MeshRenderer>();
             GetComponent<ChessPieceVisual>().enabled = true;
         }
 
         public void TakeTurn()
         {
-            _hasTurn = true;
+            if (TurnController.SharedInstance.GetCurrentTeamTurn() != team)
+            {
+                _replayManager.MoveToPosition();
+                EndTurn();
+            }
+            else
+            {
+                _hasTurn = true;
+            }
         }
 
         private void Update()
@@ -35,7 +45,7 @@ namespace TurnSystem
             {
                 _renderer.material.color = Color.red;
             }
-            else 
+            else
             {
                 UpdateTeamColors();
             }
@@ -44,7 +54,7 @@ namespace TurnSystem
         public void EndTurn()
         {
             _hasTurn = false;
-            TurnController.SharedInstance.EndTurn();
+            TurnController.SharedInstance.TurnEndedByUnit();
         }
 
         public void ReversePosition()
@@ -72,11 +82,6 @@ namespace TurnSystem
         public void SetPosition(GridPosition newPosition)
         {
             m_myGridPosition = newPosition;
-        }
-
-        public bool DidCompleteRewind() 
-        {
-            return _rewindManager.GetPreviodGridCount() == 0;
         }
 
         public void ResetGridPosition()
