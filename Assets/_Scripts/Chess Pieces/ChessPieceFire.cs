@@ -9,7 +9,7 @@ namespace ChessPieces
     public class ChessPieceFire : MonoBehaviour
     {
         private ChessPiece _chessPiece;
-        public static event Action<List<GridObject>, bool> OnChessPieceFire;
+        public static event Action<ChessPiece, GridObject, bool> OnChessPieceFire;
         private List<GridObject> attackTiles = new List<GridObject>(); 
 
         private void Start()
@@ -34,13 +34,14 @@ namespace ChessPieces
 
         private void GetFireableTiles()
         {
-            attackTiles = _chessPiece.GetAttackPattern();
-            OnChessPieceFire?.Invoke(attackTiles, true);
+            var currentObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
+            OnChessPieceFire?.Invoke(_chessPiece, currentObject, true);
         }
 
         private void CancelFireableTiles()
         {
-            OnChessPieceFire?.Invoke(attackTiles, false);
+            var currentObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
+            OnChessPieceFire?.Invoke(_chessPiece,  currentObject, false);
         }
 
         private void Fire()

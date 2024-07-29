@@ -10,7 +10,6 @@ namespace ChessPieces
     public abstract class ChessPiece : Unit
     {
         protected GridSystem m_gridSystem;
-
         private void Start()
         {
             m_gridSystem = ChessGrid.GetGridSystem();

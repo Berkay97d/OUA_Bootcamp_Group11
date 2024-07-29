@@ -25,17 +25,24 @@ public class HighlightActions : MonoBehaviour
         OnHighlightTiles?.Invoke(gridsToHighlight, moveHighlightColor);
     }
 
-    private void FireHighlight(List<GridObject> attackTiles, bool isFire)
+    private void FireHighlight(ChessPiece _chessPiece, GridObject currentGrid, bool isFire)
     {
+        var attackTiles = _chessPiece.GetAttackPattern();
+        var moveTiles = currentGrid.GetNeighboorGrids();
+
+        Color fireHighlightColor = Color.red;
+        Color moveHighlightColor = Color.green;
+
         if(isFire)
         {
-            Color fireHighlightColor = Color.red;
+            OnRemoveHighlightTiles?.Invoke(moveTiles);
             OnHighlightTiles?.Invoke(attackTiles, fireHighlightColor);
         }
 
         else
         {
             OnRemoveHighlightTiles?.Invoke(attackTiles);
+            OnHighlightTiles?.Invoke(moveTiles, moveHighlightColor);
         }
     }
 }
