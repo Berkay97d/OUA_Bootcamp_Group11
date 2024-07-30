@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using _Scripts.Grid_System;
 using UnityEngine;
 
@@ -7,8 +8,6 @@ namespace ChessPieces
 {
     public class King : ChessPiece
     {
-        private bool bishopMove = true;
-        private bool knightMove = false;
 
         public override List<GridObject> GetAttackPattern()
         {
@@ -111,7 +110,7 @@ namespace ChessPieces
                 knightMoveTiles.Add(m_gridSystem.GetGridObject(new GridPosition(newX, newZ)));
             }
 
-            foreach (var gridObject in knightMoveTiles)
+            foreach (var gridObject in knightMoveTiles.ToList())
             {
                 if(gridObject.GetIsBroken() || gridObject.GetIsOccupied())
                 {
@@ -120,16 +119,6 @@ namespace ChessPieces
             }
 
             return knightMoveTiles;
-        }
-
-        public void SetBishopMove(bool bishopMoveable)
-        {
-            this.bishopMove = bishopMoveable;
-        }
-
-        public void SetKnightMove(bool knightMoveable)
-        {
-            this.knightMove = knightMoveable;
         }
     }
 }
