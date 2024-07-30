@@ -10,7 +10,7 @@ namespace ChessPieces
     {
         private ChessPiece _chessPiece;
         public static event Action<ChessPiece, GridObject, bool> OnChessPieceFire;
-        private List<GridObject> attackTiles = new List<GridObject>(); 
+        private List<GridObject> attackTiles = new List<GridObject>();
 
         private void Start()
         {
@@ -21,12 +21,12 @@ namespace ChessPieces
         // CREATED FOR TEST PURPOSES
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Z))
+            if(Input.GetKeyDown(KeyCode.Z) && _chessPiece.GetTurn() && !_chessPiece.GetPieceStatus()[1])
             {
                 GetFireableTiles();
             }
 
-            if(Input.GetKeyDown(KeyCode.X))
+            if(Input.GetKeyDown(KeyCode.X) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus()[0])
             {
                 CancelFireableTiles();
             }
@@ -34,19 +34,21 @@ namespace ChessPieces
 
         private void GetFireableTiles()
         {
-            var currentObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
-            OnChessPieceFire?.Invoke(_chessPiece, currentObject, true);
+            _chessPiece.SetPieceStatus(true, 0);
+            var currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
+            OnChessPieceFire?.Invoke(_chessPiece, currentGridObject, true);
         }
 
         private void CancelFireableTiles()
         {
-            var currentObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
-            OnChessPieceFire?.Invoke(_chessPiece,  currentObject, false);
+            _chessPiece.SetPieceStatus(false, 0);
+            var currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
+            OnChessPieceFire?.Invoke(_chessPiece,  currentGridObject, false);
         }
 
         private void Fire()
         {
-            if (!_chessPiece.GetTurn()) return;
+            if (!_chessPiece.GetTurn() || !_chessPiece.GetPieceStatus()[0]) return;
 
             attackTiles = _chessPiece.GetAttackPattern();
             for (int i = 0; i < attackTiles.Count; i++)
@@ -54,6 +56,7 @@ namespace ChessPieces
                 Debug.Log("Chess Piece hit: " + attackTiles[i].GetGridPosition());
             }
             
+            _chessPiece.SetPieceStatus(false, 0);
             _chessPiece.EndTurn();
                     
         }
