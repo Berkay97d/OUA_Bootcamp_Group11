@@ -11,6 +11,7 @@ namespace ChessPieces
         private ChessPiece _chessPiece;
         public static event Action<ChessPiece, GridObject, bool> OnChessPieceFire;
         private List<GridObject> attackTiles = new List<GridObject>();
+        private GridObject currentGridObject;
 
         private void Start()
         {
@@ -35,14 +36,14 @@ namespace ChessPieces
         private void GetFireableTiles()
         {
             _chessPiece.SetPieceStatus(true, 0);
-            var currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
+            currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
             OnChessPieceFire?.Invoke(_chessPiece, currentGridObject, true);
         }
 
         private void CancelFireableTiles()
         {
             _chessPiece.SetPieceStatus(false, 0);
-            var currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
+            currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
             OnChessPieceFire?.Invoke(_chessPiece,  currentGridObject, false);
         }
 
@@ -56,6 +57,7 @@ namespace ChessPieces
                 Debug.Log("Chess Piece hit: " + attackTiles[i].GetGridPosition());
             }
             
+            OnChessPieceFire?.Invoke(_chessPiece,  currentGridObject, false);
             _chessPiece.SetPieceStatus(false, 0);
             _chessPiece.EndTurn();
                     
