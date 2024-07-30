@@ -29,7 +29,7 @@ namespace _Scripts.Grid_System
             m_myGridObject.OnSelectedStatusChanged += OnSelectedStatusChanged;
 
             HighlightActions.OnHighlightTiles += HighlightTiles;
-            HighlightActions.OnRemoveHighlightTiles += RemoveHighlightTiles;
+            HighlightActions.OnClearTiles += ClearHighlightTiles;
         }
 
         private void HighlightTiles(List<GridObject> gridObjects, Color highlightColor)
@@ -40,12 +40,9 @@ namespace _Scripts.Grid_System
             }
         }
 
-        private void RemoveHighlightTiles(List<GridObject> gridObjects)
+        private void ClearHighlightTiles()
         {
-            if (gridObjects.Contains(m_myGridObject))
-            {
-                GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.5f);
-            }
+            GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.5f);
         }
 
         private void OnDestroy()
