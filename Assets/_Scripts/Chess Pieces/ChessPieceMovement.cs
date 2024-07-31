@@ -23,6 +23,9 @@ namespace ChessPieces
         private List<GridObject> movableGrids;
         private GridObject currentGridObject;
 
+        public static event Action OnKingWin;
+
+
         private void Start()
         {
             _chessPiece = GetComponent<ChessPiece>();
@@ -31,7 +34,9 @@ namespace ChessPieces
             m_gridSystem = ChessGrid.GetGridSystem();
             GameInput.m_instance.OnMoveInput += Movement;
 
+
             currentGridObject = m_gridSystem.GetGridObject(_chessPiece.GetGridPosition());
+
         }
 
         // CREATED FOR TEST PURPOSES
@@ -71,9 +76,10 @@ namespace ChessPieces
             }
         }
         
+
         public void MoveTo(GridObject gridObject, List<GridObject> _movableGrids)
         {   
-            if(_movableGrids.Contains(gridObject))
+            if(_movableGrids.Contains(gridObject)  && _chessPiece.GetTurn() )
             {
                 GridObject prevGridObject = currentGridObject;
                 prevGridObject.SetIsOccupied(false);
@@ -85,19 +91,20 @@ namespace ChessPieces
                 var movedGridPosition = m_gridSystem.GetGridPositionFromWorldPosition(movedPosition);
                 var movedGridObject = m_gridSystem.GetGridObject(movedGridPosition);
 
+
                 currentGridObject = movedGridObject;
                 _chessPiece.SetPosition(movedPosition);
                 gridObject.SetIsOccupied(true);
-
-                _chessPiece.SetPieceStatus(0);
+                _chessPiece.SetPieceStatus(0);    
+                OnChessPieceMove?.Invoke(_chessPiece, prevGridObject, movedGridObject);
 
                 if (_chessPiece is King && movedGridPosition._z == 7)
                 {
                     OnKingWin?.Invoke();
                 }
-                
-                OnChessPieceMove?.Invoke(_chessPiece, prevGridObject, movedGridObject);
+
                 _chessPiece.EndTurn();
+                
             }
             else
                 Debug.Log("MOVE FAILED");

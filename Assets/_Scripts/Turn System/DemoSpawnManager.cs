@@ -8,30 +8,23 @@ namespace TurnSystem
     {
         [SerializeField] private Unit _whiteKingPrefab;
         [SerializeField] private Unit[] _enemyUnity;
+        [SerializeField] private int _currentEnemyUnit = 0;
 
         public Unit SpawnKing()
         {
             var gridPosition = _whiteKingPrefab.GetGridPosition();
             var gridWorldPosition = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(gridPosition);
-            
             var kingGameObject = Instantiate(_whiteKingPrefab, gridWorldPosition, Quaternion.identity);
-            
             kingGameObject.team = Team.White;
-            kingGameObject.SetPlayOrder(0);
             return kingGameObject;
         }
 
-        public Unit SpawnBlackUnit(int playOrder)
+        public Unit SpawnBlackUnit()
         {
-            var spawnUnit = _enemyUnity[playOrder - 1];
-            var gridPosition = spawnUnit.GetGridPosition();
-            var gridWorldPosition = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(gridPosition);
-            
-            var blackGameObject = Instantiate(spawnUnit, gridWorldPosition, Quaternion.identity);
-            blackGameObject.MoveInitPositionInstant();
-            
+            var spawnUnit = _enemyUnity[_currentEnemyUnit];
+            _currentEnemyUnit++;
+            var blackGameObject = Instantiate(spawnUnit, spawnUnit.GetSpawnPosition(), Quaternion.identity);
             blackGameObject.team = Team.Black;
-            blackGameObject.SetPlayOrder(playOrder);
             return blackGameObject;
         }
     }

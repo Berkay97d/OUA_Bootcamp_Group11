@@ -23,6 +23,5 @@ namespace _Scripts
             OnIterationCompleted?.Invoke();
         }
 
-       
     }
 }
