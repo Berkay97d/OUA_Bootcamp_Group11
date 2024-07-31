@@ -23,7 +23,7 @@ namespace ChessPieces
         private List<GridObject> movableGrids;
         private GridObject currentGridObject;
 
-        public static event Action OnKingWin;
+    
 
 
         private void Start()
@@ -93,7 +93,7 @@ namespace ChessPieces
 
 
                 currentGridObject = movedGridObject;
-                _chessPiece.SetPosition(movedPosition);
+                _chessPiece.SetPosition(movedGridPosition);
                 gridObject.SetIsOccupied(true);
                 _chessPiece.SetPieceStatus(0);    
                 OnChessPieceMove?.Invoke(_chessPiece, prevGridObject, movedGridObject);

@@ -34,8 +34,26 @@ namespace _Scripts.Grid_System
         {
             //CREATING VISUALS
             m_gridSystem.CreateTiles(_tilePrefabs);
+            IterationController.OnIterationCompleted += OnIterationCompleted;
         }
-        
+
+        private void OnDestroy()
+        {
+            IterationController.OnIterationCompleted -= OnIterationCompleted;   
+        }
+
+        private void OnIterationCompleted()
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    m_gridSystem.GetAllGridObjects()[i,j].SetIsBroken(false);
+                    Debug.Log(i + " " + j + " reset");
+                }
+            }
+        }
+
 
         public static GridSystem GetGridSystem()
         {
