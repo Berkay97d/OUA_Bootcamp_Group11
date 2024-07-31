@@ -74,20 +74,14 @@ namespace ChessPieces
 
         private void Movement()
         {
-            Debug.Log("Called movement");
-            Debug.Log("Chesspieve status: " +  (_chessPiece.GetPieceStatus() != 1));
-            Debug.Log(_chessPiece.gameObject.name);
             if(_chessPiece.GetTurn() && _chessPiece.GetPieceStatus() != 1)
             {
-                GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
-                Debug.Log("In the If");
-                
+                GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();                
                 if (_chessPiece.GetPieceStatus() != 2)
                 {
                     currentGridObject = m_gridSystem.GetGridObject(_chessPiece.GetGridPosition());
                     movableGrids = currentGridObject.GetMovableGrids();    
                 }
-                
                 MoveTo(selectedGridObject, movableGrids);
             }
         }
@@ -95,10 +89,7 @@ namespace ChessPieces
 
         public void MoveTo(GridObject gridObject, List<GridObject> _movableGrids)
         {   
-            foreach (var item in movableGrids)
-            {
-                Debug.Log(item.GetGridPosition());
-            }
+         
             if(_movableGrids.Contains(gridObject)  && _chessPiece.GetTurn() )
             {
                 GridObject prevGridObject = currentGridObject;

@@ -37,10 +37,10 @@ namespace TurnSystem
             {
                 Destroy(gameObject);
             }
-            
+
             IterationController.OnIterationReset += OnIterationReset;
         }
-        
+
         private void OnIterationReset()
         {
             _isResetManual = true;
@@ -91,22 +91,19 @@ namespace TurnSystem
         // Gives the turn to the current unit in the order, order is determined by "_currentUnitIndex".
         public void GiveTurnToUnit()
         {
-            
-            var currentUnit = _units[_currentUnitIndex];
-            currentUnit.TakeTurn();
-            /*StartCoroutine(InnerRoutine());
-            
+            StartCoroutine(InnerRoutine());
             IEnumerator InnerRoutine()
             {
                 yield return new WaitForSeconds(1f);
-                
-            }*/
+                var currentUnit = _units[_currentUnitIndex];
+                currentUnit.TakeTurn();
+            }
         }
 
         // The unit which had the turn has made their move. If the game state allows it, (meaning that this move just ended did not end the current iteration) give the turn to the next unit in order.
         public void TurnEndedByUnit()
         {
-            if (!_kingWon && !_kingLost)
+            if (!_kingWon || !_kingLost)
             {
                 _currentUnitIndex = (_currentUnitIndex + 1) % _units.Count;
                 GiveTurnToUnit();
@@ -172,7 +169,7 @@ namespace TurnSystem
                 {
                     ResetReplayDataOfEnemyUnits();
                 }
-                
+
                 _isResetManual = false;
                 return;
             }
@@ -181,16 +178,16 @@ namespace TurnSystem
             {
                 if (_kingWon) // The player has successfully reached the last row of the grid as King
                 {
-                    AddEnemyUnit(); // Add an enemy unit
+                    ResetReplayDataOfEnemyUnits(); // Reset the replay of enemy units, since new moves will be recorded
                     _currentUnitIndex = 0; // Give turn back to king, which now will be played by Replay.
                     _currentTeamTurn = Team.Black; // Iteration was successful for player, so switch teams.
-                    ResetReplayDataOfEnemyUnits(); // Reset the replay of enemy units, since new moves will be recorded
+                    AddEnemyUnit(); // Add an enemy unit
                     _kingWon = false; // reset king's win flag.
                 }
                 else // The player could not reach the last row of the grid as White King.
                 {
                     _currentUnitIndex = 0; // Give turn back to king, which now will be played by Player again.
-                    ResetReplayDataOfKing(); // Reset the replay of king, since new moves will be recorded
+                    ResetReplayDataOfKing(); // Reset the replay of king, since new moves will be recorded         
                 }
             }
             else // The player has played as black units in this iteration.
@@ -200,13 +197,13 @@ namespace TurnSystem
                     _currentTeamTurn = Team.White; // Iteration was successful for player, so switch teams. 
                     _currentUnitIndex = 0; // Give turn back to king, which now will be played by Player again.
                     ResetReplayDataOfKing(); // Reset the replay of king, since new moves will be recorded
+                    ProtectReplayDataOfEnemyUnits();
                     _kingLost = false;
                 }
-                else 
+                else
                 {
                     _currentUnitIndex = 0; // Give turn back to king, which now will be played by Replay.
                     ResetReplayDataOfEnemyUnits(); // Reset the replay of enemy units, since new moves will be recorded
-                    _kingWon = false;
                 }
             }
             GiveTurnToUnit(); // Start the current iteration       
@@ -231,13 +228,28 @@ namespace TurnSystem
 
         private void ResetReplayDataOfEnemyUnits()
         {
-            for (var i = 1; i < _units.Count; i++)
+            if (_units.Count > 1)
             {
-                var blackUnit = _units[i];
-                blackUnit.GetComponent<UnitReplayManager>().ResetReplayData();
+                for (var i = 1; i < _units.Count; i++)
+                {
+                    var blackUnit = _units[i];
+                    blackUnit.GetComponent<UnitReplayManager>().ResetReplayData();
+                }
             }
+
         }
 
-       
+        private void ProtectReplayDataOfEnemyUnits()
+        {
+            if (_units.Count > 1)
+            {
+                for (var i = 1; i < _units.Count; i++)
+                {
+                    var blackUnit = _units[i];
+                    blackUnit.GetComponent<UnitReplayManager>().isDone = true;
+                }
+            }
+
+        }
     }
 }

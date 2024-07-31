@@ -31,13 +31,20 @@ namespace TurnSystem
         {
             if (TurnController.SharedInstance.GetCurrentTeamTurn() != team)
             {
-                Debug.Log(gameObject.name);
                 _replayManager.MoveToPosition();
                 EndTurn();
             }
             else
             {
-                _hasTurn = true;
+                if (_replayManager.isDone)
+                {
+                    _replayManager.MoveToPosition();
+                    EndTurn();
+                }
+                else
+                {
+                    _hasTurn = true;
+                }
             }
         }
 
