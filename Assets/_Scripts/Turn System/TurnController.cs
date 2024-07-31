@@ -20,6 +20,7 @@ namespace TurnSystem
 
         // Şu an sıranın hangi takımda olduğunu gösteren bir flag
         private Team _currentTeamTurn;
+        private bool _isResetManual;
 
 
         private void Start()
@@ -36,23 +37,42 @@ namespace TurnSystem
             {
                 Destroy(gameObject);
             }
+            
+            IterationController.OnIterationReset += OnIterationReset;
+        }
+
+        
+        
+        private void OnIterationReset()
+        {
+            _isResetManual = true;
+            ResetUnitPositions();
         }
 
         private void OnEnable()
         {
-            ChessPieceMovement.OnKingWin += KingWon;
-            UnitReplayManager.OnKingWin += KingWon;
+            IterationController.OnIterationCompleted += KingWon;
         }
 
         private void OnDisable()
         {
-            ChessPieceMovement.OnKingWin -= KingWon;
-            UnitReplayManager.OnKingWin -= KingWon;
+            IterationController.OnIterationCompleted -= KingWon;
         }
 
         private void Update()
         {
-            isWhite = _currentTeamTurn == Team.White;
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                _kingWon = false;
+                StartCoroutine(InnerRoutine());
+                IEnumerator InnerRoutine()
+                {
+                    // Need to wait 1 second so that the last move of the king is visible
+                    // To get rid of this, the event OnKingWin should be called when the king is AT the last row, not when last row is clicked
+                    yield return new WaitForSeconds(1f);
+                    ResetUnitPositions();
+                }   
+            }
         }
 
         // Called when King unit of White team has reached the last row of the grid.
@@ -74,8 +94,14 @@ namespace TurnSystem
         // Gives the turn to the current unit in the order, order is determined by "_currentUnitIndex".
         public void GiveTurnToUnit()
         {
-            var currentUnit = _units[_currentUnitIndex];
-            currentUnit.TakeTurn();
+            StartCoroutine(InnerRoutine());
+            
+            IEnumerator InnerRoutine()
+            {
+                yield return new WaitForSeconds(1f);
+                var currentUnit = _units[_currentUnitIndex];
+                currentUnit.TakeTurn();
+            }
         }
 
         // The unit which had the turn has made their move. If the game state allows it, (meaning that this move just ended did not end the current iteration) give the turn to the next unit in order.
@@ -89,7 +115,7 @@ namespace TurnSystem
         }
 
         // The current iteration has reached an end, and all units go back to their first positions.
-        private void ResetUnitPositions()
+        public void ResetUnitPositions()
         {
             foreach (var unit in _units)
             {
@@ -134,6 +160,24 @@ namespace TurnSystem
                 unit.GetComponent<ChessPieceVisual>().enabled = true;
             }
 
+            if (_isResetManual)
+            {
+                _currentUnitIndex = 0;
+                GiveTurnToUnit();
+
+                if (_currentTeamTurn == Team.White)
+                {
+                    ResetReplayDataOfKing();
+                }
+                else
+                {
+                    ResetReplayDataOfEnemyUnits();
+                }
+                
+                _isResetManual = false;
+                return;
+            }
+
             if (_currentTeamTurn == Team.White) // The player has played as king in this iteration.
             {
                 if (_kingWon) // The player has successfully reached the last row of the grid as King
@@ -152,7 +196,7 @@ namespace TurnSystem
             }
             else // The player has played as black units in this iteration.
             {
-                Debug.Log(_kingWon);
+                Debug.Log("KİNG WONNNNN: "+_kingWon);
                 if (_kingWon) // The player has failed to stop the King from reaching last grid
                 {
                     _currentUnitIndex = 0; // Give turn back to king, which now will be played by Replay.
@@ -194,5 +238,7 @@ namespace TurnSystem
                 blackUnit.GetComponent<UnitReplayManager>().ResetReplayData();
             }
         }
+
+       
     }
 }

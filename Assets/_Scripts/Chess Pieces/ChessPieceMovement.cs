@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Grid_System;
+using _Scripts.SpecialButtons;
 using InputSystem;
 using TurnSystem;
 using UnityEngine;
@@ -33,15 +34,41 @@ namespace ChessPieces
                 _kingPiece = GetComponent<King>();
             m_gridSystem = ChessGrid.GetGridSystem();
             GameInput.m_instance.OnMoveInput += Movement;
-
-
+            
             currentGridObject = m_gridSystem.GetGridObject(_chessPiece.GetGridPosition());
+            SpecialMoveButton.OnSpecialMoveButtonClick += OnSpecialMove;
+        }
 
+        private void OnSpecialMove(bool isActive, MoveType moveType)
+        {
+            if (!isActive)
+            {
+                Debug.Log("NORMAL HAREKETE DÖN");
+                movableGrids = currentGridObject.GetMovableGrids();
+                return;
+            }
+
+            if (moveType == MoveType.Bishop)
+            {
+                Debug.Log("BISHOP");
+                _kingPiece.SetCanSpecialMove(false);
+                _chessPiece.SetPieceStatus(2);
+                movableGrids = _kingPiece.GetBishopPattern();
+                OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
+                return;
+            }
+            
+            Debug.Log("KNİGHT");
+            _kingPiece.SetCanSpecialMove(false);
+            _chessPiece.SetPieceStatus(2);
+            movableGrids = _kingPiece.GetKnightPattern();
+            OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
         }
 
         // CREATED FOR TEST PURPOSES
         private void Update()
         {
+            
             if(Input.GetKeyDown(KeyCode.O) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 0)
             {
                 if(_chessPiece is King && _chessPiece.team == Team.White && _kingPiece.GetCanSpecialMove())
@@ -70,8 +97,13 @@ namespace ChessPieces
             if(_chessPiece.GetTurn() && _chessPiece.GetPieceStatus() != 1)
             {
                 GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
-                if(_chessPiece.GetPieceStatus() != 2)
-                    movableGrids = currentGridObject.GetMovableGrids();
+                
+                if (_chessPiece.GetPieceStatus() != 2)
+                {
+                    currentGridObject = m_gridSystem.GetGridObject(_chessPiece.GetGridPosition());
+                    movableGrids = currentGridObject.GetMovableGrids();    
+                }
+                
                 MoveTo(selectedGridObject, movableGrids);
             }
         }
@@ -84,8 +116,7 @@ namespace ChessPieces
                 GridObject prevGridObject = currentGridObject;
                 prevGridObject.SetIsOccupied(false);
 
-                if(prevGridObject.GetVisitCount() >= 2)
-                    prevGridObject.SetIsBroken(true);
+                
                 
                 Vector3 movedPosition = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
                 var movedGridPosition = m_gridSystem.GetGridPositionFromWorldPosition(movedPosition);

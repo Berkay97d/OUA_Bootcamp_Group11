@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Scripts;
 using _Scripts.Grid_System;
 using InputSystem;
 using UnityEngine;
@@ -17,31 +18,46 @@ namespace ChessPieces
         {
             _chessPiece = GetComponent<ChessPiece>();
             GameInput.m_instance.OnFireInput += Fire;
+            FireButton.OnFireButtonClick += FireButtonOnOnFireButtonClick;
+
+            IterationController.OnIterationCompleted += CancelFireableTiles;
+            IterationController.OnIterationReset += CancelFireableTiles;
         }
 
-        // CREATED FOR TEST PURPOSES
-        private void Update()
+        private void OnDestroy()
         {
-            if(Input.GetKeyDown(KeyCode.Z) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() != 2)
+            GameInput.m_instance.OnFireInput -= Fire;
+            FireButton.OnFireButtonClick -= FireButtonOnOnFireButtonClick;
+            
+            IterationController.OnIterationCompleted -= CancelFireableTiles;
+            IterationController.OnIterationReset -= CancelFireableTiles;
+        }
+
+        private void FireButtonOnOnFireButtonClick(bool isActive)
+        {
+            if (isActive)
             {
                 GetFireableTiles();
+                return;
             }
-
-            if(Input.GetKeyDown(KeyCode.X) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 1)
-            {
-                CancelFireableTiles();
-            }
+            
+            CancelFireableTiles();
         }
+        
 
-        private void GetFireableTiles()
+        public void GetFireableTiles()
         {
+            Debug.Log("FİRE ACTİVE");
+            
             _chessPiece.SetPieceStatus(1);
             currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
             OnChessPieceFire?.Invoke(_chessPiece, currentGridObject, true);
         }
 
-        private void CancelFireableTiles()
+        public void CancelFireableTiles()
         {
+            Debug.Log("FİRE DİSABLED");
+            
             _chessPiece.SetPieceStatus(0);
             currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
             OnChessPieceFire?.Invoke(_chessPiece,  currentGridObject, false);

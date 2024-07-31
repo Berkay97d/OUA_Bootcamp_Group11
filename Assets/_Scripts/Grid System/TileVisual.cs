@@ -30,6 +30,9 @@ namespace _Scripts.Grid_System
 
             HighlightActions.OnHighlightTiles += HighlightTiles;
             HighlightActions.OnClearTiles += ClearHighlightTiles;
+
+            IterationController.OnIterationCompleted += ClearHighlightTiles;
+            IterationController.OnIterationReset += ClearHighlightTiles;
         }
 
         private void HighlightTiles(List<GridObject> gridObjects, Color highlightColor)
@@ -48,6 +51,12 @@ namespace _Scripts.Grid_System
         private void OnDestroy()
         {
             m_myGridObject.OnSelectedStatusChanged -= OnSelectedStatusChanged;
+            
+            HighlightActions.OnHighlightTiles -= HighlightTiles;
+            HighlightActions.OnClearTiles -= ClearHighlightTiles;
+
+            IterationController.OnIterationCompleted -= ClearHighlightTiles;
+            IterationController.OnIterationReset -= ClearHighlightTiles;
         }
 
         private void OnSelectedStatusChanged(bool isSelected)

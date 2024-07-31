@@ -32,7 +32,7 @@ namespace ChessPieces
             for(int xLimit = piecePos._x - 1, zLimit = piecePos._z + 1; xLimit >= 0 && zLimit < 8; xLimit--, zLimit++)
             {
                 GridObject gridObjectToAdd = m_gridSystem.GetGridObject(new GridPosition(xLimit, zLimit));
-                if(!gridObjectToAdd.GetIsOccupied() && !gridObjectToAdd.GetIsBroken())
+                if(!gridObjectToAdd.GetIsOccupied() )
                 {
                     bishopMoveTiles.Add(gridObjectToAdd);
                 }
@@ -46,7 +46,7 @@ namespace ChessPieces
             for(int xLimit = piecePos._x + 1, zLimit = piecePos._z + 1; xLimit < 8 && zLimit < 8; xLimit++, zLimit++)
             {
                 GridObject gridObjectToAdd = m_gridSystem.GetGridObject(new GridPosition(xLimit, zLimit));
-                if(!gridObjectToAdd.GetIsOccupied() && !gridObjectToAdd.GetIsBroken())
+                if(!gridObjectToAdd.GetIsOccupied() )
                 {
                     bishopMoveTiles.Add(gridObjectToAdd);
                 }
@@ -60,7 +60,7 @@ namespace ChessPieces
             for(int xLimit = piecePos._x - 1, zLimit = piecePos._z - 1; xLimit >= 0 && zLimit >= 0; xLimit--, zLimit--)
             {
                 GridObject gridObjectToAdd = m_gridSystem.GetGridObject(new GridPosition(xLimit, zLimit));
-                if(!gridObjectToAdd.GetIsOccupied() && !gridObjectToAdd.GetIsBroken())
+                if(!gridObjectToAdd.GetIsOccupied() )
                 {
                     bishopMoveTiles.Add(gridObjectToAdd);
                 }
@@ -74,7 +74,7 @@ namespace ChessPieces
             for(int xLimit = piecePos._x + 1, zLimit = piecePos._z - 1; xLimit < 8 && zLimit >= 0; xLimit++, zLimit--)
             {
                 GridObject gridObjectToAdd = m_gridSystem.GetGridObject(new GridPosition(xLimit, zLimit));
-                if(!gridObjectToAdd.GetIsOccupied() && !gridObjectToAdd.GetIsBroken())
+                if(!gridObjectToAdd.GetIsOccupied() )
                 {
                     bishopMoveTiles.Add(gridObjectToAdd);
                 }
@@ -112,7 +112,7 @@ namespace ChessPieces
 
             foreach (var gridObject in knightMoveTiles.ToList())
             {
-                if(gridObject.GetIsBroken() || gridObject.GetIsOccupied())
+                if( gridObject.GetIsOccupied())
                 {
                     knightMoveTiles.Remove(gridObject);
                 }

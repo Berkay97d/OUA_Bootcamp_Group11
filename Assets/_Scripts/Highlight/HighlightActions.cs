@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Scripts;
 using _Scripts.Grid_System;
 using ChessPieces;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class HighlightActions : MonoBehaviour
         ChessPieceMovement.OnChessPieceMove += MoveHighlightCheck;
         ChessPieceMovement.OnSpecialKingMove += KingHighlightCheck;
         ChessPieceFire.OnChessPieceFire += FireHighlight;
+
+        
     }
 
     private void MoveHighlightCheck(ChessPiece chessPiece, GridObject fromGrid, GridObject toGrid)
