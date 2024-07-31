@@ -22,12 +22,12 @@ namespace ChessPieces
         // CREATED FOR TEST PURPOSES
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Z) && _chessPiece.GetTurn() && !_chessPiece.GetPieceStatus()[1])
+            if(Input.GetKeyDown(KeyCode.Z) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() != 2)
             {
                 GetFireableTiles();
             }
 
-            if(Input.GetKeyDown(KeyCode.X) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus()[0])
+            if(Input.GetKeyDown(KeyCode.X) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 1)
             {
                 CancelFireableTiles();
             }
@@ -35,21 +35,21 @@ namespace ChessPieces
 
         private void GetFireableTiles()
         {
-            _chessPiece.SetPieceStatus(true, 0);
+            _chessPiece.SetPieceStatus(1);
             currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
             OnChessPieceFire?.Invoke(_chessPiece, currentGridObject, true);
         }
 
         private void CancelFireableTiles()
         {
-            _chessPiece.SetPieceStatus(false, 0);
+            _chessPiece.SetPieceStatus(0);
             currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
             OnChessPieceFire?.Invoke(_chessPiece,  currentGridObject, false);
         }
 
         private void Fire()
         {
-            if (!_chessPiece.GetTurn() || !_chessPiece.GetPieceStatus()[0]) return;
+            if (!_chessPiece.GetTurn() || _chessPiece.GetPieceStatus() != 1) return;
 
             attackTiles = _chessPiece.GetAttackPattern();
             for (int i = 0; i < attackTiles.Count; i++)
@@ -58,7 +58,7 @@ namespace ChessPieces
             }
             
             OnChessPieceFire?.Invoke(_chessPiece,  currentGridObject, false);
-            _chessPiece.SetPieceStatus(false, 0);
+            _chessPiece.SetPieceStatus(0);
             _chessPiece.EndTurn();
                     
         }

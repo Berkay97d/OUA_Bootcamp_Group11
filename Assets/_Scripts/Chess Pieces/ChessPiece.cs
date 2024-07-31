@@ -10,18 +10,18 @@ namespace ChessPieces
     public abstract class ChessPiece : Unit
     {
         protected GridSystem m_gridSystem;
-        protected bool[] pieceStatus = new bool[] { false, false };
+        protected int pieceStatus = 0;
 
         private void Start()
         {
             m_gridSystem = ChessGrid.GetGridSystem();
         }
 
-        public void SetPieceStatus(bool status, int index)
+        public void SetPieceStatus(int status)
         {
-            pieceStatus[index] = status;
+            pieceStatus = status;
         }
-        public bool[] GetPieceStatus()
+        public int GetPieceStatus()
         {
             return pieceStatus;
         }

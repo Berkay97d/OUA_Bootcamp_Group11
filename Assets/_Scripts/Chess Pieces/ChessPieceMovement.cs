@@ -34,23 +34,21 @@ namespace ChessPieces
         // CREATED FOR TEST PURPOSES
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.O) && _chessPiece.GetTurn() && !_chessPiece.GetPieceStatus()[0])
+            if(Input.GetKeyDown(KeyCode.O) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 0)
             {
-                if(_chessPiece is King && _chessPiece.team == Team.White && !_chessPiece.GetPieceStatus()[1])
+                if(_chessPiece is King && _chessPiece.team == Team.White)
                 {
-                    _chessPiece.SetPieceStatus(true, 1);
-                    _chessPiece.SetPieceStatus(false, 0);
+                    _chessPiece.SetPieceStatus(2);
                     movableGrids = _chessPiece.GetBishopPattern();
                     OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
                 }
             }
 
-            else if(Input.GetKeyDown(KeyCode.P) && _chessPiece.GetTurn() && !_chessPiece.GetPieceStatus()[0])
+            else if(Input.GetKeyDown(KeyCode.P) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 0)
             {
-                if(_chessPiece is King && _chessPiece.team == Team.White && !_chessPiece.GetPieceStatus()[1])
+                if(_chessPiece is King && _chessPiece.team == Team.White)
                 {
-                    _chessPiece.SetPieceStatus(true, 1);
-                    _chessPiece.SetPieceStatus(false, 0);
+                    _chessPiece.SetPieceStatus(2);
                     movableGrids = _chessPiece.GetKnightPattern();
                     OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
                 }
@@ -59,10 +57,10 @@ namespace ChessPieces
 
         private void Movement()
         {
-            if(_chessPiece.GetTurn() && !_chessPiece.GetPieceStatus()[0])
+            if(_chessPiece.GetTurn() && _chessPiece.GetPieceStatus() != 1)
             {
                 GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
-                if(!_chessPiece.GetPieceStatus()[1])
+                if(_chessPiece.GetPieceStatus() != 2)
                     movableGrids = currentGridObject.GetMovableGrids();
                 MoveTo(selectedGridObject, movableGrids);
             }
@@ -86,7 +84,7 @@ namespace ChessPieces
                 _chessPiece.SetPosition(movedPosition);
                 gridObject.SetIsOccupied(true);
 
-                _chessPiece.SetPieceStatus(false, 1);
+                _chessPiece.SetPieceStatus(0);
 
                 if (_chessPiece is King && movedGridPosition._z == 7)
                 {
