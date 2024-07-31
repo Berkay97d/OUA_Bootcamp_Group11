@@ -16,6 +16,8 @@ public class Settings : MonoBehaviour
     public GameObject howToPlayPanel;
     public GameObject buttonsPanel;
 
+    public GameObject StopPanel;
+
     void Start()
     {
         settingsPanel.SetActive(false);
@@ -59,6 +61,7 @@ public class Settings : MonoBehaviour
         settingsPanel.SetActive(false);
         oyunPanel.SetActive(true);
         musicPanel.SetActive(false);
+        StopPanel.SetActive(false);
         Time.timeScale = 1f; 
     }
 
@@ -80,6 +83,12 @@ public class Settings : MonoBehaviour
         buttonsPanel.SetActive(true);
         oyunPanel.SetActive(false);
         howToPlayPanel.SetActive(false);
+    }
+
+    public void PauseGame()
+    {
+        StopPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void ReloadGame()
