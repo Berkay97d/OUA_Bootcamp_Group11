@@ -10,66 +10,94 @@ namespace ChessPieces
 {
     public class ChessPieceMovement : MonoBehaviour
     {
-        private ChessPiece _chessPiece;
-        private GridSystem m_gridSystem;
+        private static ChessPiece _chessPiece;
+        private static King _kingPiece;
+        private static GridSystem m_gridSystem;
 
         public static event Action<ChessPiece, GridObject, GridObject> OnChessPieceMove; 
 
+        public static event Action<ChessPiece, GridObject, List<GridObject>> OnSpecialKingMove;
+
         public static event Action OnKingWin;
+
+        private List<GridObject> movableGrids;
+        private GridObject currentGridObject;
+
+        public static event Action OnKingWin;
+
 
         private void Start()
         {
             _chessPiece = GetComponent<ChessPiece>();
+            if(_chessPiece is King)
+                _kingPiece = GetComponent<King>();
             m_gridSystem = ChessGrid.GetGridSystem();
             GameInput.m_instance.OnMoveInput += Movement;
 
+
+            currentGridObject = m_gridSystem.GetGridObject(_chessPiece.GetGridPosition());
+
+        }
+
+        // CREATED FOR TEST PURPOSES
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.O) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 0)
+            {
+                if(_chessPiece is King && _chessPiece.team == Team.White && _kingPiece.GetCanSpecialMove())
+                {
+                    _kingPiece.SetCanSpecialMove(false);
+                    _chessPiece.SetPieceStatus(2);
+                    movableGrids = _kingPiece.GetBishopPattern();
+                    OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
+                }
+            }
+
+            else if(Input.GetKeyDown(KeyCode.P) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 0)
+            {
+                if(_chessPiece is King && _chessPiece.team == Team.White && _kingPiece.GetCanSpecialMove())
+                {
+                    _kingPiece.SetCanSpecialMove(false);
+                    _chessPiece.SetPieceStatus(2);
+                    movableGrids = _kingPiece.GetKnightPattern();
+                    OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
+                }
+            }
         }
 
         private void Movement()
         {
-            if(_chessPiece.GetTurn())
+            if(_chessPiece.GetTurn() && _chessPiece.GetPieceStatus() != 1)
             {
                 GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
-                MoveTo(selectedGridObject);
+                if(_chessPiece.GetPieceStatus() != 2)
+                    movableGrids = currentGridObject.GetMovableGrids();
+                MoveTo(selectedGridObject, movableGrids);
             }
-        }
-
-        public List<GridObject> GetMovableGrids()
-        {
-            GridPosition gridPos = _chessPiece.GetGridPosition();
-            GridObject myGridObject = m_gridSystem.GetGridObject(gridPos);
-
-            List<GridObject> movableGrids = new List<GridObject>();
-            var neighboorGrids = myGridObject.GetNeighboorGrids();
-
-            for (int i = 0; i < neighboorGrids.Count; i++)
-            {
-                if (!neighboorGrids[i].GetIsOccupied())
-                {
-                    movableGrids.Add(neighboorGrids[i]);
-                }
-            }
-
-            return movableGrids;
         }
         
-        public void MoveTo(GridObject gridObject)
-        {
-            var _movableGrids = GetMovableGrids();
-            
-            if(_movableGrids.Contains(gridObject) && _chessPiece.GetTurn())
+
+        public void MoveTo(GridObject gridObject, List<GridObject> _movableGrids)
+        {   
+            if(_movableGrids.Contains(gridObject)  && _chessPiece.GetTurn() )
             {
-                GridObject prevGridObject = m_gridSystem.GetGridObject(_chessPiece.GetGridPosition());
-                if(prevGridObject.GetVisitCount() < 2)
-                    prevGridObject.SetIsOccupied(false);
+                GridObject prevGridObject = currentGridObject;
+                prevGridObject.SetIsOccupied(false);
+
+                if(prevGridObject.GetVisitCount() >= 2)
+                    prevGridObject.SetIsBroken(true);
                 
                 Vector3 movedPosition = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
                 var movedGridPosition = m_gridSystem.GetGridPositionFromWorldPosition(movedPosition);
                 var movedGridObject = m_gridSystem.GetGridObject(movedGridPosition);
-                _chessPiece.SetPosition(movedGridPosition);
-                gridObject.SetIsOccupied(true);
 
+
+                currentGridObject = movedGridObject;
+                _chessPiece.SetPosition(movedPosition);
+                gridObject.SetIsOccupied(true);
+                _chessPiece.SetPieceStatus(0);    
                 OnChessPieceMove?.Invoke(_chessPiece, prevGridObject, movedGridObject);
+
                 if (_chessPiece is King && movedGridPosition._z == 7)
                 {
                     OnKingWin?.Invoke();

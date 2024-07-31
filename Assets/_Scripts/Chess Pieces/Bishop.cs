@@ -9,7 +9,7 @@ namespace ChessPieces
     {
         public override List<GridObject> GetAttackPattern()
         {
-            Debug.Log("ATTACK PARTTERN GELDİ BISHOP");
+            Debug.Log("ATTACK PATTERN GELDİ BISHOP");
             
             List<GridObject> attackTiles = new List<GridObject>();
 

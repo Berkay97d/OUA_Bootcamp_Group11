@@ -11,14 +11,25 @@ namespace ChessPieces
     {
         protected GridSystem m_gridSystem;
 
+        protected int pieceStatus = 0;
+
         private void Start()
         {
             m_gridSystem = ChessGrid.GetGridSystem();
         }
+
+        public void SetPieceStatus(int status)
+        {
+            pieceStatus = status;
+        }
+        public int GetPieceStatus()
+        {
+            return pieceStatus;
+        }
+
         public virtual List<GridObject> GetAttackPattern()
         {
             return null;
         }
-        
     }
 }
