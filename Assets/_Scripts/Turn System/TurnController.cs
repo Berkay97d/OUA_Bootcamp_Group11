@@ -61,6 +61,8 @@ namespace TurnSystem
 
         private void Update()
         {
+            Debug.Log(_currentTeamTurn);
+            
             if (Input.GetKeyDown(KeyCode.J))
             {
                 _kingWon = false;
@@ -94,14 +96,16 @@ namespace TurnSystem
         // Gives the turn to the current unit in the order, order is determined by "_currentUnitIndex".
         public void GiveTurnToUnit()
         {
-            StartCoroutine(InnerRoutine());
+            
+            var currentUnit = _units[_currentUnitIndex];
+            currentUnit.TakeTurn();
+            /*StartCoroutine(InnerRoutine());
             
             IEnumerator InnerRoutine()
             {
                 yield return new WaitForSeconds(1f);
-                var currentUnit = _units[_currentUnitIndex];
-                currentUnit.TakeTurn();
-            }
+                
+            }*/
         }
 
         // The unit which had the turn has made their move. If the game state allows it, (meaning that this move just ended did not end the current iteration) give the turn to the next unit in order.
