@@ -12,8 +12,8 @@ namespace ChessPieces
     
     public class ChessPieceMovement : MonoBehaviour
     {
-        private static ChessPiece _chessPiece;
-        private static King _kingPiece;
+        private ChessPiece _chessPiece;
+        private King _kingPiece;
         private static GridSystem m_gridSystem;
 
         public static event Action<ChessPiece, GridObject, GridObject> OnChessPieceMove; 
@@ -21,6 +21,7 @@ namespace ChessPieces
         public static event Action<ChessPiece, GridObject, List<GridObject>, bool> OnSpecialKingMove;
 
         public static event Action OnKingWin;
+        public static event Action OnKingLoss;
 
         private List<GridObject> movableGrids;
         private GridObject currentGridObject;
@@ -73,9 +74,13 @@ namespace ChessPieces
 
         private void Movement()
         {
+            Debug.Log("Called movement");
+            Debug.Log("Chesspieve status: " +  (_chessPiece.GetPieceStatus() != 1));
+            Debug.Log(_chessPiece.gameObject.name);
             if(_chessPiece.GetTurn() && _chessPiece.GetPieceStatus() != 1)
             {
                 GridObject selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
+                Debug.Log("In the If");
                 
                 if (_chessPiece.GetPieceStatus() != 2)
                 {
@@ -90,6 +95,10 @@ namespace ChessPieces
 
         public void MoveTo(GridObject gridObject, List<GridObject> _movableGrids)
         {   
+            foreach (var item in movableGrids)
+            {
+                Debug.Log(item.GetGridPosition());
+            }
             if(_movableGrids.Contains(gridObject)  && _chessPiece.GetTurn() )
             {
                 GridObject prevGridObject = currentGridObject;
@@ -111,6 +120,12 @@ namespace ChessPieces
                 if (_chessPiece is King && movedGridPosition._z == 7)
                 {
                     OnKingWin?.Invoke();
+                }
+
+                if (_chessPiece is not King && _chessPiece.checkMate)
+                {
+                    OnKingLoss?.Invoke();
+                    _chessPiece.checkMate = false;
                 }
 
                 _chessPiece.EndTurn();

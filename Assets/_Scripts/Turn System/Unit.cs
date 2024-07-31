@@ -10,6 +10,7 @@ namespace TurnSystem
     {
         [SerializeField] private int xPos;
         [SerializeField] private int zPos;
+        public bool checkMate;
         private bool _hasTurn;
         private GridPosition m_myGridPosition;
         private MeshRenderer _renderer;
@@ -30,6 +31,7 @@ namespace TurnSystem
         {
             if (TurnController.SharedInstance.GetCurrentTeamTurn() != team)
             {
+                Debug.Log(gameObject.name);
                 _replayManager.MoveToPosition();
                 EndTurn();
             }
