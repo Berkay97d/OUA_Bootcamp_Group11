@@ -5,15 +5,22 @@ using TMPro;
 
 public class TimeLeft : MonoBehaviour
 {
-    [SerializeField] private float startTime = 60f; // Baþlangýç süresi (saniye olarak)
+    [SerializeField] private float startTime = 20f; // Baþlangýç süresi (saniye olarak)
     private float timeRemaining;
     [SerializeField] public TextMeshProUGUI timerText; // Sayaç için Text bileþeni
     // [SerializeField] public GameObject gameOverPanel; // Game Over ekraný
 
+    private Buttons button;
+    private Pieces pieces;
+    private MoveBook moveBook;
+
     void Start()
     {
-        timeRemaining = startTime;
-        // gameOverPanel.SetActive(false);
+        button = FindObjectOfType<Buttons>();
+        pieces = FindObjectOfType<Pieces>();
+        moveBook = FindObjectOfType<MoveBook>();
+
+        ResetIteration();
     }
 
     void Update()
@@ -25,7 +32,7 @@ public class TimeLeft : MonoBehaviour
         }
         else
         {
-            GameOver();
+            ResetIteration(); // Süre sýfýrlandýðýnda tekrar baþlat
         }
     }
 
@@ -36,9 +43,25 @@ public class TimeLeft : MonoBehaviour
         timerText.text = "Time Left: " + string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    void GameOver()
+    // void ResetTimer()
+    // {
+    //    timeRemaining = startTime;
+        // gameOverPanel.SetActive(false); // Eðer Game Over panelini tekrar gizlemek isterseniz
+    //    UpdateTimerText(); // Timer metnini hemen güncelle
+    // }
+
+    public void ResetIteration()
     {
-        // gameOverPanel.SetActive(true);
-        // Diðer Game Over iþlemleri buraya eklenebilir
+        timeRemaining = startTime;
+        button.ResetButtons(); // Butonlarý sýfýrla
+        pieces.ResetPieces();// Taþlarý sýfýrla
+        moveBook.NextIteration(); // Bir sonraki iterasyona geç
+        UpdateTimerText(); // Timer metnini hemen güncelle
     }
+
+    // void GameOver()
+    // {
+    //     gameOverPanel.SetActive(true);
+    //     // Diðer Game Over iþlemleri buraya eklenebilir
+    // }
 }

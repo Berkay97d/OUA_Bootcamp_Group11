@@ -15,13 +15,14 @@ namespace ChessPieces
 
         public static event Action<ChessPiece, GridObject, GridObject> OnChessPieceMove; 
 
-        public static event Action OnKingWin; 
+        public static event Action OnKingWin;
 
         private void Start()
         {
             _chessPiece = GetComponent<ChessPiece>();
             m_gridSystem = ChessGrid.GetGridSystem();
             GameInput.m_instance.OnMoveInput += Movement;
+
         }
 
         private void Movement()
@@ -72,7 +73,7 @@ namespace ChessPieces
                 {
                     OnKingWin?.Invoke();
                 }
-                
+
                 OnChessPieceMove?.Invoke(_chessPiece, prevGridObject, movedGridObject);
                 _chessPiece.EndTurn();
             }
