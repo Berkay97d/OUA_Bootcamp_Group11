@@ -9,6 +9,7 @@ using UnityEngine;
 
 namespace ChessPieces
 {
+    
     public class ChessPieceMovement : MonoBehaviour
     {
         private static ChessPiece _chessPiece;
@@ -17,7 +18,7 @@ namespace ChessPieces
 
         public static event Action<ChessPiece, GridObject, GridObject> OnChessPieceMove; 
 
-        public static event Action<ChessPiece, GridObject, List<GridObject>> OnSpecialKingMove;
+        public static event Action<ChessPiece, GridObject, List<GridObject>, bool> OnSpecialKingMove;
 
         public static event Action OnKingWin;
 
@@ -44,7 +45,9 @@ namespace ChessPieces
             if (!isActive)
             {
                 Debug.Log("NORMAL HAREKETE DÖN");
+                _chessPiece.SetPieceStatus(0);
                 movableGrids = currentGridObject.GetMovableGrids();
+                OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids, true);
                 return;
             }
 
@@ -54,7 +57,7 @@ namespace ChessPieces
                 _kingPiece.SetCanSpecialMove(false);
                 _chessPiece.SetPieceStatus(2);
                 movableGrids = _kingPiece.GetBishopPattern();
-                OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
+                OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids, false);
                 return;
             }
             
@@ -62,35 +65,11 @@ namespace ChessPieces
             _kingPiece.SetCanSpecialMove(false);
             _chessPiece.SetPieceStatus(2);
             movableGrids = _kingPiece.GetKnightPattern();
-            OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
+            OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids, false);
         }
 
         // CREATED FOR TEST PURPOSES
-        private void Update()
-        {
-            
-            if(Input.GetKeyDown(KeyCode.O) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 0)
-            {
-                if(_chessPiece is King && _chessPiece.team == Team.White && _kingPiece.GetCanSpecialMove())
-                {
-                    _kingPiece.SetCanSpecialMove(false);
-                    _chessPiece.SetPieceStatus(2);
-                    movableGrids = _kingPiece.GetBishopPattern();
-                    OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
-                }
-            }
-
-            else if(Input.GetKeyDown(KeyCode.P) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 0)
-            {
-                if(_chessPiece is King && _chessPiece.team == Team.White && _kingPiece.GetCanSpecialMove())
-                {
-                    _kingPiece.SetCanSpecialMove(false);
-                    _chessPiece.SetPieceStatus(2);
-                    movableGrids = _kingPiece.GetKnightPattern();
-                    OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
-                }
-            }
-        }
+      
 
         private void Movement()
         {

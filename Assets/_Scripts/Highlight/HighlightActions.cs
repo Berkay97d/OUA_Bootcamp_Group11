@@ -27,9 +27,21 @@ public class HighlightActions : MonoBehaviour
         OnHighlightTiles?.Invoke(gridsToHighlight, moveHighlightColor);
     }
 
-    private void KingHighlightCheck(ChessPiece _chessPiece, GridObject _currentGridObject, List<GridObject> movableGrids)
+    
+    
+    private void KingHighlightCheck(ChessPiece _chessPiece, GridObject _currentGridObject, List<GridObject> movableGrids, bool isNormalMove)
     {
-        Color kingHighlightColor = Color.blue;
+        Color kingHighlightColor;
+        
+        if (isNormalMove)
+        {
+             kingHighlightColor = Color.green;    
+        }
+        else
+        {
+             kingHighlightColor = Color.blue;
+        }
+        
         OnClearTiles?.Invoke();
         OnHighlightTiles?.Invoke(movableGrids, kingHighlightColor);
     }

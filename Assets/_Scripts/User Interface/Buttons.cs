@@ -34,7 +34,7 @@ public class Buttons : MonoBehaviour
             UpdateButtonColors();
 
             // Burada gerekli hamlenin başarılı olup olmadığını kontrol et
-            // moveSuccessful = CheckMoveSuccess();
+            //moveSuccessful = CheckMoveSuccess();
             moveSuccessful = true; 
 
             // Hamle başarılı olduysa herhangi bir şey yapma
