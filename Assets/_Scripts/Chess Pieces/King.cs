@@ -8,7 +8,7 @@ namespace ChessPieces
 {
     public class King : ChessPiece
     {
-
+        bool canSpecialMove = true;
         public override List<GridObject> GetAttackPattern()
         {
             List<GridObject> attackTiles = new List<GridObject>();
@@ -21,7 +21,7 @@ namespace ChessPieces
             return attackTiles;
         }
 
-        public override List<GridObject> GetBishopPattern()
+        public List<GridObject> GetBishopPattern()
         {
             List<GridObject> bishopMoveTiles = new List<GridObject>();
 
@@ -87,7 +87,7 @@ namespace ChessPieces
             return bishopMoveTiles;
         }
 
-        public override List<GridObject> GetKnightPattern()
+        public List<GridObject> GetKnightPattern()
         {
             List<GridObject> knightMoveTiles = new List<GridObject>();
 
@@ -119,6 +119,16 @@ namespace ChessPieces
             }
 
             return knightMoveTiles;
+        }
+
+        public bool GetCanSpecialMove()
+        {
+            return canSpecialMove;
+        }
+
+        public void SetCanSpecialMove(bool value)
+        {
+            canSpecialMove = value;
         }
     }
 }
