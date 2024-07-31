@@ -23,7 +23,12 @@ namespace _Scripts.Grid_System
         private void Start()
         {
             m_gridSystem = ChessGrid.GetGridSystem();
-            
+            m_selectedGridObject = new GridObject(m_gridSystem, new GridPosition(0, 0));
+        }
+
+        public void Reset() 
+        {
+            m_gridSystem = ChessGrid.GetGridSystem();
             m_selectedGridObject = new GridObject(m_gridSystem, new GridPosition(0, 0));
         }
 
