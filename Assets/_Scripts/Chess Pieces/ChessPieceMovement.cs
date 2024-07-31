@@ -11,6 +11,7 @@ namespace ChessPieces
     public class ChessPieceMovement : MonoBehaviour
     {
         private static ChessPiece _chessPiece;
+        private static King _kingPiece;
         private static GridSystem m_gridSystem;
 
         public static event Action<ChessPiece, GridObject, GridObject> OnChessPieceMove; 
@@ -25,6 +26,8 @@ namespace ChessPieces
         private void Start()
         {
             _chessPiece = GetComponent<ChessPiece>();
+            if(_chessPiece is King)
+                _kingPiece = GetComponent<King>();
             m_gridSystem = ChessGrid.GetGridSystem();
             GameInput.m_instance.OnMoveInput += Movement;
 
@@ -36,20 +39,22 @@ namespace ChessPieces
         {
             if(Input.GetKeyDown(KeyCode.O) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 0)
             {
-                if(_chessPiece is King && _chessPiece.team == Team.White)
+                if(_chessPiece is King && _chessPiece.team == Team.White && _kingPiece.GetCanSpecialMove())
                 {
+                    _kingPiece.SetCanSpecialMove(false);
                     _chessPiece.SetPieceStatus(2);
-                    movableGrids = _chessPiece.GetBishopPattern();
+                    movableGrids = _kingPiece.GetBishopPattern();
                     OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
                 }
             }
 
             else if(Input.GetKeyDown(KeyCode.P) && _chessPiece.GetTurn() && _chessPiece.GetPieceStatus() == 0)
             {
-                if(_chessPiece is King && _chessPiece.team == Team.White)
+                if(_chessPiece is King && _chessPiece.team == Team.White && _kingPiece.GetCanSpecialMove())
                 {
+                    _kingPiece.SetCanSpecialMove(false);
                     _chessPiece.SetPieceStatus(2);
-                    movableGrids = _chessPiece.GetKnightPattern();
+                    movableGrids = _kingPiece.GetKnightPattern();
                     OnSpecialKingMove?.Invoke(_chessPiece, currentGridObject, movableGrids);
                 }
             }
