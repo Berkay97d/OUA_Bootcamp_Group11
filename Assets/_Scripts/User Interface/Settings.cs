@@ -13,6 +13,9 @@ public class Settings : MonoBehaviour
     public AudioSource musicSource; // Müzik kaynaðý
     public Slider volumeSlider; // Ses kontrol sliderý
 
+    public GameObject howToPlayPanel;
+    public GameObject buttonsPanel;
+
     void Start()
     {
         settingsPanel.SetActive(false);
@@ -33,24 +36,50 @@ public class Settings : MonoBehaviour
         }
     }
 
-    public void OpenPanel() // setting paneli açar
+    public void OpenPanel() // Setting paneli açar
     {
         settingsPanel.SetActive(true); 
         oyunPanel.SetActive(false);
+        howToPlayPanel.SetActive(false);
+        buttonsPanel.SetActive(false);
         Time.timeScale = 0f;
     }
 
-    public void ClosePanel() // setting paneli kapatýr
+    public void ClosePanel() // Setting paneli kapatýr
     {
+        howToPlayPanel.SetActive(false);
+        buttonsPanel.SetActive(false);
         settingsPanel.SetActive(false);
         oyunPanel.SetActive(true);
         Time.timeScale = 1f;
+    }
+
+    public void ClosePanelGame()
+    {
+        settingsPanel.SetActive(false);
+        oyunPanel.SetActive(true);
+        musicPanel.SetActive(false);
+        Time.timeScale = 1f; 
     }
 
     public void OpenMusicPanel()
     {
         musicPanel.SetActive(true);
         settingsPanel.SetActive(false);
+    }
+
+    public void HowToPlay()
+    {
+        howToPlayPanel.SetActive(true);
+        oyunPanel.SetActive(false);
+        buttonsPanel.SetActive(false);
+    }
+
+    public void Buttons()
+    {
+        buttonsPanel.SetActive(true);
+        oyunPanel.SetActive(false);
+        howToPlayPanel.SetActive(false);
     }
 
     public void ReloadGame()
