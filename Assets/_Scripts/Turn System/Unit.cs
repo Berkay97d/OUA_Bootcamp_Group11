@@ -1,72 +1,65 @@
+using System.Collections.Generic;
 using _Scripts.Grid_System;
+using ChessPieces;
+using DG.Tweening;
 using UnityEngine;
 
 namespace TurnSystem
 {
     public class Unit : MonoBehaviour
-    {       
+    {
         [SerializeField] private int xPos;
         [SerializeField] private int zPos;
-        private int _playOrder;
         private bool _hasTurn;
         private GridPosition m_myGridPosition;
         private MeshRenderer _renderer;
         public Team team;
+        private UnitRewindManager _rewindManager;
+        private UnitReplayManager _replayManager;
 
-        private int _moveCount;
-        
         private void Awake()
         {
-            _moveCount = 5;
             m_myGridPosition = new GridPosition(xPos, zPos);
+            _rewindManager = GetComponent<UnitRewindManager>();
+            _replayManager = GetComponent<UnitReplayManager>();
             _renderer = GetComponentInChildren<MeshRenderer>();
-            if (team == Team.White)
+            GetComponent<ChessPieceVisual>().enabled = true;
+        }
+
+        public void TakeTurn()
+        {
+            if (TurnController.SharedInstance.GetCurrentTeamTurn() != team)
             {
-                _renderer.material.color = Color.white;
-            } else 
+                _replayManager.MoveToPosition();
+                EndTurn();
+            }
+            else
             {
-                _renderer.material.color = Color.black;
+                _hasTurn = true;
             }
         }
 
         private void Update()
         {
-            m_myGridPosition = new GridPosition(xPos, zPos);
-
-            if (_hasTurn && _moveCount >0)
+            if (_hasTurn)
             {
-                if (_moveCount == 0)
-                {
-                    EndTurn();
-                }
+                _renderer.material.color = Color.red;
             }
-        }
-
-        public void TakeTurn()
-        {
-            _moveCount = 5;
-            _hasTurn = true;
-            Debug.Log("${name}'s turn.");
-            _renderer.material.color = Color.red;
+            else
+            {
+                UpdateTeamColors();
+            }
         }
 
         public void EndTurn()
         {
             _hasTurn = false;
-            Debug.Log("${name} ended its turn.");
-            if (team == Team.White)
-            {
-                _renderer.material.color = Color.white;
-            } else 
-            {
-                _renderer.material.color = Color.black;
-            }
-            TurnController.SharedInstance.EndTurn();
+            TurnController.SharedInstance.TurnEndedByUnit();
         }
 
-        public void SetPlayOrder(int order)
+        public void ReversePosition()
         {
-            _playOrder = order;
+            _rewindManager.ReversePosition();
         }
 
         public GridPosition GetGridPosition()
@@ -74,15 +67,26 @@ namespace TurnSystem
             return m_myGridPosition;
         }
 
-        public void MoveInitPositionInstant()
+        private void UpdateTeamColors()
         {
-            transform.position = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(m_myGridPosition);
+            if (team == Team.White)
+            {
+                _renderer.material.color = Color.white;
+            }
+            else
+            {
+                _renderer.material.color = Color.black;
+            }
         }
-        
-        public void SetPosition(Vector3 movePos)
+
+        public void SetPosition(GridPosition newPosition)
         {
-            xPos = (int) movePos.x;
-            zPos = (int) movePos.z;
+            m_myGridPosition = newPosition;
+        }
+
+        public void ResetGridPosition()
+        {
+            m_myGridPosition = new GridPosition(xPos, zPos);
         }
 
         public bool GetTurn()
@@ -90,5 +94,9 @@ namespace TurnSystem
             return _hasTurn;
         }
 
+        public Vector3 GetSpawnPosition()
+        {
+            return new Vector3(xPos, transform.position.y, zPos);
+        }
     }
 }

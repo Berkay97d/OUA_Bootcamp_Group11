@@ -17,6 +17,7 @@ namespace _Scripts.Grid_System
         private readonly GridPosition m_gridPosition;
         private bool m_isSelected;
         private bool m_isOccupied = false;
+        private bool m_isBroken = false;
         private int m_visitCount = 0;
 
         public GridObject(GridSystem gridSystem, GridPosition gridPosition)
@@ -62,6 +63,22 @@ namespace _Scripts.Grid_System
             return neighboorGrids;
         }
 
+        public List<GridObject> GetMovableGrids()
+        {
+            List<GridObject> movableGrids = new List<GridObject>();
+            var neighboorGrids = GetNeighboorGrids();
+
+            for (int i = 0; i < neighboorGrids.Count; i++)
+            {
+                if (!neighboorGrids[i].GetIsOccupied() && !neighboorGrids[i].GetIsBroken())
+                {
+                    movableGrids.Add(neighboorGrids[i]);
+                }
+            }
+
+            return movableGrids;
+        }
+
         public void SetIsOccupied(bool isOccupied)
         {
             m_isOccupied = isOccupied;
@@ -72,6 +89,16 @@ namespace _Scripts.Grid_System
         public bool GetIsOccupied()
         {
             return m_isOccupied;
+        }
+
+        public void SetIsBroken(bool isBroken)
+        {
+            m_isBroken = isBroken;
+        }
+
+        public bool GetIsBroken()
+        {
+            return m_isBroken;
         }
 
         public bool GetIsSelected()

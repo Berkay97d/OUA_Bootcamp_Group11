@@ -14,21 +14,21 @@ namespace ChessPieces
             var piecePos = this.GetGridPosition();
             var _gridObject = m_gridSystem.GetGridObject(piecePos);
 
-            // 2-up 1-left, 2-up 1-right
-            attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(piecePos._x - 1, piecePos._z + 2)));
-            attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(piecePos._x + 1, piecePos._z + 2)));
-            
-            // 1-up 2-left, 1-up 2-right
-            attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(piecePos._x - 2, piecePos._z + 1)));
-            attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(piecePos._x + 2, piecePos._z + 1)));
+            int[,] moveOffsets = new int[,]
+            {
+                { -1,  2 }, { 1,  2 },  // 2-up 1-left, 2-up 1-right
+                { -2,  1 }, { 2,  1 },  // 1-up 2-left, 1-up 2-right
+                { -2, -1 }, { 2, -1 },  // 1-down 2-left, 1-down 2-right
+                { -1, -2 }, { 1, -2 }   // 2-down 1-left, 2-down 1-right
+            };
 
-            // 1-down 2-left, 1-down 2-right
-            attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(piecePos._x - 2, piecePos._z - 1)));
-            attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(piecePos._x + 2, piecePos._z - 1)));
-
-            // 2-down 1-left, 2-down 1-right
-            attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(piecePos._x - 1, piecePos._z - 2)));
-            attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(piecePos._x + 1, piecePos._z - 2)));
+            for (int i = 0; i < moveOffsets.GetLength(0); i++)
+            {
+                int newX = piecePos._x + moveOffsets[i, 0];
+                int newZ = piecePos._z + moveOffsets[i, 1];
+                if(newX >= 0 && newX < 8 && newZ >= 0 && newZ < 8)
+                attackTiles.Add(m_gridSystem.GetGridObject(new GridPosition(newX, newZ)));
+            }
 
             return attackTiles;
         }

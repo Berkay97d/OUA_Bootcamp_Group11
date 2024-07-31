@@ -87,6 +87,11 @@ namespace _Scripts.Grid_System
             }
         }
 
+        public GridObject[,] GetAllGridObjects()
+        {
+            return m_gridObjects;
+        }
+
         public float GetSize()
         {
             return m_size;
