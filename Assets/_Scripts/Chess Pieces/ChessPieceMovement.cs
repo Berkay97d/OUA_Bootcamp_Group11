@@ -124,17 +124,22 @@ namespace ChessPieces
                     OnKingWin?.Invoke();
                 }
 
-                if (_chessPiece is not King && _chessPiece.checkMate)
+                /*if (_chessPiece is not King && _chessPiece.checkMate)
                 {
                     OnKingLoss?.Invoke();
                     _chessPiece.checkMate = false;
-                }
+                }*/
 
                 _chessPiece.EndTurn();
                 
             }
             else
                 Debug.Log("MOVE FAILED");
+        }
+
+        public void RaiseOnKingLoss()
+        {
+            OnKingLoss?.Invoke();
         }
     }
 }

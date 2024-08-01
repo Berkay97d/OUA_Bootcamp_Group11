@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Scripts;
 using _Scripts.Grid_System;
 using InputSystem;
+using TurnSystem;
 using UnityEngine;
 
 namespace ChessPieces
@@ -10,6 +11,7 @@ namespace ChessPieces
     public class ChessPieceFire : MonoBehaviour
     {
         private ChessPiece _chessPiece;
+        private ChessPieceMovement _chessPieceMovement;
         public static event Action<ChessPiece, GridObject, bool> OnChessPieceFire;
         private List<GridObject> attackTiles = new List<GridObject>();
         private GridObject currentGridObject;
@@ -17,11 +19,13 @@ namespace ChessPieces
         private void Start()
         {
             _chessPiece = GetComponent<ChessPiece>();
+            _chessPieceMovement = GetComponent<ChessPieceMovement>();
             GameInput.m_instance.OnFireInput += Fire;
             FireButton.OnFireButtonClick += FireButtonOnOnFireButtonClick;
 
             IterationController.OnIterationCompleted += CancelFireableTiles;
             IterationController.OnIterationReset += CancelFireableTiles;
+            IterationController.OnIterationCompletedWithKingLoss += CancelFireableTiles;
         }
 
         private void OnDestroy()
@@ -31,6 +35,7 @@ namespace ChessPieces
             
             IterationController.OnIterationCompleted -= CancelFireableTiles;
             IterationController.OnIterationReset -= CancelFireableTiles;
+            IterationController.OnIterationCompletedWithKingLoss -= CancelFireableTiles;
         }
 
         private void FireButtonOnOnFireButtonClick(bool isActive)
@@ -77,6 +82,22 @@ namespace ChessPieces
                 _chessPiece.SetPieceStatus(0);
                 _chessPiece.EndTurn();
                 Debug.Log("ATEŞ ETTİM");
+
+                var objs = FindObjectsOfType<King>();
+
+                foreach (var king in objs)
+                {
+                    if (king.team == Team.White && king.GetGridPosition().Equals(selectedGridObject.GetGridPosition()) && _chessPiece is not King)
+                    {
+                        Debug.Log("KRALI VURDUM");
+                        _chessPieceMovement.RaiseOnKingLoss();
+                        _chessPiece.SetPieceStatus(0);
+                        return;
+                    }
+                    _chessPiece.SetPieceStatus(0);
+                    Debug.Log("KRALI VURAMADIM");
+                }
+                
                 return;
             }
 

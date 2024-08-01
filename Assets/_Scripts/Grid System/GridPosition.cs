@@ -18,5 +18,15 @@ namespace _Scripts.Grid_System
         {
             return $"x: {_x}; z: {_z}";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (_x == ((GridPosition)obj)._x && _z == ((GridPosition)obj)._z)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
