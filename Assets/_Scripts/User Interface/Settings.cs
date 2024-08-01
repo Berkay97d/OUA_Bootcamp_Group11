@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -9,9 +10,6 @@ public class Settings : MonoBehaviour
     public GameObject settingsPanel;
     public GameObject musicPanel;
     public GameObject oyunPanel;
-
-    public AudioSource musicSource; // Müzik kaynaðý
-    public Slider volumeSlider; // Ses kontrol sliderý
 
     public GameObject howToPlayPanel;
     public GameObject buttonsPanel;
@@ -22,20 +20,6 @@ public class Settings : MonoBehaviour
     {
         settingsPanel.SetActive(false);
         musicPanel.SetActive(false);
-
-        if (musicSource != null && volumeSlider != null)
-        {
-            volumeSlider.value = musicSource.volume; // Slider'ýn baþlangýç deðerini ses seviyesine eþitle
-            volumeSlider.onValueChanged.AddListener(SetVolume); // Slider deðiþikliklerinde SetVolume metodunu çaðýr
-        }
-    }
-
-    void SetVolume(float volume)
-    {
-        if (musicSource != null)
-        {
-            musicSource.volume = volume; // Müzik kaynaðýnýn ses seviyesini slider deðeri ile ayarla
-        }
     }
 
     public void OpenPanel() // Setting paneli açar
@@ -99,7 +83,7 @@ public class Settings : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("UI Scene");
+        SceneManager.LoadScene("Base Scene");
     }
 
     public void MainMenu()
