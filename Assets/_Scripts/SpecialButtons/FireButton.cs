@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TurnSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,12 @@ public class FireButton : MonoBehaviour
     private void OnFireButtonClic()
     {
         Debug.Log("BUTTON TIKLANDIII");
+
+        if (TurnController.SharedInstance.GetCurrentTeamTurn() == Team.White)
+        {
+            Debug.Log("BEYAZ TAŞ ATEŞ EDEMEZ");
+            return;
+        }
         
         if (!m_isFireSelected)
         {

@@ -68,14 +68,21 @@ namespace ChessPieces
             if (!_chessPiece.GetTurn() || _chessPiece.GetPieceStatus() != 1) return;
 
             attackTiles = _chessPiece.GetAttackPattern();
-            for (int i = 0; i < attackTiles.Count; i++)
-            {
-                Debug.Log("Chess Piece hit: " + attackTiles[i].GetGridPosition());
-            }
             
-            OnChessPieceFire?.Invoke(_chessPiece,  currentGridObject, false);
-            _chessPiece.SetPieceStatus(0);
-            _chessPiece.EndTurn();
+            var selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
+
+            if (attackTiles.Contains(selectedGridObject))
+            {
+                OnChessPieceFire?.Invoke(_chessPiece,  currentGridObject, false);
+                _chessPiece.SetPieceStatus(0);
+                _chessPiece.EndTurn();
+                Debug.Log("ATEŞ ETTİM");
+                return;
+            }
+
+            Debug.Log("ATEŞ ETMEK İÇİN SEÇTİĞİNİZ TİLE UYGUN DEĞİL");
+            
+            
                     
         }
     }

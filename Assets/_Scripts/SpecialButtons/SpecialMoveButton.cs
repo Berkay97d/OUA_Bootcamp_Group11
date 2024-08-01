@@ -1,6 +1,7 @@
 using System;
 using _Scripts.Grid_System;
 using ChessPieces;
+using TurnSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,6 +65,12 @@ namespace _Scripts.SpecialButtons
         private void OnFireButtonClic()
         {
             Debug.Log("BUTTON TIKLANDIII");
+
+            if (TurnController.SharedInstance.GetCurrentTeamTurn() == Team.Black)
+            {
+                Debug.Log("BLACK SPECİAL MOVE YAPAMAZ");
+                return;
+            }
 
             if (m_isUsedCurrentIteration)
             {
