@@ -17,13 +17,25 @@ public class StartCutSceneManager : MonoBehaviour
     [SerializeField] private TypewriterByCharacter m_typewriterByCharacter4;
     [SerializeField] private TypewriterByCharacter m_typewriterByCharacter5;
     [SerializeField] private TypewriterByCharacter m_typewriterByCharacter6;
+    [SerializeField] private TypewriterByCharacter m_typewriterByCharacter7;
+    [SerializeField] private TypewriterByCharacter m_typewriterByCharacter8;
     
     [SerializeField] private CinemachineBrain _brain;
     [SerializeField] private CinemachineFreeLook _cam1;
     [SerializeField] private CinemachineFreeLook _cam2;
+    [SerializeField] private CinemachineFreeLook _cam3;
 
     [SerializeField] private Transform _king;
+    [SerializeField] private Material[] kingMaat;
+    
     [SerializeField] private Transform _kingMovePos;
+    [SerializeField] private GameObject[] _stones;
+    
+    [SerializeField] private Transform _son1;
+    [SerializeField] private Transform _son1MovePos;
+    
+    [SerializeField] private Transform _son2;
+    [SerializeField] private Transform _son2MovePos;
     
     
     
@@ -97,12 +109,35 @@ public class StartCutSceneManager : MonoBehaviour
         IEnumerator InnerRoutine()
         {
             yield return new WaitForSeconds(5f);
-            _king.DOMove(_kingMovePos.position, 4f);
+            _king.DOMove(_kingMovePos.position, 4f).OnComplete(() => {_king.gameObject.SetActive(false);});
             m_typewriterByCharacter4.gameObject.SetActive(false);
             m_typewriterByCharacter5.gameObject.SetActive(true);
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(5f);
+            _son1.DOLocalRotate(new Vector3(0, 275, 0), 2f);
+            _son2.DOLocalRotate(new Vector3(0, 90, 0), 2f);  //275   -   90
+            yield return new WaitForSeconds(1f);
             m_typewriterByCharacter5.gameObject.SetActive(false);
             m_typewriterByCharacter6.gameObject.SetActive(true);
+            yield return new WaitForSeconds(5f);
+            _brain.m_DefaultBlend.m_Time = 3f;
+            _cam3.Priority = 0;
+            yield return new WaitForSeconds(1.5f);
+            m_typewriterByCharacter6.gameObject.SetActive(false);
+            m_typewriterByCharacter7.gameObject.SetActive(true);
+            _son1.DOMove(_son1MovePos.position, 2f);
+            _son2.DOMove(_son2MovePos.position, 2f);
+            yield return new WaitForSeconds(2.5f);
+            foreach (var stone in _stones)
+            {
+                yield return new WaitForSeconds(0.35f);
+                stone.SetActive(true);
+            }
+            yield return new WaitForSeconds(2.5f);
+            _blackBg.DOFade(1, 2f).OnComplete(() =>
+            {
+                m_typewriterByCharacter7.gameObject.SetActive(false);
+                m_typewriterByCharacter8.gameObject.SetActive(true);
+            });
         }
     }
 }
