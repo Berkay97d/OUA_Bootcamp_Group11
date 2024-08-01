@@ -1,4 +1,6 @@
 using System;
+using _Scripts.Grid_System;
+using ChessPieces;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +22,7 @@ namespace _Scripts.SpecialButtons
         public static event Action<bool,MoveType> OnSpecialMoveButtonClick;
 
         private bool m_isMoveSelected;
+        private static bool m_isUsedCurrentIteration;
 
         private void Start()
         {
@@ -27,12 +30,46 @@ namespace _Scripts.SpecialButtons
             m_isMoveSelected = false;
         
             _fireButton.onClick.AddListener(OnFireButtonClic);
+            
+            ChessPieceMovement.OnChessPieceMove += OnChessPieceMove;
+            IterationController.OnIterationCompleted += ResetSpecialMove;
+            IterationController.OnIterationReset += ResetSpecialMove;
+            IterationController.OnIterationCompletedWithKingLoss += ResetSpecialMove;
+        }
+        
+        private void OnDestroy()
+        {
+            ChessPieceMovement.OnChessPieceMove -= OnChessPieceMove;
+            IterationController.OnIterationCompleted -= ResetSpecialMove;
+            IterationController.OnIterationReset -= ResetSpecialMove;
+            IterationController.OnIterationCompletedWithKingLoss -= ResetSpecialMove;
+        }
+        
+        private void ResetSpecialMove()
+        {
+            m_isUsedCurrentIteration = false;
+        }
+
+        private void OnChessPieceMove(ChessPiece arg1, GridObject arg2, GridObject arg3)
+        {
+            if (m_isMoveSelected)
+            {
+                m_isUsedCurrentIteration = true;
+            }
+            
+            _buttonImage.color = _disableColor;
+            m_isMoveSelected = false;
         }
 
         private void OnFireButtonClic()
         {
             Debug.Log("BUTTON TIKLANDIII");
-        
+
+            if (m_isUsedCurrentIteration)
+            {
+                return;
+            }
+            
             if (!m_isMoveSelected)
             {
                 m_isMoveSelected = true;

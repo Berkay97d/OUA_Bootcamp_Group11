@@ -41,8 +41,19 @@ namespace ChessPieces
             SpecialMoveButton.OnSpecialMoveButtonClick += OnSpecialMove;
         }
 
+        private void OnDestroy()
+        {
+            GameInput.m_instance.OnMoveInput -= Movement;
+            SpecialMoveButton.OnSpecialMoveButtonClick -= OnSpecialMove;
+        }
+
         private void OnSpecialMove(bool isActive, MoveType moveType)
         {
+            if (TurnController.SharedInstance.GetCurrentTeamTurn() != Team.White)
+            {
+                return;
+            }
+            
             if (!isActive)
             {
                 Debug.Log("NORMAL HAREKETE DÖN");

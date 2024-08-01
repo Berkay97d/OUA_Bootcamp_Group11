@@ -1,3 +1,6 @@
+using System;
+using _Scripts.Grid_System;
+using ChessPieces;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,35 +10,65 @@ public class AudioManager : MonoBehaviour
     public AudioSource audioSource;
     public Slider volumeSlider;
 
-    public AudioSource fireSound; // Ateþ sesi
+    public AudioSource fireSound; // Ateï¿½ sesi
     public AudioSource movementSound; // Hareket sesi
     public Slider fmVolumeSlider; // Slider
 
     private void Start()
     {
-        // Slider'ýn deðerini ses seviyesine ayarlama
+        // Slider'ï¿½n deï¿½erini ses seviyesine ayarlama
         volumeSlider.value = PlayerPrefs.GetFloat("Volume", 1f);
         audioSource.volume = volumeSlider.value;
 
-        // Slider'a bir event listener ekleyerek ses seviyesini güncelle
+        // Slider'a bir event listener ekleyerek ses seviyesini gï¿½ncelle
         volumeSlider.onValueChanged.AddListener(SetVolume);
 
         fmVolumeSlider.onValueChanged.AddListener(OnSliderValueChanged);
+        
+        ChessPieceMovement.OnChessPieceMove += ChessPieceMovementOnOnChessPieceMove;
+    }
+
+    private void OnDestroy()
+    {
+        ChessPieceMovement.OnChessPieceMove -= ChessPieceMovementOnOnChessPieceMove;
+    }
+
+    private void ChessPieceMovementOnOnChessPieceMove(ChessPiece arg1, GridObject arg2, GridObject arg3)
+    {
+        PlayMovementSounds();
     }
 
     public void SetVolume(float volume)
     {
         audioSource.volume = volume;
-        PlayerPrefs.SetFloat("Volume", volume);  // Ayarý kaydet
+        PlayerPrefs.SetFloat("Volume", volume);  // Ayarï¿½ kaydet
         PlayerPrefs.Save();
     }
 
     void OnSliderValueChanged(float value)
     {
-        // Slider'ýn deðerine göre her iki sesin seviyelerini eþit derecede ayarla
+        // Slider'ï¿½n deï¿½erine gï¿½re her iki sesin seviyelerini eï¿½it derecede ayarla
         float newVolume = Mathf.Clamp01(value);
 
         fireSound.volume = newVolume;
         movementSound.volume = newVolume;
+    }
+    
+    public void PlayFireSound()
+    {
+        // AteÅŸ seslerini bir kere oynat
+        if (!fireSound.isPlaying)
+        {
+            fireSound.PlayOneShot(fireSound.clip);
+        }
+    }
+
+    private void PlayMovementSounds()
+    {
+        // hareket seslerini bir kere oynat
+        if (!movementSound.isPlaying)
+        {
+            movementSound.PlayOneShot(movementSound.clip);
+        }
     }
 }
