@@ -18,6 +18,7 @@ namespace TurnSystem
         private void Awake()
         {
             m_gridSystem = ChessGrid.GetGridSystem();
+            Debug.Log(m_gridSystem.GetAllGridObjects());
             _unit = GetComponent<Unit>();
         }
 
@@ -31,11 +32,11 @@ namespace TurnSystem
             ChessPieceMovement.OnChessPieceMove -= UnitDidMove;
         }
 
-        public void UnitDidMove(ChessPiece piece, GridObject prevGrid, GridObject nextGrid)
+        public void UnitDidMove(UnitTurnData unitTurnData)
         {
-            if (piece == _unit)
+            if (unitTurnData.chessPiece == _unit)
             {
-                _previousGrids.Add(prevGrid);
+                _previousGrids.Add(unitTurnData.previousGrid);
             }
         }
 

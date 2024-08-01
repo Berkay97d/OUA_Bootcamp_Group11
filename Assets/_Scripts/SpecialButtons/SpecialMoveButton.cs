@@ -51,7 +51,7 @@ namespace _Scripts.SpecialButtons
             m_isUsedCurrentIteration = false;
         }
 
-        private void OnChessPieceMove(ChessPiece arg1, GridObject arg2, GridObject arg3)
+        private void OnChessPieceMove(UnitTurnData unitTurnData)
         {
             if (m_isMoveSelected)
             {

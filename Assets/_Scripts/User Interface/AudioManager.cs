@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
         ChessPieceMovement.OnChessPieceMove -= ChessPieceMovementOnOnChessPieceMove;
     }
 
-    private void ChessPieceMovementOnOnChessPieceMove(ChessPiece arg1, GridObject arg2, GridObject arg3)
+    private void ChessPieceMovementOnOnChessPieceMove(UnitTurnData unitTurnData)
     {
         PlayMovementSounds();
     }

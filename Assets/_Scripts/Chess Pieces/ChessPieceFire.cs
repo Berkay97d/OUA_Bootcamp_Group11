@@ -13,6 +13,7 @@ namespace ChessPieces
         private ChessPiece _chessPiece;
         private ChessPieceMovement _chessPieceMovement;
         public static event Action<ChessPiece, GridObject, bool> OnChessPieceFire;
+        public static event Action<UnitTurnData> OnChessPieceShot;
         private List<GridObject> attackTiles = new List<GridObject>();
         private GridObject currentGridObject;
 
@@ -32,7 +33,7 @@ namespace ChessPieces
         {
             GameInput.m_instance.OnFireInput -= Fire;
             FireButton.OnFireButtonClick -= FireButtonOnOnFireButtonClick;
-            
+
             IterationController.OnIterationCompleted -= CancelFireableTiles;
             IterationController.OnIterationReset -= CancelFireableTiles;
             IterationController.OnIterationCompletedWithKingLoss -= CancelFireableTiles;
@@ -45,15 +46,15 @@ namespace ChessPieces
                 GetFireableTiles();
                 return;
             }
-            
+
             CancelFireableTiles();
         }
-        
+
 
         public void GetFireableTiles()
         {
             Debug.Log("FİRE ACTİVE");
-            
+
             _chessPiece.SetPieceStatus(1);
             currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
             OnChessPieceFire?.Invoke(_chessPiece, currentGridObject, true);
@@ -62,10 +63,10 @@ namespace ChessPieces
         public void CancelFireableTiles()
         {
             Debug.Log("FİRE DİSABLED");
-            
+
             _chessPiece.SetPieceStatus(0);
             currentGridObject = ChessGrid.GetGridSystem().GetGridObject(_chessPiece.GetGridPosition());
-            OnChessPieceFire?.Invoke(_chessPiece,  currentGridObject, false);
+            OnChessPieceFire?.Invoke(_chessPiece, currentGridObject, false);
         }
 
         private void Fire()
@@ -73,12 +74,14 @@ namespace ChessPieces
             if (!_chessPiece.GetTurn() || _chessPiece.GetPieceStatus() != 1) return;
 
             attackTiles = _chessPiece.GetAttackPattern();
-            
+
             var selectedGridObject = GridObjectSelectionSystem.GetSelectedGridObject();
 
             if (attackTiles.Contains(selectedGridObject))
             {
-                OnChessPieceFire?.Invoke(_chessPiece,  currentGridObject, false);
+                OnChessPieceFire?.Invoke(_chessPiece, currentGridObject, false);
+                var turnData = new UnitTurnData(true, null, null, selectedGridObject, _chessPiece);
+                OnChessPieceShot?.Invoke(turnData);
                 _chessPiece.SetPieceStatus(0);
                 _chessPiece.EndTurn();
                 Debug.Log("ATEŞ ETTİM");
@@ -97,14 +100,29 @@ namespace ChessPieces
                     _chessPiece.SetPieceStatus(0);
                     Debug.Log("KRALI VURAMADIM");
                 }
-                
+
                 return;
             }
 
             Debug.Log("ATEŞ ETMEK İÇİN SEÇTİĞİNİZ TİLE UYGUN DEĞİL");
-            
-            
-                    
+        }
+
+        public void FireByReplay(GridObject targetGrid)
+        {
+            var objs = FindObjectsOfType<King>();
+
+            foreach (var king in objs)
+            {
+                if (king.team == Team.White && king.GetGridPosition().Equals(targetGrid.GetGridPosition()))
+                {
+                    Debug.Log("KRALI VURDUM");
+                    _chessPieceMovement.RaiseOnKingLoss();
+                    _chessPiece.SetPieceStatus(0);
+                    return;
+                }
+                _chessPiece.SetPieceStatus(0);
+                Debug.Log("KRALI VURAMADIM");
+            }
         }
     }
 }

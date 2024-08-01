@@ -8,9 +8,9 @@ using UnityEngine;
 
 public class UnitReplayManager : MonoBehaviour
 {
-    public List<GridObject> _targetGrids = new();
+    public List<UnitTurnData> unitTurns = new();
     private Unit _unit;
-    private int _positionIndex = 0;
+    private int _turnIndex = 0;
     private GridSystem m_gridSystem;
     public static event Action OnKingWin;
     public bool isDone;
@@ -37,52 +37,62 @@ public class UnitReplayManager : MonoBehaviour
 
     private void OnIterationReset()
     {
-        _positionIndex = 0;
+        _turnIndex = 0;
     }
 
     private void OnEnable()
     {
         ChessPieceMovement.OnChessPieceMove += UnitDidMove;
+        ChessPieceFire.OnChessPieceShot += UnitDidMove;
     }
 
     private void OnDisable()
     {
+        ChessPieceFire.OnChessPieceShot -= UnitDidMove;
         ChessPieceMovement.OnChessPieceMove -= UnitDidMove;
     }
 
-    public void UnitDidMove(ChessPiece piece, GridObject prevGrid, GridObject nextGrid)
+    public void UnitDidMove(UnitTurnData unitTurnData)
     {
-        if (piece == _unit)
+        if (unitTurnData.chessPiece == _unit)
         {
-            _targetGrids.Add(nextGrid);
+            unitTurns.Add(unitTurnData);
         }
     }
 
     public void MoveToPosition()
     {
-        var currentGridPosition = m_gridSystem.GetGridPositionFromWorldPosition(transform.position);
-        var currentGridObject = m_gridSystem.GetGridObject(currentGridPosition);
-        _unit.GetComponent<UnitRewindManager>().AddPosition(currentGridObject);
-        if (_targetGrids.Count > _positionIndex)
+
+        if (unitTurns.Count > _turnIndex)
         {
-            var gridObject = _targetGrids[_positionIndex];
-            _unit.SetPosition(gridObject.GetGridPosition());
-            _positionIndex++;
-            if (_unit is King && gridObject.GetGridPosition()._z == 7)
+            var turn = unitTurns[_turnIndex];
+
+            if (turn.isFire)
             {
-                OnKingWin?.Invoke();
-                _positionIndex = 0;
+                var targetedGridObject = turn.shotGrid;
+                _unit.GetComponent<ChessPieceFire>().FireByReplay(targetedGridObject);
+            }
+            else
+            {
+                _unit.GetComponent<UnitRewindManager>().AddPosition(turn.previousGrid);
+                var gridObject = turn.targetGrid;
+                _unit.SetPosition(gridObject.GetGridPosition());
+                _turnIndex++;
+                if (_unit is King && gridObject.GetGridPosition()._z == 7)
+                {
+                    OnKingWin?.Invoke();
+                    _turnIndex = 0;
+                }
             }
         }
-
     }
 
     public void ResetReplayData()
     {
         if (!isDone)
         {
-            _targetGrids.Clear();
+            unitTurns.Clear();
         }
-        _positionIndex = 0;
+        _turnIndex = 0;
     }
 }

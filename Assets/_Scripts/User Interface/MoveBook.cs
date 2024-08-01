@@ -37,9 +37,9 @@ public class MoveBook : MonoBehaviour
         IterationController.OnIterationReset -= IterationControllerOnOnIterationReset;
     }
 
-    private void AddMove(ChessPiece chessPiece, GridObject fromGrid, GridObject toGrid)
+    private void AddMove(UnitTurnData unitTurnData)
     {
-        MoveEntry entry = new MoveEntry(chessPiece, fromGrid, toGrid, currentIteration);
+        MoveEntry entry = new MoveEntry(unitTurnData.chessPiece, unitTurnData.previousGrid, unitTurnData.targetGrid, currentIteration);
         if (!moveLog.ContainsKey(currentIteration))
         {
             moveLog[currentIteration] = new List<MoveEntry>();

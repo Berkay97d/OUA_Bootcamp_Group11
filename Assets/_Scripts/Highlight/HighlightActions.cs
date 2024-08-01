@@ -18,12 +18,12 @@ public class HighlightActions : MonoBehaviour
         
     }
 
-    private void MoveHighlightCheck(ChessPiece chessPiece, GridObject fromGrid, GridObject toGrid)
+    private void MoveHighlightCheck(UnitTurnData unitTurnData)
     {
         Color moveHighlightColor = Color.green;
         OnClearTiles?.Invoke();
 
-        var gridsToHighlight = toGrid.GetMovableGrids();
+        var gridsToHighlight = unitTurnData.targetGrid.GetMovableGrids();
         OnHighlightTiles?.Invoke(gridsToHighlight, moveHighlightColor);
     }
 

@@ -16,7 +16,7 @@ namespace ChessPieces
         private King _kingPiece;
         private static GridSystem m_gridSystem;
 
-        public static event Action<ChessPiece, GridObject, GridObject> OnChessPieceMove; 
+        public static event Action<UnitTurnData> OnChessPieceMove; 
 
         public static event Action<ChessPiece, GridObject, List<GridObject>, bool> OnSpecialKingMove;
 
@@ -116,8 +116,9 @@ namespace ChessPieces
                 currentGridObject = movedGridObject;
                 _chessPiece.SetPosition(movedGridPosition);
                 gridObject.SetIsOccupied(true);
-                _chessPiece.SetPieceStatus(0);    
-                OnChessPieceMove?.Invoke(_chessPiece, prevGridObject, movedGridObject);
+                _chessPiece.SetPieceStatus(0);
+                var turnData = new UnitTurnData(false, prevGridObject, movedGridObject, null, _chessPiece);
+                OnChessPieceMove?.Invoke(turnData);
 
                 if (_chessPiece is King && movedGridPosition._z == 7)
                 {
