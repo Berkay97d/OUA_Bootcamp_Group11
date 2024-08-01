@@ -22,7 +22,7 @@ public class Settings : MonoBehaviour
         musicPanel.SetActive(false);
     }
 
-    public void OpenPanel() // Setting paneli açar
+    public void OpenPanel() // Setting paneli aï¿½ar
     {
         settingsPanel.SetActive(true); 
         oyunPanel.SetActive(false);
@@ -31,7 +31,7 @@ public class Settings : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void ClosePanel() // Setting paneli kapatýr
+    public void ClosePanel() // Setting paneli kapatï¿½r
     {
         howToPlayPanel.SetActive(false);
         buttonsPanel.SetActive(false);
@@ -77,18 +77,18 @@ public class Settings : MonoBehaviour
 
     public void ReloadGame()
     {
-        // Sahneyi yeniden yükle
+        // Sahneyi yeniden yï¿½kle
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Base Scene");
+        SceneManager.LoadScene(1);
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene(0);
     }
 
     public void CloseGame()

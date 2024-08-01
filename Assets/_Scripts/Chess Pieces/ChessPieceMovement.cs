@@ -124,11 +124,7 @@ namespace ChessPieces
                     OnKingWin?.Invoke();
                 }
 
-                /*if (_chessPiece is not King && _chessPiece.checkMate)
-                {
-                    OnKingLoss?.Invoke();
-                    _chessPiece.checkMate = false;
-                }*/
+                
 
                 _chessPiece.EndTurn();
                 

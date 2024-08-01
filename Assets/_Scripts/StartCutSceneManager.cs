@@ -5,6 +5,7 @@ using Cinemachine;
 using DG.Tweening;
 using Febucci.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StartCutSceneManager : MonoBehaviour
@@ -138,6 +139,11 @@ public class StartCutSceneManager : MonoBehaviour
                 m_typewriterByCharacter7.gameObject.SetActive(false);
                 m_typewriterByCharacter8.gameObject.SetActive(true);
             });
+
+            yield return new WaitForSeconds(4f);
+            m_typewriterByCharacter8.gameObject.SetActive(false);
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene(2);
         }
     }
 }

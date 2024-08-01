@@ -4235,6 +4235,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 865354513}
   volumeSlider: {fileID: 132948860}
+  fireSound: {fileID: 0}
+  movementSound: {fileID: 0}
+  fmVolumeSlider: {fileID: 2005958831}
 --- !u!82 &865354513
 AudioSource:
   m_ObjectHideFlags: 0

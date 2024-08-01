@@ -87,7 +87,7 @@ namespace ChessPieces
 
                 foreach (var king in objs)
                 {
-                    if (king.team == Team.White && king.GetGridPosition().Equals(selectedGridObject.GetGridPosition()) && _chessPiece is not King)
+                    if (king.team == Team.White && king.GetGridPosition().Equals(selectedGridObject.GetGridPosition()))
                     {
                         Debug.Log("KRALI VURDUM");
                         _chessPieceMovement.RaiseOnKingLoss();
