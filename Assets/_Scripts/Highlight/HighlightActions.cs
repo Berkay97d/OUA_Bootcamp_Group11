@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Scripts;
 using _Scripts.Grid_System;
 using ChessPieces;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class HighlightActions : MonoBehaviour
         ChessPieceMovement.OnChessPieceMove += MoveHighlightCheck;
         ChessPieceMovement.OnSpecialKingMove += KingHighlightCheck;
         ChessPieceFire.OnChessPieceFire += FireHighlight;
+
+        
     }
 
     private void MoveHighlightCheck(ChessPiece chessPiece, GridObject fromGrid, GridObject toGrid)
@@ -24,9 +27,21 @@ public class HighlightActions : MonoBehaviour
         OnHighlightTiles?.Invoke(gridsToHighlight, moveHighlightColor);
     }
 
-    private void KingHighlightCheck(ChessPiece _chessPiece, GridObject _currentGridObject, List<GridObject> movableGrids)
+    
+    
+    private void KingHighlightCheck(ChessPiece _chessPiece, GridObject _currentGridObject, List<GridObject> movableGrids, bool isNormalMove)
     {
-        Color kingHighlightColor = Color.blue;
+        Color kingHighlightColor;
+        
+        if (isNormalMove)
+        {
+             kingHighlightColor = Color.green;    
+        }
+        else
+        {
+             kingHighlightColor = Color.blue;
+        }
+        
         OnClearTiles?.Invoke();
         OnHighlightTiles?.Invoke(movableGrids, kingHighlightColor);
     }

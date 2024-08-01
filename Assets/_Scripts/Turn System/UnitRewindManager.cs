@@ -46,9 +46,16 @@ namespace TurnSystem
 
         public void ReversePosition()
         {
+            if (_previousGrids.Count == 0)
+            {
+                _rewindCompleted = true;
+                TurnController.SharedInstance.UnitsDidResetPositions();
+                return;
+            }
+            
             var gridObject = _previousGrids[_previousGrids.Count - 1];
             var worldPositionOfGrid = m_gridSystem.GetWorldPositionFromGridPosition(gridObject.GetGridPosition());
-            transform.DOMove(worldPositionOfGrid, 0.5f, false).OnComplete(() =>
+            transform.DOMove(worldPositionOfGrid, 0.1f, false).OnComplete(() =>
             {
                 _previousGrids.Remove(gridObject);
                 if (_previousGrids.Count == 0)

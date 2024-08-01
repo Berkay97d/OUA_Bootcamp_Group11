@@ -1,6 +1,7 @@
 using _Scripts.Grid_System;
 using ChessPieces;
 using System.Collections.Generic;
+using _Scripts;
 using TMPro;
 using UnityEngine;
 
@@ -14,14 +15,29 @@ public class MoveBook : MonoBehaviour
     {
         moveLog[currentIteration] = new List<MoveEntry>();
         ChessPieceMovement.OnChessPieceMove += AddMove;
+        IterationController.OnIterationCompleted += IterationControllerOnOnIterationCompleted;
+        IterationController.OnIterationReset += IterationControllerOnOnIterationReset;
+    }
+    
+
+    private void IterationControllerOnOnIterationReset()
+    {
+        ResetIterations();
+    }
+
+    private void IterationControllerOnOnIterationCompleted()
+    {
+        NextIteration();
     }
 
     private void OnDestroy()
     {
         ChessPieceMovement.OnChessPieceMove -= AddMove;
+        IterationController.OnIterationCompleted -= IterationControllerOnOnIterationCompleted;
+        IterationController.OnIterationReset -= IterationControllerOnOnIterationReset;
     }
 
-    public void AddMove(ChessPiece chessPiece, GridObject fromGrid, GridObject toGrid)
+    private void AddMove(ChessPiece chessPiece, GridObject fromGrid, GridObject toGrid)
     {
         MoveEntry entry = new MoveEntry(chessPiece, fromGrid, toGrid, currentIteration);
         if (!moveLog.ContainsKey(currentIteration))
@@ -32,7 +48,7 @@ public class MoveBook : MonoBehaviour
         UpdateLogText();
     }
 
-    public void NextIteration()
+    private void NextIteration()
     {
         currentIteration++;
         if (!moveLog.ContainsKey(currentIteration))
@@ -42,7 +58,7 @@ public class MoveBook : MonoBehaviour
         UpdateLogText();
     }
 
-    public void ResetIterations()
+    private void ResetIterations()
     {
         currentIteration = 1;
         moveLog.Clear();

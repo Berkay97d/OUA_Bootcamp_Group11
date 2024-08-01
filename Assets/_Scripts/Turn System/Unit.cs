@@ -10,6 +10,7 @@ namespace TurnSystem
     {
         [SerializeField] private int xPos;
         [SerializeField] private int zPos;
+        public bool checkMate;
         private bool _hasTurn;
         private GridPosition m_myGridPosition;
         private MeshRenderer _renderer;
@@ -35,7 +36,15 @@ namespace TurnSystem
             }
             else
             {
-                _hasTurn = true;
+                if (_replayManager.isDone)
+                {
+                    _replayManager.MoveToPosition();
+                    EndTurn();
+                }
+                else
+                {
+                    _hasTurn = true;
+                }
             }
         }
 

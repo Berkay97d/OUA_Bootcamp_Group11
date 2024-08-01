@@ -1,3 +1,4 @@
+using _Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,27 +18,28 @@ public class Buttons : MonoBehaviour
         button3.onClick.AddListener(() => OnButtonClick(2));
 
         UpdateButtonColors();
+        
     }
 
     void Update()
     {
-        // Gerekli hamlenin başarılı olup olmadığını kontrol eder
+        // Gerekli hamlenin baÅŸarÄ±lÄ± olup olmadÄ±ÄŸÄ±nÄ± kontrol eder
     }
 
     void OnButtonClick(int buttonIndex)
     {
         if (!buttonUsed[buttonIndex])
         {
-            buttonUsed[buttonIndex] = true;
+            buttonUsed[buttonIndex] = false;
             UpdateButtonColors();
 
-            // Burada gerekli hamlenin başarılı olup olmadığını kontrol et
-            // moveSuccessful = CheckMoveSuccess();
+            // Burada gerekli hamlenin baÅŸarÄ±lÄ± olup olmadÄ±ÄŸÄ±nÄ± kontrol et
+            //moveSuccessful = CheckMoveSuccess();
             moveSuccessful = true; 
 
-            // Hamle başarılı olduysa herhangi bir şey yapma
-            // Hamle başarısız olduysa butonu tekrar aktif hale getirmek için 
-            // kodu aşağıda bulunan ResetButtons fonksiyonu kullan
+            // Hamle baÅŸarÄ±lÄ± olduysa herhangi bir ÅŸey yapma
+            // Hamle baÅŸarÄ±sÄ±z olduysa butonu tekrar aktif hale getirmek iÃ§in 
+            // kodu aÅŸaÄŸÄ±da bulunan ResetButtons fonksiyonu kullan
         }
     }
 
@@ -79,9 +81,9 @@ public class Buttons : MonoBehaviour
         UpdateButtonColors();
     }
 
-    // Gerekli hamlenin başarılı olup olmadığını kontrol eden bir fonksiyon 
+    // Gerekli hamlenin baÅŸarÄ±lÄ± olup olmadÄ±ÄŸÄ±nÄ± kontrol eden bir fonksiyon 
     // bool CheckMoveSuccess()
     // {
-    //     // Hamlenin başarılı olup olmadığını kontrol edin ve true/false döndürür
+    //     // Hamlenin baÅŸarÄ±lÄ± olup olmadÄ±ÄŸÄ±nÄ± kontrol edin ve true/false dÃ¶ndÃ¼rÃ¼r
     // }
 }
