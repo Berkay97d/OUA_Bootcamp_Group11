@@ -36,12 +36,14 @@ namespace _Scripts.Grid_System
             m_gridSystem.CreateTiles(_tilePrefabs);
             IterationController.OnIterationCompleted += OnIterationCompleted;
             IterationController.OnIterationReset += OnIterationCompleted;
+            IterationController.OnIterationCompletedWithKingLoss += OnIterationCompleted;
         }
 
         private void OnDestroy()
         {
             IterationController.OnIterationCompleted -= OnIterationCompleted;
             IterationController.OnIterationReset -= OnIterationCompleted;
+            IterationController.OnIterationCompletedWithKingLoss -= OnIterationCompleted;
         }
 
         private void OnIterationCompleted()
