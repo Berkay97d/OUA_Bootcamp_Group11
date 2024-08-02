@@ -3,8 +3,8 @@
 </p>
 <p align="center">OYUN ve UYGULAMA AKADEMİSİ MEZUNİYET BOOTCAMPİ - EKİP 11</p>
 
-<details>
-  <summary> ÜRÜN VE TAKIM BİLGİLERİ </summary>
+
+  ### ÜRÜN VE TAKIM BİLGİLERİ 
   
   ### Takım İsmi: Team 11
   
@@ -14,7 +14,7 @@
   - Berke Parıldar - **DEVELOPER**
   - Bora Sevim - **DEVELOPER**
   - Dilara Çelen - **DEVELOPER**
-  ### Ürün İsmi: Project Chess 
+  ### Ürün İsmi: Escape of the king 
   
   ### Ürün Açıklaması:
   Tek başına kalmış bir kralın(şah) rakip askerlerden(satranç taşları)
@@ -37,7 +37,7 @@
 [ Unity Team 11 Trello Backlog Board](https://trello.com/b/sZwjzSeZ/%C3%A7ali%C5%9Fma-alani)
 
 
-</details>
+
 
 
 <details>
@@ -270,4 +270,45 @@ Bu sprintte, oyun mekanikleri, kullanıcı arayüzü (UI) güncellemeleri ve kod
 
 Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve kod entegrasyonu süreçlerinde daha fazla iyileştirme ve düzenlemeler gerekmektedir.
   
-</details>
+</details> 
+
+
+
+<details>
+  <summary>SPRINT 3 (22.07 - 02.08)</summary>
+- Sprint içi puan değerlendirmesi 90 olarak belirlenmiştir.
+- **Puan tamamlama mantığı**: Proje boyunca tamamlanması gereken backlog puanı 179'dur. Üçüncü Sprint için bitirilmesi istenilen puan sayısı 90 olarak belirlenmiştir ve hedefe ulaşılmıştır.
+- **Daily Scrum**: Discord üzerinden kısa toplantılar halinde sağlanmıştır.  
+- **Katılımcılar**: Berkay,Berke,Bora,Dilara,Damla
+  
+![image](https://github.com/user-attachments/assets/ca2e9733-9f55-48ae-bf9c-ff1333cd152e)
+![image](https://github.com/user-attachments/assets/c88eaa30-386a-44f1-bbf9-8f8f76c7bc44)
+
+- **Daily Scrum**:
+
+![image](https://github.com/user-attachments/assets/98901377-0af6-4ad0-9db4-5499bb66eed2)
+![image](https://github.com/user-attachments/assets/7d80b0c6-87ba-4d24-95e9-7506c22a7e80)
+![image](https://github.com/user-attachments/assets/80aa6862-55ba-4a15-8fe6-a8af0e642784)
+
+
+
+  
+- **GÖRSELLER** :
+  
+![image](https://github.com/user-attachments/assets/a0854580-6409-4355-ab20-6688915b2c98)
+![image](https://github.com/user-attachments/assets/e1f669b3-a0e7-4b85-b5da-1febecef0c7b)
+![image](https://github.com/user-attachments/assets/db5c74ae-588e-49b2-ad3b-d45bceeb98df)
+![render2](https://github.com/user-attachments/assets/6697a9eb-25ed-4eee-843e-baac5d1eec92)
+
+
+
+  
+
+## SPRINT REVIEW
+
+
+## SPRINT RETROSPECTIVE  
+
+
+</details> 
+
