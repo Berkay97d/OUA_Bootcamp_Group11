@@ -10,6 +10,8 @@ namespace TurnSystem
     {
         [SerializeField] private int xPos;
         [SerializeField] private int zPos;
+        [SerializeField] private GameObject _myTurnShower;
+        
         public bool checkMate;
         private bool _hasTurn;
         private GridPosition m_myGridPosition;
@@ -52,11 +54,13 @@ namespace TurnSystem
         {
             if (_hasTurn)
             {
-                _renderer.material.color = Color.red;
+                //_renderer.material.color = Color.red;
+                _myTurnShower.SetActive(true);
             }
             else
             {
-                UpdateTeamColors();
+                _myTurnShower.SetActive(false);
+                //UpdateTeamColors();
             }
         }
 

@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 56d4a5bbf488dba46b15d83518a51bfb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56d4a5bbf488dba46b15d83518a51bfb,
         type: 3}
@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 56d4a5bbf488dba46b15d83518a51bfb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2547647437666031759, guid: 56d4a5bbf488dba46b15d83518a51bfb,
         type: 3}
@@ -160,7 +160,7 @@ PrefabInstance:
     - target: {fileID: 7771111477145671183, guid: d7af436d96922ab4280657e7b9b7f941,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -175,6 +175,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4088350680078198011}
   m_SourcePrefab: {fileID: 100100000, guid: d7af436d96922ab4280657e7b9b7f941, type: 3}
+--- !u!1 &1044586086673455989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7219308624063316028, guid: d7af436d96922ab4280657e7b9b7f941,
+    type: 3}
+  m_PrefabInstance: {fileID: 7660411255479982921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2455704978172409455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5213855388223810854, guid: d7af436d96922ab4280657e7b9b7f941,
@@ -201,5 +207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xPos: 6
   zPos: 6
+  _myTurnShower: {fileID: 1044586086673455989}
   checkMate: 0
   team: 1

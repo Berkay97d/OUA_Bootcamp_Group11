@@ -13,6 +13,11 @@ namespace _Scripts.Grid_System
     public class TileVisual : MonoBehaviour
     {
         [SerializeField] private float _selectedTilePulseSpeed;
+        [SerializeField] private GameObject _highlight;
+        [SerializeField] private Color _moveColor;
+        [SerializeField] private Color _fireColor;
+        
+        
         
         private Tile m_myTile;
         private GridObject m_myGridObject;
@@ -39,13 +44,27 @@ namespace _Scripts.Grid_System
         {
             if (gridObjects.Contains(m_myGridObject))
             {
-                GetComponent<MeshRenderer>().material.color = highlightColor;
+                //GetComponent<MeshRenderer>().material.color = highlightColor;
+                if (highlightColor == Color.red)
+                {
+                    var sr = _highlight.GetComponent<SpriteRenderer>();
+                    sr.color = _fireColor;
+                    _highlight.SetActive(true);    
+                }
+                else 
+                {
+                    var sr = _highlight.GetComponent<SpriteRenderer>();
+                    sr.color = _moveColor;
+                    _highlight.SetActive(true);    
+                }
+                
             }
         }
 
         private void ClearHighlightTiles()
         {
-            GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.5f);
+            _highlight.SetActive(false);
+            //GetComponent<MeshRenderer>().material.color = new Color(0.5f, 0.5f, 0.5f);
         }
 
         private void OnDestroy()
