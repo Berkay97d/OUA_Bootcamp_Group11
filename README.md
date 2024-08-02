@@ -276,6 +276,7 @@ Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve k
 
 <details>
   <summary>SPRINT 3 (22.07 - 02.08)</summary>
+  
 - Sprint içi puan değerlendirmesi 90 olarak belirlenmiştir.
 - **Puan tamamlama mantığı**: Proje boyunca tamamlanması gereken backlog puanı 179'dur. Üçüncü Sprint için bitirilmesi istenilen puan sayısı 90 olarak belirlenmiştir ve hedefe ulaşılmıştır.
 - **Daily Scrum**: Discord üzerinden kısa toplantılar halinde sağlanmıştır.  
@@ -291,16 +292,18 @@ Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve k
 ![image](https://github.com/user-attachments/assets/80aa6862-55ba-4a15-8fe6-a8af0e642784)
 
 
-
-  
-- **GÖRSELLER** :
+<details>
+  <summary>GÖRSELLER</summary>
   
 ![image](https://github.com/user-attachments/assets/a0854580-6409-4355-ab20-6688915b2c98)
+
 ![image](https://github.com/user-attachments/assets/e1f669b3-a0e7-4b85-b5da-1febecef0c7b)
+
 ![image](https://github.com/user-attachments/assets/db5c74ae-588e-49b2-ad3b-d45bceeb98df)
+
 ![render2](https://github.com/user-attachments/assets/6697a9eb-25ed-4eee-843e-baac5d1eec92)
 
-
+</details> 
 
   
 
