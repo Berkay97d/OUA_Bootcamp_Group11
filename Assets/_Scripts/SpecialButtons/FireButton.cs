@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Grid_System;
+using ChessPieces;
 using TurnSystem;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,10 +22,22 @@ public class FireButton : MonoBehaviour
     {
         _buttonImage.color = _disableColor;
         m_isFireSelected = false;
+        ChessPieceFire.OnChessPieceShot += ChessPieceFireOnOnChessPieceShot;
         
         _fireButton.onClick.AddListener(OnFireButtonClic);
     }
 
+    private void OnDestroy()
+    {
+        ChessPieceFire.OnChessPieceShot -= ChessPieceFireOnOnChessPieceShot;
+    }
+
+    private void ChessPieceFireOnOnChessPieceShot(UnitTurnData obj)
+    {
+        _buttonImage.color = _disableColor;
+        m_isFireSelected = false;
+    }
+    
     private void OnFireButtonClic()
     {
         Debug.Log("BUTTON TIKLANDIII");

@@ -17,6 +17,7 @@ public class MoveBook : MonoBehaviour
         ChessPieceMovement.OnChessPieceMove += AddMove;
         IterationController.OnIterationCompleted += IterationControllerOnOnIterationCompleted;
         IterationController.OnIterationReset += IterationControllerOnOnIterationReset;
+        IterationController.OnIterationCompletedWithKingLoss += IterationControllerOnOnIterationCompleted;
     }
     
 
@@ -35,6 +36,7 @@ public class MoveBook : MonoBehaviour
         ChessPieceMovement.OnChessPieceMove -= AddMove;
         IterationController.OnIterationCompleted -= IterationControllerOnOnIterationCompleted;
         IterationController.OnIterationReset -= IterationControllerOnOnIterationReset;
+        IterationController.OnIterationCompletedWithKingLoss -= IterationControllerOnOnIterationCompleted;
     }
 
     private void AddMove(UnitTurnData unitTurnData)

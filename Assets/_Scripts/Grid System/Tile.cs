@@ -33,7 +33,7 @@ namespace _Scripts.Grid_System
         /// </summary>
         private void AdjustPositionText(GridPosition gridPosition)
         {
-            _positionText.text = gridPosition._x + "," + gridPosition._z;
+            _positionText.text = (gridPosition._x+1) + "," + (gridPosition._z+1);
         }
         
         public void SetGridObject(GridObject gridObject)

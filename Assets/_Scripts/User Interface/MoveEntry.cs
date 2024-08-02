@@ -24,7 +24,7 @@ public class MoveEntry
         var toPosition = _toGrid.GetGridPosition(); // Taşın gittiği yerin konumu
         pieceName = RemoveWord(pieceName, "(Clone)");
         
-        return $" {pieceName} {fromPosition._x}-{fromPosition._z} --> {toPosition._x}-{toPosition._z}";
+        return $" {pieceName} {fromPosition._x+1}-{fromPosition._z+1} --> {toPosition._x+1}-{toPosition._z+1}";
     }
     private string RemoveWord(string input, string word)
     {
