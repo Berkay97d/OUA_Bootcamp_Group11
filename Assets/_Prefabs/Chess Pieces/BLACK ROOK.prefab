@@ -95,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 2806965716724792888, guid: d7af436d96922ab4280657e7b9b7f941,
         type: 3}
       propertyPath: m_Name
-      value: Rook Variant
+      value: BLACK ROOK
       objectReference: {fileID: 0}
     - target: {fileID: 5213855388223810854, guid: d7af436d96922ab4280657e7b9b7f941,
         type: 3}
@@ -165,12 +165,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4580871003577922498}
   m_SourcePrefab: {fileID: 100100000, guid: d7af436d96922ab4280657e7b9b7f941, type: 3}
---- !u!1 &858712779817156333 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7219308624063316028, guid: d7af436d96922ab4280657e7b9b7f941,
-    type: 3}
-  m_PrefabInstance: {fileID: 8060001085393452753}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2846756075551953911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5213855388223810854, guid: d7af436d96922ab4280657e7b9b7f941,
@@ -197,6 +191,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xPos: 2
   zPos: 2
-  _myTurnShower: {fileID: 858712779817156333}
+  _myTurnShower: {fileID: 6815470958775585338}
   checkMate: 0
   team: 1
+--- !u!1 &6815470958775585338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3553211406007203051, guid: d7af436d96922ab4280657e7b9b7f941,
+    type: 3}
+  m_PrefabInstance: {fileID: 8060001085393452753}
+  m_PrefabAsset: {fileID: 0}

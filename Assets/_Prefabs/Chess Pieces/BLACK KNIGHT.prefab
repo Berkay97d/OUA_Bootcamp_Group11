@@ -95,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 2806965716724792888, guid: d7af436d96922ab4280657e7b9b7f941,
         type: 3}
       propertyPath: m_Name
-      value: Knight Variant
+      value: BLACK KNIGHT
       objectReference: {fileID: 0}
     - target: {fileID: 5213855388223810854, guid: d7af436d96922ab4280657e7b9b7f941,
         type: 3}
@@ -165,15 +165,15 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7707495931115378057}
   m_SourcePrefab: {fileID: 100100000, guid: d7af436d96922ab4280657e7b9b7f941, type: 3}
---- !u!1 &1649937050326173984 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7219308624063316028, guid: d7af436d96922ab4280657e7b9b7f941,
-    type: 3}
-  m_PrefabInstance: {fileID: 8274770513638181148}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4219510188942681146 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5213855388223810854, guid: d7af436d96922ab4280657e7b9b7f941,
+    type: 3}
+  m_PrefabInstance: {fileID: 8274770513638181148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4871321406239620599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3553211406007203051, guid: d7af436d96922ab4280657e7b9b7f941,
     type: 3}
   m_PrefabInstance: {fileID: 8274770513638181148}
   m_PrefabAsset: {fileID: 0}
@@ -197,6 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xPos: 4
   zPos: 4
-  _myTurnShower: {fileID: 1649937050326173984}
+  _myTurnShower: {fileID: 4871321406239620599}
   checkMate: 0
   team: 1

@@ -100,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 2806965716724792888, guid: d7af436d96922ab4280657e7b9b7f941,
         type: 3}
       propertyPath: m_Name
-      value: Bishop Variant
+      value: BLACK BISHOP
       objectReference: {fileID: 0}
     - target: {fileID: 3338025119490715651, guid: d7af436d96922ab4280657e7b9b7f941,
         type: 3}
@@ -175,12 +175,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4088350680078198011}
   m_SourcePrefab: {fileID: 100100000, guid: d7af436d96922ab4280657e7b9b7f941, type: 3}
---- !u!1 &1044586086673455989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7219308624063316028, guid: d7af436d96922ab4280657e7b9b7f941,
-    type: 3}
-  m_PrefabInstance: {fileID: 7660411255479982921}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2455704978172409455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5213855388223810854, guid: d7af436d96922ab4280657e7b9b7f941,
@@ -207,6 +201,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xPos: 6
   zPos: 6
-  _myTurnShower: {fileID: 1044586086673455989}
+  _myTurnShower: {fileID: 6557440627244871586}
   checkMate: 0
   team: 1
+--- !u!1 &6557440627244871586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3553211406007203051, guid: d7af436d96922ab4280657e7b9b7f941,
+    type: 3}
+  m_PrefabInstance: {fileID: 7660411255479982921}
+  m_PrefabAsset: {fileID: 0}

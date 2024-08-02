@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2806965716724792888, guid: d7af436d96922ab4280657e7b9b7f941,
         type: 3}
       propertyPath: m_Name
-      value: Queen Variant
+      value: BLACK QUEEN
       objectReference: {fileID: 0}
     - target: {fileID: 5213855388223810854, guid: d7af436d96922ab4280657e7b9b7f941,
         type: 3}
@@ -81,6 +81,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5007536375731053993}
   m_SourcePrefab: {fileID: 100100000, guid: d7af436d96922ab4280657e7b9b7f941, type: 3}
+--- !u!1 &2314875199055847449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3553211406007203051, guid: d7af436d96922ab4280657e7b9b7f941,
+    type: 3}
+  m_PrefabInstance: {fileID: 1256394654681208050}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4007012049747815114 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2806965716724792888, guid: d7af436d96922ab4280657e7b9b7f941,
@@ -101,18 +107,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xPos: 1
   zPos: 1
-  _myTurnShower: {fileID: 8457688329365509326}
+  _myTurnShower: {fileID: 2314875199055847449}
   checkMate: 0
   team: 1
 --- !u!4 &6427984196340234708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5213855388223810854, guid: d7af436d96922ab4280657e7b9b7f941,
-    type: 3}
-  m_PrefabInstance: {fileID: 1256394654681208050}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8457688329365509326 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7219308624063316028, guid: d7af436d96922ab4280657e7b9b7f941,
     type: 3}
   m_PrefabInstance: {fileID: 1256394654681208050}
   m_PrefabAsset: {fileID: 0}
