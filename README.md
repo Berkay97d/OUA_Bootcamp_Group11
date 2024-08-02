@@ -1,12 +1,12 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e73442b7-4101-4589-ab4e-da2755567bd9" alt="Logo" width="500" height="500">
 </p>
-<p align="center">OYUN ve UYGULAMA AKADEMİSİ MEZUNİYET BOOTCAMPİ - EKİP 11</p>
+<p align="center">ESCAPE OF THE KING</p>
 
 
   ### ÜRÜN VE TAKIM BİLGİLERİ 
   
-  ### Takım İsmi: EKİP 11
+  ### Takım İsmi: OUA-UNITY EKİP 11
   
   
   ### Takım Rolleri:
