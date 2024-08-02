@@ -332,13 +332,12 @@ Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve k
 
 ## SPRINT REVIEW
 
-  ## Sprint Hedefleri
+## Sprint Hedefleri
   
   -Bu son sprintte, oyunun tüm ana özelliklerini ve son dokunuşları tamamlamayı hedefledik.
   -Hareket edilebilir kareleri vurgulama, özel şah hamlelerini uygulama, ve oyun resetleme mekanikleri gibi önemli özellikleri tamamladık.
     
-   ## Gerçekleşen Görevler
-  
+## Gerçekleşen Görevler
   -Hareket Edilebilir Kareleri Vurgula: Karelerin vurgulanması işlevselliği eklendi.
   -Şah için Özel Hamleler Uygula: Şahın özel hamleleri oyuna dahil edildi.
   -Tur Resetleme Mekaniğini Uygula: Oyuncuların tur sıfırlama işlevselliği tamamlandı.
@@ -354,13 +353,13 @@ Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve k
   -Diyalog Sistemi Oluştur: Oyuncularla etkileşim kurmayı sağlayacak diyalog sistemi oluşturuldu.
   -Hareket ve Ateş Et Butonlarını Uygula: Hareket ve ateş et butonları entegre edildi.
   
-  ## Tamamlanan Görevlerin Değerlendirilmesi
+## Tamamlanan Görevlerin Değerlendirilmesi
   
   -Tüm ana özellikler ve son dokunuşlar başarılı bir şekilde tamamlandı.
   -Oyun, kullanıcı testlerinden olumlu geri bildirimler aldı ve hedeflenen işlevsellik sağlandı.
   -Kullanıcı arayüzü ve oynanabilirlik açısından yüksek kaliteli bir deneyim sunuldu.
   
-  ## Sonraki Adımlar
+## Sonraki Adımlar
   
   -Oyun, yayınlanmaya hazır hale getirildi ve son kontrollerden geçirilerek oyunculara sunulacak.
   -Kullanıcı geri bildirimlerine dayalı olarak küçük düzeltmeler ve iyileştirmeler yapılabilir.
@@ -368,13 +367,13 @@ Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve k
 
 ## SPRINT RETROSPECTIVE  
 
--Ekip, sprint boyunca odaklı ve motive bir şekilde çalışarak tüm hedefleri tamamladı.
--İletişim ve işbirliği, görevlerin etkin ve zamanında tamamlanmasında önemli rol oynadı.
--Kullanıcı geri bildirimleri, oyunun genel kalitesi ve oynanabilirliği konusunda olumlu geri dönüşler sağladı.
--Bazı görevlerde hızlı kararlar alınması gerektiğinden, detayların gözden kaçması zaman zaman yaşandı.
--Test süreçleri, daha kapsamlı ve sistematik hale getirilmeli.
--Gelecek projelerde, görevlerin daha iyi yönetimi için daha sıkı planlama yapılacak.
--Test süreçleri iyileştirilecek ve kullanıcı geri bildirimleri daha erken aşamalarda değerlendirilecek.
+  -Ekip, sprint boyunca odaklı ve motive bir şekilde çalışarak tüm hedefleri tamamladı.
+  -İletişim ve işbirliği, görevlerin etkin ve zamanında tamamlanmasında önemli rol oynadı.
+  -Kullanıcı geri bildirimleri, oyunun genel kalitesi ve oynanabilirliği konusunda olumlu geri dönüşler sağladı.
+  -Bazı görevlerde hızlı kararlar alınması gerektiğinden, detayların gözden kaçması zaman zaman yaşandı.
+  -Test süreçleri, daha kapsamlı ve sistematik hale getirilmeli.
+  -Gelecek projelerde, görevlerin daha iyi yönetimi için daha sıkı planlama yapılacak.
+  -Test süreçleri iyileştirilecek ve kullanıcı geri bildirimleri daha erken aşamalarda değerlendirilecek.
 
 </details> 
 
