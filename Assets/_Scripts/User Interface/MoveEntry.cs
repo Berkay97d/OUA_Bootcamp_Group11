@@ -19,10 +19,19 @@ public class MoveEntry
 
     public override string ToString()
     {
-        string pieceName = _chessPiece.name; // veya _chessPiece.GetName(); taþýn adýný buraya ekleyin
-        string fromPosition = _fromGrid.GetGridPosition().ToString(); // Taþýn baþladýðý yerin konumu
-        string toPosition = _toGrid.GetGridPosition().ToString(); // Taþýn gittiði yerin konumu
-
-        return $"Iteration {_iteration}: {pieceName} moved from {fromPosition} to {toPosition}";
+        string pieceName = _chessPiece.name; // veya _chessPiece.GetName(); taÅŸÄ±n adÄ±nÄ± buraya ekleyin
+        var fromPosition = _fromGrid.GetGridPosition(); // TaÅŸÄ±n baÅŸladÄ±ÄŸÄ± yerin konumu
+        var toPosition = _toGrid.GetGridPosition(); // TaÅŸÄ±n gittiÄŸi yerin konumu
+        pieceName = RemoveWord(pieceName, "(Clone)");
+        
+        return $" {pieceName} {fromPosition._x}-{fromPosition._z} --> {toPosition._x}-{toPosition._z}";
+    }
+    private string RemoveWord(string input, string word)
+    {
+        if (input.Contains(word))
+        {
+            input = input.Replace(word, "");
+        }
+        return input;
     }
 }

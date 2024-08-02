@@ -72,7 +72,7 @@ public class MoveBook : MonoBehaviour
             logText.text = ""; // Mevcut metni temizle
             foreach (var iteration in moveLog)
             {
-                logText.text += $"Iteration {iteration.Key}:\n";
+                logText.text += $"LEVEL {iteration.Key}:\n";
                 foreach (var entry in iteration.Value)
                 {
                     logText.text += entry.ToString() + "\n";
