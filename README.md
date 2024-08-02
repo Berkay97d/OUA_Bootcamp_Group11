@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e73442b7-4101-4589-ab4e-da2755567bd9" alt="Logo">
+  <img src="https://github.com/user-attachments/assets/e73442b7-4101-4589-ab4e-da2755567bd9" alt="Logo" width="500" height="500">
 </p>
 <p align="center">OYUN ve UYGULAMA AKADEMİSİ MEZUNİYET BOOTCAMPİ - EKİP 11</p>
 
