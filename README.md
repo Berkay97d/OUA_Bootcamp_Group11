@@ -337,23 +337,38 @@ Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve k
     
 ### Gerçekleşen Görevler
 -Hareket Edilebilir Kareleri Vurgula: Karelerin vurgulanması işlevselliği eklendi.
+
 -Şah için Özel Hamleler Uygula: Şahın özel hamleleri oyuna dahil edildi.
+
 -Tur Resetleme Mekaniğini Uygula: Oyuncuların tur sıfırlama işlevselliği tamamlandı.
+
 -Geri Sarma Mekaniğini Uygula: Oyuncuların hareketlerini geri alabilecekleri mekanik uygulandı.
+
 -Hikaye İlerlemesini Uygula: Oyun hikayesinin ilerlemesi sağlandı.
+
 -Sonuçları Uygula: Oyun sonu koşulları değerlendirildi ve uygulandı.
+
 -Oyun Resetleme Mekaniğini Uygula: Oyunun sıfırlanması için gerekli mekanikler uygulandı.
+
 -Board Tasarımı ve Texturelama: Oyun tahtası tasarımı ve dokulama tamamlandı.
+
 -Ses Efektlerini Tasarla: Oyunun ses efektleri tasarlandı ve entegre edildi.
+
 -Hamle Defterini Uygula: Oyuncuların hareketlerini kaydedebileceği hamle defteri eklendi.
+
 -Süre Sınırı Mekaniğini Uygula: Oyun süre sınırı mekanikleri uygulandı.
+
 -Taş Doğma Noktaları için UI Tasarla: Taşların doğma noktaları için kullanıcı arayüzü tasarlandı.
+
 -Diyalog Sistemi Oluştur: Oyuncularla etkileşim kurmayı sağlayacak diyalog sistemi oluşturuldu.
+
 -Hareket ve Ateş Et Butonlarını Uygula: Hareket ve ateş et butonları entegre edildi.
   
 ### Tamamlanan Görevlerin Değerlendirilmesi
 -Tüm ana özellikler ve son dokunuşlar başarılı bir şekilde tamamlandı.
+
 -Oyun, kullanıcı testlerinden olumlu geri bildirimler aldı ve hedeflenen işlevsellik sağlandı.
+
 -Kullanıcı arayüzü ve oynanabilirlik açısından yüksek kaliteli bir deneyim sunuldu.
   
 ### Sonraki Adımlar 
@@ -364,11 +379,17 @@ Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve k
 
 ## SPRINT RETROSPECTIVE  
 -Ekip, sprint boyunca odaklı ve motive bir şekilde çalışarak tüm hedefleri tamamladı.
+
 -İletişim ve işbirliği, görevlerin etkin ve zamanında tamamlanmasında önemli rol oynadı.
+
 -Kullanıcı geri bildirimleri, oyunun genel kalitesi ve oynanabilirliği konusunda olumlu geri dönüşler sağladı.
+
 -Bazı görevlerde hızlı kararlar alınması gerektiğinden, detayların gözden kaçması zaman zaman yaşandı.
+
 -Test süreçleri, daha kapsamlı ve sistematik hale getirilmeli.
+
 -Gelecek projelerde, görevlerin daha iyi yönetimi için daha sıkı planlama yapılacak.
+
 -Test süreçleri iyileştirilecek ve kullanıcı geri bildirimleri daha erken aşamalarda değerlendirilecek.
 
 </details> 
