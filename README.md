@@ -14,11 +14,11 @@
 
   |    | <div align="center">Name</div>   | <div align="center">Title</div>  | <div align="center">Socials</div>     |
   | :-----------: | :---------- | :---------- | :----------: |
-  |  <img src="https://github.com/user-attachments/assets/fed2cca6-b08d-477e-8104-6fddcfca63e0" width="700" height="330">| Damla Yılmaz| Scrum Master|[![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/damlayilmaz03/)|
-  |  <img src="https://github.com/user-attachments/assets/a5017ba3-6f72-4231-9f0a-5d3969103777" width="700" height="330">| Berkay Dindar| Product Owner|[![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/berkay-dindar/)|
-  |  <img src="https://github.com/user-attachments/assets/ba6a4cc9-69bf-4651-aefb-0ba7188fd771" width="700" height="330">| Bora Sevim| Developer| [![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/borasevim/)|
-  |  <img src="https://github.com/user-attachments/assets/5af3b203-bae2-4eee-8d6c-6ce903e5f48b" width="700" height="330">| Berke Parıldar| Developer|[![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/berke-parildar/)|
-  |  <img src="https://github.com/user-attachments/assets/137fff2d-37bb-45b4-b04f-223077efbd3d" width="700" height="330">| Dilara Çelen| Developer|[![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/dilara-%C3%A7elen-aa832725b/)|
+  |  <img src="https://github.com/user-attachments/assets/fed2cca6-b08d-477e-8104-6fddcfca63e0" width="200" height="200">| Damla Yılmaz| Scrum Master|[![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/damlayilmaz03/)|
+  |  <img src="https://github.com/user-attachments/assets/a5017ba3-6f72-4231-9f0a-5d3969103777" width="200" height="200">| Berkay Dindar| Product Owner|[![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/berkay-dindar/)|
+  |  <img src="https://github.com/user-attachments/assets/ba6a4cc9-69bf-4651-aefb-0ba7188fd771" width="200" height="200">| Bora Sevim| Developer| [![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/borasevim/)|
+  |  <img src="https://github.com/user-attachments/assets/5af3b203-bae2-4eee-8d6c-6ce903e5f48b" width="200" height="200">| Berke Parıldar| Developer|[![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/berke-parildar/)|
+  |  <img src="https://github.com/user-attachments/assets/137fff2d-37bb-45b4-b04f-223077efbd3d" width="200" height="200">| Dilara Çelen| Developer|[![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/dilara-%C3%A7elen-aa832725b/)|
 
 
 
