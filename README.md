@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="https://github.com/Berkay97d/OUA_Bootcamp_Group11/assets/94765038/16637ebc-e370-426c-b7bb-5e790c75a110" alt="Logo">
+  <img src="![logo](https://github.com/user-attachments/assets/e73442b7-4101-4589-ab4e-da2755567bd9)" alt="Logo">
 </p>
 <p align="center">OYUN ve UYGULAMA AKADEMİSİ MEZUNİYET BOOTCAMPİ - EKİP 11</p>
 
 
   ### ÜRÜN VE TAKIM BİLGİLERİ 
   
-  ### Takım İsmi: Team 11
+  ### Takım İsmi: EKİP 11
   
   
   ### Takım Rolleri:
