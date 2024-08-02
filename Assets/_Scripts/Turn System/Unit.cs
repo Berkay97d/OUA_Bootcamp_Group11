@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using _Scripts.Grid_System;
 using ChessPieces;
@@ -14,6 +15,7 @@ namespace TurnSystem
         
         public bool checkMate;
         private bool _hasTurn;
+        
         private GridPosition m_myGridPosition;
         private MeshRenderer _renderer;
         public Team team;

@@ -14,6 +14,7 @@ public class UnitReplayManager : MonoBehaviour
     private GridSystem m_gridSystem;
     public static event Action OnKingWin;
     public bool isDone;
+    public static event Action<GridObject> OnReplayShot; 
 
     private void Awake()
     {
@@ -71,6 +72,7 @@ public class UnitReplayManager : MonoBehaviour
             {
                 var targetedGridObject = turn.shotGrid;
                 _unit.GetComponent<ChessPieceFire>().FireByReplay(targetedGridObject);
+                OnReplayShot?.Invoke(targetedGridObject);
             }
             else
             {

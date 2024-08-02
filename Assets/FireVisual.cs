@@ -13,6 +13,31 @@ public class FireVisual : MonoBehaviour
     private void Start()
     {
         ChessPieceFire.OnChessPieceShot += ChessPieceFireOnOnChessPieceShot;
+        UnitReplayManager.OnReplayShot += UnitReplayManagerOnOnReplayShot;
+    }
+
+    private void OnDestroy()
+    {
+        ChessPieceFire.OnChessPieceShot += ChessPieceFireOnOnChessPieceShot;
+        UnitReplayManager.OnReplayShot += UnitReplayManagerOnOnReplayShot;
+    }
+
+    private void UnitReplayManagerOnOnReplayShot(GridObject obj)
+    {
+        StartCoroutine(InnerRoutine());
+        
+
+        IEnumerator InnerRoutine()
+        {
+            var worldPosition = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(obj.GetGridPosition());
+            worldPosition.y += 0.5f;
+            transform.position = worldPosition;
+
+            yield return new WaitForSeconds(0.1f);
+            _visual.gameObject.SetActive(true);   
+            yield return new WaitForSeconds(2f);
+            _visual.gameObject.SetActive(false);
+        }
     }
 
     private void ChessPieceFireOnOnChessPieceShot(UnitTurnData obj)

@@ -11,7 +11,8 @@ public class TopMenu : MonoBehaviour
     [SerializeField] private Color _dis;
     
     
-    private int iteration = 1;
+    private int iteration = 0;
+    private int z;
 
     private void Start()
     {
@@ -33,16 +34,20 @@ public class TopMenu : MonoBehaviour
 
     private void Adjust()
     {
-        for (int i = 0; i < iteration; i++)
+        if (iteration == 1 || iteration == 3 || iteration == 5 || iteration == 7 || iteration == 9 || iteration == 11)
         {
-            _ımages[i].gameObject.SetActive(true);
+            z++;
+            for (int i = 0; i < z + 1; i++)
+            {
+                _ımages[i].gameObject.SetActive(true);
+            }
+
+            for (int i = 0; i < z; i++)
+            {
+                _ımages[i].color = _dis;
+            }
+
+            _ımages[z].color = Color.white;
         }
-        
-        for (int i = 0; i < iteration-1; i++)
-        {
-            _ımages[i].color = _dis;
-        }
-        
-        _ımages[iteration].color = Color.white;
     }
 }

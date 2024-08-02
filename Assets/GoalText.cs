@@ -20,9 +20,9 @@ public class GoalText : MonoBehaviour
     {
         if (TurnController.SharedInstance.GetCurrentTeamTurn() == Team.White)
         {
-            text.text = "! GOAL !\nGO OF THE BOARD";
+            text.text = "GO END OF THE BOARD";
             return;
         }
-        text.text = "! GOAL !\nKİLL WHİTE KİNG";
+        text.text = "KİLL WHİTE KİNG";
     }
 }
