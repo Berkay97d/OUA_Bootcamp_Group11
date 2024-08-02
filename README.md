@@ -72,10 +72,14 @@
 ![image](https://github.com/user-attachments/assets/8f528fdd-57ad-4a44-ace5-8c458b33d318)
 ![image](https://github.com/user-attachments/assets/ee0ca2d6-bc1b-49d5-a326-6d8e008c4e0c)
 
-**Daily Scrum**: 
+<details>
+  <summary>Daily Scrum</summary>
+
 ![image](https://github.com/user-attachments/assets/818503b3-7f53-49fe-a4cc-5923dca417c9)
+
 ![image](https://github.com/user-attachments/assets/e040004e-8279-433d-a896-9b7442463c78)
 
+</details>
 
   <br>
   
@@ -218,17 +222,24 @@ Her iterasyonda da yapılacak hamleler oyuncu tarafından belirlenecek
   ![image](https://github.com/user-attachments/assets/a27186ad-80ce-4165-835b-4c2731ce41a5)
   ![image](https://github.com/user-attachments/assets/e484316d-7125-437c-a1b1-4c21f4b8cd00)
 
-- **Daily Scrum**:
-![image](https://github.com/user-attachments/assets/501fa6c8-0ba4-451d-9a12-e64a25a80e2a)
-![image](https://github.com/user-attachments/assets/734b2f56-94ac-43f8-b980-ef4f63c20828)
-![image](https://github.com/user-attachments/assets/9245377d-997d-4091-919a-c6ca3890d054)
-![image](https://github.com/user-attachments/assets/1b73c38b-b9f4-4676-aa48-aa42ec3ea2f3)
- 
-- **GÖRSELLER** :
-![image](https://github.com/user-attachments/assets/74937aef-8ffd-4b2e-b29b-00629d32acab)
-![image](https://github.com/user-attachments/assets/4501f888-b08b-4e3c-a6c8-4b3a44fc0ca5)
-![image](https://github.com/user-attachments/assets/8cb23f43-9bf6-4fcc-8d29-833b9a211aac)
+<details>
+  <summary>Daily Scrum</summary>
 
+  ![image](https://github.com/user-attachments/assets/501fa6c8-0ba4-451d-9a12-e64a25a80e2a)
+  ![image](https://github.com/user-attachments/assets/734b2f56-94ac-43f8-b980-ef4f63c20828)
+  ![image](https://github.com/user-attachments/assets/9245377d-997d-4091-919a-c6ca3890d054)
+  ![image](https://github.com/user-attachments/assets/1b73c38b-b9f4-4676-aa48-aa42ec3ea2f3)
+  
+ </details> 
+
+ <details>
+  <summary>GÖRSELLER</summary>
+
+  ![image](https://github.com/user-attachments/assets/74937aef-8ffd-4b2e-b29b-00629d32acab)
+  ![image](https://github.com/user-attachments/assets/4501f888-b08b-4e3c-a6c8-4b3a44fc0ca5)
+  ![image](https://github.com/user-attachments/assets/8cb23f43-9bf6-4fcc-8d29-833b9a211aac)
+
+ </details> 
 
 
 ## SPRINT REVIEW
@@ -285,12 +296,17 @@ Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve k
 ![image](https://github.com/user-attachments/assets/ca2e9733-9f55-48ae-bf9c-ff1333cd152e)
 ![image](https://github.com/user-attachments/assets/c88eaa30-386a-44f1-bbf9-8f8f76c7bc44)
 
-- **Daily Scrum**:
+<details>
+  <summary>Daily Scrum</summary>
 
-![image](https://github.com/user-attachments/assets/98901377-0af6-4ad0-9db4-5499bb66eed2)
-![image](https://github.com/user-attachments/assets/7d80b0c6-87ba-4d24-95e9-7506c22a7e80)
-![image](https://github.com/user-attachments/assets/80aa6862-55ba-4a15-8fe6-a8af0e642784)
 
+  ![image](https://github.com/user-attachments/assets/98901377-0af6-4ad0-9db4-5499bb66eed2)
+  
+  ![image](https://github.com/user-attachments/assets/7d80b0c6-87ba-4d24-95e9-7506c22a7e80)
+  
+  ![image](https://github.com/user-attachments/assets/80aa6862-55ba-4a15-8fe6-a8af0e642784)
+
+</details> 
 
 <details>
   <summary>GÖRSELLER</summary>
