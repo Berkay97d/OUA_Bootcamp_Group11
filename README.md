@@ -358,6 +358,7 @@ Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve k
   
 ### Sonraki Adımlar 
 -Oyun, yayınlanmaya hazır hale getirildi ve son kontrollerden geçirilerek oyunculara sunulacak.
+
 -Kullanıcı geri bildirimlerine dayalı olarak küçük düzeltmeler ve iyileştirmeler yapılabilir.
   
 
