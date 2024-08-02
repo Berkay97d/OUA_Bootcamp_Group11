@@ -21,7 +21,7 @@
   |  <img src="https://github.com/user-attachments/assets/137fff2d-37bb-45b4-b04f-223077efbd3d" width="100" height="100">| Dilara Çelen| Developer|[![image](https://github.com/user-attachments/assets/c690ad57-796e-4978-9457-9c58944cc0b0)](https://www.linkedin.com/in/dilara-%C3%A7elen-aa832725b/)|
 
 
-  ### Ürün İsmi: Escape of the king 
+  ### Ürün İsmi: ESCAPE OF THE KING 
   
   ### Ürün Açıklaması:
   Tek başına kalmış bir kralın(şah) rakip askerlerden(satranç taşları)
