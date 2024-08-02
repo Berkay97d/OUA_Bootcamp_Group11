@@ -10,6 +10,8 @@ namespace TurnSystem
         [SerializeField] private Unit[] _enemyUnity;
         [SerializeField] private int _currentEnemyUnit = 0;
 
+        public static Action OnNewUnitSpawn;
+        
         public Unit SpawnKing()
         {
             var gridPosition = _whiteKingPrefab.GetGridPosition();
@@ -21,11 +23,13 @@ namespace TurnSystem
 
         public Unit SpawnBlackUnit()
         {
+            OnNewUnitSpawn?.Invoke();
             var spawnUnit = _enemyUnity[_currentEnemyUnit];
             _currentEnemyUnit++;
             var blackGameObject = Instantiate(spawnUnit, spawnUnit.GetSpawnPosition(), Quaternion.identity);
             blackGameObject.team = Team.Black;
             return blackGameObject;
+            
         }
     }
 }

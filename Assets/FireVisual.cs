@@ -18,8 +18,8 @@ public class FireVisual : MonoBehaviour
 
     private void OnDestroy()
     {
-        ChessPieceFire.OnChessPieceShot += ChessPieceFireOnOnChessPieceShot;
-        UnitReplayManager.OnReplayShot += UnitReplayManagerOnOnReplayShot;
+        ChessPieceFire.OnChessPieceShot -= ChessPieceFireOnOnChessPieceShot;
+        UnitReplayManager.OnReplayShot -= UnitReplayManagerOnOnReplayShot;
     }
 
     private void UnitReplayManagerOnOnReplayShot(GridObject obj)
@@ -31,12 +31,10 @@ public class FireVisual : MonoBehaviour
         {
             var worldPosition = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(obj.GetGridPosition());
             worldPosition.y += 0.5f;
-            transform.position = worldPosition;
+            
 
-            yield return new WaitForSeconds(0.1f);
-            _visual.gameObject.SetActive(true);   
-            yield return new WaitForSeconds(2f);
-            _visual.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(_visual, worldPosition, Quaternion.identity);
         }
     }
 
@@ -50,12 +48,10 @@ public class FireVisual : MonoBehaviour
             var gridPosition = obj.shotGrid.GetGridPosition();
             var worldPosition = ChessGrid.GetGridSystem().GetWorldPositionFromGridPosition(gridPosition);
             worldPosition.y += 0.5f;
-            transform.position = worldPosition;
-
-            yield return new WaitForSeconds(0.1f);
-            _visual.gameObject.SetActive(true);   
-            yield return new WaitForSeconds(2f);
-            _visual.gameObject.SetActive(false);
+            
+            yield return new WaitForSeconds(0.5f);
+            
+            Instantiate(_visual, worldPosition, Quaternion.identity);
         }
         
     }

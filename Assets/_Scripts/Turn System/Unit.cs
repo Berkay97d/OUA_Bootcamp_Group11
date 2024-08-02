@@ -15,7 +15,7 @@ namespace TurnSystem
         
         public bool checkMate;
         private bool _hasTurn;
-        
+        public static event Action<GridPosition, bool> OnHasTurnChanged; 
         private GridPosition m_myGridPosition;
         private MeshRenderer _renderer;
         public Team team;
@@ -48,6 +48,7 @@ namespace TurnSystem
                 else
                 {
                     _hasTurn = true;
+                    OnHasTurnChanged?.Invoke(m_myGridPosition, _hasTurn);
                 }
             }
         }
@@ -69,6 +70,7 @@ namespace TurnSystem
         public void EndTurn()
         {
             _hasTurn = false;
+            OnHasTurnChanged?.Invoke(m_myGridPosition, _hasTurn);
             TurnController.SharedInstance.TurnEndedByUnit();
         }
 

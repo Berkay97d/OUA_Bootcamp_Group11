@@ -2,52 +2,69 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts;
+using TurnSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TopMenu : MonoBehaviour
 {
     [SerializeField] private Image[] _ımages;
-    [SerializeField] private Color _dis;
+    [SerializeField] private GameObject _gameOverMenu;
+    [SerializeField] private Button _quit;
+    [SerializeField] private Button _menu;
     
     
-    private int iteration = 0;
     private int z;
-
+    
     private void Start()
     {
-        IterationController.OnIterationCompleted += On;
-        IterationController.OnIterationCompletedWithKingLoss += On;
+        
+        DemoSpawnManager.OnNewUnitSpawn += OnNewUnitSpawn;
+        IterationController.OnIterationCompleted += OnIterationCompleted;
+        
+        _quit.onClick.AddListener(Quit);
+        _menu.onClick.AddListener(Menu);
+    }
+
+    private void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void Quit()
+    {
+        Application.Quit();
+    }
+    
+    private void OnIterationCompleted()
+    {
+        IEnumerator InnerRoutine()
+        {
+            yield return new WaitForSeconds(0.5f);
+            
+            if (z == 6)
+            {
+                _gameOverMenu.SetActive(true);
+            }    
+        }
+        
+    }
+
+    private void OnNewUnitSpawn()
+    {
+        z++;
+        Adjust();
     }
 
     private void OnDestroy()
     {
-        IterationController.OnIterationCompleted += On;
-        IterationController.OnIterationCompletedWithKingLoss += On;
+        DemoSpawnManager.OnNewUnitSpawn -= OnNewUnitSpawn;
     }
-
-    private void On()
-    {
-        iteration++;
-        Adjust();
-    }
+    
 
     private void Adjust()
     {
-        if (iteration == 1 || iteration == 3 || iteration == 5 || iteration == 7 || iteration == 9 || iteration == 11)
-        {
-            z++;
-            for (int i = 0; i < z + 1; i++)
-            {
-                _ımages[i].gameObject.SetActive(true);
-            }
-
-            for (int i = 0; i < z; i++)
-            {
-                _ımages[i].color = _dis;
-            }
-
-            _ımages[z].color = Color.white;
-        }
+        _ımages[z].gameObject.SetActive(true);
     }
 }

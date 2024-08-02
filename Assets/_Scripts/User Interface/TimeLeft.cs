@@ -30,12 +30,14 @@ public class TimeLeft : MonoBehaviour
         
         IterationController.OnIterationReset += IterationControllerOnOnIterationReset;
         IterationController.OnIterationCompleted += IterationControllerOnOnIterationReset;
+        IterationController.OnIterationCompletedWithKingLoss += IterationControllerOnOnIterationReset;
     }
 
     private void OnDestroy()
     {
         IterationController.OnIterationReset -= IterationControllerOnOnIterationReset;
         IterationController.OnIterationCompleted -= IterationControllerOnOnIterationReset;
+        IterationController.OnIterationCompletedWithKingLoss -= IterationControllerOnOnIterationReset;
     }
 
     private void IterationControllerOnOnIterationReset()
@@ -48,7 +50,7 @@ public class TimeLeft : MonoBehaviour
         
         if (timeRemaining > 0)
         {
-            timeRemaining += Time.deltaTime;
+            timeRemaining -= Time.deltaTime;
             UpdateTimerText();
         }
         else

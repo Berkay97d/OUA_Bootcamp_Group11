@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using _Scripts;
 using _Scripts.Grid_System;
@@ -12,12 +13,49 @@ public class HighlightActions : MonoBehaviour
     public static event Action OnClearTiles;
     void Start()
     {
-        ChessPieceMovement.OnChessPieceMove += MoveHighlightCheck;
+        //ChessPieceMovement.OnChessPieceMove += MoveHighlightCheck;
         ChessPieceMovement.OnSpecialKingMove += KingHighlightCheck;
         ChessPieceFire.OnChessPieceFire += FireHighlight;
+        Unit.OnHasTurnChanged += OnHasTurnChanged;
+        IterationController.OnIterationCompleted += IterationControllerOnOnIterationCompleted;
+        IterationController.OnIterationCompletedWithKingLoss += IterationControllerOnOnIterationCompleted;
+        IterationController.OnIterationReset += IterationControllerOnOnIterationCompleted;
+    }
 
+    private void OnDestroy()
+    {
+        //ChessPieceMovement.OnChessPieceMove -= MoveHighlightCheck;
+        ChessPieceMovement.OnSpecialKingMove -= KingHighlightCheck;
+        ChessPieceFire.OnChessPieceFire -= FireHighlight;
+        Unit.OnHasTurnChanged -= OnHasTurnChanged;
+        IterationController.OnIterationCompleted -= IterationControllerOnOnIterationCompleted;
+        IterationController.OnIterationCompletedWithKingLoss -= IterationControllerOnOnIterationCompleted;
+        IterationController.OnIterationReset -= IterationControllerOnOnIterationCompleted;
+    }
+
+    private void IterationControllerOnOnIterationCompleted()
+    {
+        StartCoroutine(InnerRoutine());
         
+        IEnumerator InnerRoutine()
+        {
+            yield return new WaitForSeconds(1f);
+            OnClearTiles?.Invoke();    
+        }
+        
+    }
 
+    private void OnHasTurnChanged(GridPosition arg1, bool arg2)
+    {
+        if (arg2)
+        {
+            Color moveHighlightColor = Color.green;
+            OnClearTiles?.Invoke();
+
+            var gridsToHighlight = ChessGrid.GetGridSystem().GetGridObject(arg1).GetMovableGrids();
+            OnHighlightTiles?.Invoke(gridsToHighlight, moveHighlightColor);    
+        }
+        
     }
 
     private void MoveHighlightCheck(UnitTurnData unitTurnData)
