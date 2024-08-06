@@ -379,6 +379,9 @@ Sprint, hedeflerine ulaşıldı ve önemli gelişmeler sağlandı. Ancak UI ve k
 - Modeller Damla Yılmaz tarafından blender ve substance 3D painter kullanılarak yapılmıştır.
 - Modeller üzerinde at,muhafız kaskı,fil kaskı,ağaç,mantar,kırmızı doğal taş modelleri hazır alınıp düzenlenmiştir.
 - UI ve logo tasarımları tamemen canva üzerinden ücretsiz assetler ile yapılmıştır.(Damla Yılmaz ve Dilara Çelen)
-
+  
+  [Gmail - Ücretsiz deneme sürümünüze hoş geldiniz!.pdf](https://github.com/user-attachments/files/16510170/Gmail.-.Ucretsiz.deneme.surumunuze.hos.geldiniz.pdf)
+  
 </details> 
+
   
