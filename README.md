@@ -43,7 +43,7 @@
   ### Product Backlog URL
 [ Unity Team 11 Trello Backlog Board](https://trello.com/b/sZwjzSeZ/%C3%A7ali%C5%9Fma-alani)
 
-- Substance 3D Painter trial version pdf  :   [Gmail - Ücretsiz deneme sürümünüze hoş geldiniz!.pdf](https://github.com/user-attachments/files/16510235/Gmail.-.Ucretsiz.deneme.surumunuze.hos.geldiniz.pdf)
+
 - Board üzerindeki ücretsiz hazır modeller:   https://sketchfab.com/3d-models/stylized-crystal-gem-pack-handpainted-9aa1af6e18b24c99af00e850f9fd2658 
 
   https://sketchfab.com/3d-models/stylized-pine-tree-tree-deadcadc915545a7b4701dbe6eb419e8
